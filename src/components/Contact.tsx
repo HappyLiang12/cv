@@ -11,12 +11,12 @@ export function Contact() {
       id="contact"
       number="06"
       label="Contact"
-      title="Talk uptime."
+      title="Contact details."
       className="contact"
     >
       <p>
-        Open to platform engineering, observability, and operations-tooling roles.
-        Relocating to Memphis, TN; US work authorization requires sponsorship.
+        Open to platform engineering, observability, and agent-platform roles.
+        Open to relocation to the United States; will require employer-sponsored US work authorization.
       </p>
       <div className="contact-actions">
         <EmailReveal />
@@ -46,8 +46,6 @@ export function Contact() {
         <a href={`${base}cv/`}>CV / HTML</a>
         <span aria-hidden="true">·</span>
         <a href={`${base}cv.txt`}>cv.txt</a>
-        <span aria-hidden="true">·</span>
-        <a href={`${base}llms.txt`}>llms.txt</a>
       </p>
     </Section>
   );

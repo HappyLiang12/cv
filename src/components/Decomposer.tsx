@@ -7,14 +7,14 @@ export function Decomposer() {
       id="decomposer"
       number="03"
       label="Job Decomposer"
-      title="Decompose until it fits. Dispatch until it is done."
+      title="Recursive job → task → sub-task scheduling."
     >
       <p>{cv.decomposer.body}</p>
       <figure className="diagram">
         <svg
           viewBox="0 0 680 196"
           role="img"
-          aria-label="Diagram: a job decomposes into tasks, which decompose into work units across N levels"
+          aria-label="Diagram: a job decomposes into tasks, which decompose into sub-tasks across N levels"
         >
           <g fill="none" stroke="var(--line-strong)">
             <rect x="12" y="80" width="104" height="32" />
@@ -39,11 +39,11 @@ export function Decomposer() {
             <text x="225" y="36">TASK</text>
             <text x="225" y="100">TASK</text>
             <text x="225" y="164">TASK</text>
-            <text x="440" y="23">WORK UNIT</text>
-            <text x="440" y="59">WORK UNIT</text>
-            <text x="440" y="101">WORK UNIT</text>
-            <text x="440" y="137">WORK UNIT</text>
-            <text x="440" y="173">WORK UNIT</text>
+            <text x="440" y="23">SUB-TASK</text>
+            <text x="440" y="59">SUB-TASK</text>
+            <text x="440" y="101">SUB-TASK</text>
+            <text x="440" y="137">SUB-TASK</text>
+            <text x="440" y="173">SUB-TASK</text>
           </g>
           <text
             x="548"
@@ -57,7 +57,7 @@ export function Decomposer() {
           </text>
         </svg>
         <figcaption className="mono">
-          Job → task → work unit · async fan-out · heartbeat dispatch · backpressure
+          Job → task → sub-task · async fan-out · heartbeat dispatch · backpressure
         </figcaption>
       </figure>
     </Section>

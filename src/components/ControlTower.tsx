@@ -8,8 +8,8 @@ export function ControlTower() {
     <Section
       id="control-tower"
       number="02"
-      label="Control Tower"
-      title="Approval-gated control for agent fleets."
+      label="Agent Control Tower"
+      title="Warm agent pool and generic agent platform."
     >
       <p>{cv.controlTower.intro}</p>
       <ul className="caps">

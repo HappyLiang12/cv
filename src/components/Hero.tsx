@@ -43,7 +43,7 @@ export function Hero() {
               Platform &amp; observability engineer — Hong Kong
             </p>
             <h1 className="rise" style={{ animationDelay: '0.05s' }}>
-              Control planes <br />for agent fleets.
+              Agent Control<br />Tower.
             </h1>
             <p className="lede rise" style={{ animationDelay: '0.1s' }}>
               {cv.summary}
@@ -100,7 +100,7 @@ export function Hero() {
                   <span className="scene-legend">
                     <span className="legend-item">
                       <span className="legend-dot live" aria-hidden="true" />
-                      Control Tower ↔ Testing &amp; harness · aria-conductor (OSS)
+                      Agent Control Tower ↔ Testing &amp; harness · aria-conductor (OSS)
                     </span>
                   </span>
                   <span>
@@ -117,7 +117,7 @@ export function Hero() {
         {!desktop && (
           <figure className="mobile-scene" aria-label="Technical skill graph: tools, skill groups and capabilities converging on Happy">
             <StaticMap variant="mobile" />
-            <figcaption className="mono">Technical skill map · simplified</figcaption>
+            <figcaption className="mono">Technical skill map</figcaption>
           </figure>
         )}
 

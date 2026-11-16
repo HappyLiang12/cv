@@ -39,17 +39,125 @@ type CapabilityDef = {
   groups: GroupDef[];
 };
 
+const toolContext: Record<string, string> = {
+  backend: 'OOCL platform',
+  frontend: 'OOCL & htmlcraft',
+  'data-integration': 'OOCL platform',
+  'ai-agents': 'Agent Control Tower',
+  llm: 'Agent projects & PoCs',
+  'control-tower': 'Agent Control Tower',
+  'observability-tools': 'OOCL production',
+  reliability: 'Release checks',
+  distributed: 'Job decomposer',
+  cicd: 'Platform engineering',
+  containers: 'Platform engineering',
+  'testing-harness': 'aria-conductor & OOCL'
+};
+
+const toolNotes: Record<string, string> = {
+  'Java 21': 'Primary backend language for the 20+ service platform.',
+  'Spring Boot/Cloud': 'Service framework for REST APIs, configuration, and service-to-service calls.',
+  'JPA/Hibernate': 'Relational persistence for transactional services.',
+  jOOQ: 'Typed SQL for complex queries alongside JPA.',
+  REST: 'API contracts between platform services and React UIs.',
+  'OAuth2/OIDC': 'Authentication and authorization for platform APIs.',
+  ABAC: 'Attribute-based access control for operator actions.',
+  RabbitMQ: 'Asynchronous messaging and fan-out between services.',
+  Python: 'Services and tooling; Flask APIs and data scripts.',
+  'React 19': 'Operator dashboards and the htmlcraft editor.',
+  TypeScript: 'Typed frontend and Node tooling, including the MCP server.',
+  Vite: 'Build tooling for React apps and this CV site.',
+  'Ant Design': 'Enterprise UI components for operator dashboards.',
+  'Redux Toolkit': 'State management for complex React workflows.',
+  'HTML/CSS': 'Semantic HTML and CSS for this site and single-file decks.',
+  PostgreSQL: 'Primary relational store for platform services.',
+  'MySQL/MariaDB': 'Relational stores for services and local stacks.',
+  MongoDB: 'Task and thread state for the Agent Control Tower and aria-conductor.',
+  Oracle: 'Working knowledge; legacy integration.',
+  H2: 'In-memory database for tests and local runs.',
+  SQLite: 'Lightweight local storage and test fixtures.',
+  Kong: 'API gateway for the 20+ service platform.',
+  Nginx: 'Reverse proxy and static file serving.',
+  ADK: 'Agent runtime integrated into the Agent Control Tower.',
+  'Agent templates': 'Reusable scaffolds for LLM-backed agents.',
+  'Human approval': 'A person approves an agent action before it executes.',
+  MCP: 'Tool interface used by agents and the htmlcraft MCP server.',
+  'A2A v1.0': 'Agent-to-agent protocol used by the Agent Control Tower.',
+  'AG-UI/SSE': 'Streams agent UI events to operator dashboards.',
+  'Agent registry': 'Registration and discovery for agent profiles.',
+  'LLM integration': 'Wiring LLM calls into platform services and agents.',
+  'Prompt/tool design': 'Prompts and tool schemas for reliable agent behavior.',
+  LangChain: 'LLM orchestration used in prototypes.',
+  OpenSandbox: 'Per-agent sandbox containers in aria-conductor.',
+  'Warm agent pool': 'Pre-warmed agent workers for high-volume agent tasks.',
+  'Knowledge space': 'Shared, versioned knowledge for agent tasks.',
+  'Self-improvement pipeline': 'Turns run feedback into agent updates.',
+  'Dynamic workflow': 'Workflows defined and changed at runtime.',
+  'Active notification system': 'Pushes task, approval, and failure events to operators.',
+  'Dynamic dashboard': 'Live operator views built from current agent status.',
+  'Human approval gate': 'Approve or reject pending agent actions before they run.',
+  'Spec versioning': 'Every agent spec change is versioned.',
+  'Live state tracking': 'Per-agent state and current work in the operator UI.',
+  'Multi-replica routing': 'Routes agent tasks across replica workers.',
+  'MongoDB task state': 'Task and thread state stored in MongoDB.',
+  'Agent registration': 'Agent profiles are registered and discoverable.',
+  'Credential proxy': 'Brokers credentials so agents do not hold secrets.',
+  Grafana: 'Dashboards for service health and latency.',
+  Prometheus: 'Metrics collection and alerting on Kubernetes.',
+  'Azure Monitor': 'Cloud monitoring for Azure-hosted services.',
+  'Elasticsearch/Filebeat': 'Log shipping and search for production services.',
+  Metabase: 'Operational reporting and BI.',
+  'p50/p95 latency': 'Latency instrumentation for APIs and releases.',
+  'Load E2E': 'End-to-end load tests before release.',
+  'Concurrency E2E': 'Concurrent workflow tests, including approval races.',
+  'Rollout verification': 'Post-deploy health and metrics checks.',
+  'Job → task → sub-task': 'Recursive decomposition across N levels.',
+  'Async fan-out': 'Dispatches work over asynchronous messaging.',
+  'Heartbeat dispatch': 'Keeps dispatching while workers are alive.',
+  Backpressure: 'Respects queue limits so large jobs do not stall.',
+  'Resource-aware scaling': 'Scales workers from config or available resources.',
+  Jenkins: 'CI/CD pipelines for build, test, and deploy.',
+  'GitHub Actions': 'CI and publishing, including OIDC for htmlcraft.',
+  SonarQube: 'Static analysis and quality gates.',
+  'CI quality gates': 'Builds fail on analysis or test regressions.',
+  'OIDC trusted publishing': 'npm publishing from GitHub Actions without stored tokens.',
+  Docker: 'Local stacks and service images.',
+  Kubernetes: 'Container orchestration for UAT and production.',
+  Rancher: 'Kubernetes management for the platform.',
+  Linux: 'Primary runtime for services and tooling.',
+  'UAT deploys': 'Deploy and verify user-acceptance environments.',
+  Playwright: 'Browser E2E tests for UI flows.',
+  jsdom: 'DOM-level tests for UI modules.',
+  'Deterministic fixtures': 'Repeatable test data for E2E and integration.',
+  'Contract/API/E2E': 'Contract, API, and end-to-end test coverage.',
+  'Concurrency test': 'Reproduces racing approvals under load.',
+  'aria-conductor harness': 'Load and concurrency harness for aria-conductor.'
+};
+
+const roleNotes: Record<string, string> = {
+  OOCL: 'Design owner of the Agent Control Tower; production observability, CI/CD, and platform correctness for a 20+ service estate.',
+  'NTT DATA': 'Full-stack development and system revamp; microservices migration and Jenkins CI/CD.',
+  'Hutchison Ports': 'Asynchronous microservices for port automation; TensorFlow DQN/RL proof of concept.',
+  'InnoNext (HK)': 'Web applications with PHP, Spring, and JavaScript.'
+};
+
+const educationNotes: Record<string, string> = {
+  'University of Wollongong': 'Bachelor of Computer Science with Distinction (WAM 75.67/100), 2018–2019.',
+  'Community College of City University': 'Associate Degree in Engineering, 2015–2018.'
+};
+
+
 const capabilityDefs: CapabilityDef[] = [
   {
     id: 'platform',
     label: 'Platform',
-    description: '20+ service estate across Java/Spring, Python, React, Kong and Nginx.',
+    description: '20+ service estate across Java/Spring, Python, React, Kong and Nginx. System analysis, microservice migration, shared libraries, and API contracts.',
     position: [-2.0, 0.9, 0.2],
     groups: [
       {
         id: 'backend',
         label: 'Backend',
-        description: 'Java 21/Spring Boot, Python, REST, auth and messaging across a 20+ service estate.',
+        description: 'Java 21/Spring Boot services for the 20+ service platform: REST APIs, OAuth2/OIDC, ABAC, optimistic locking, RabbitMQ, and JPA + jOOQ.',
         tools: [
           'Java 21',
           'Spring Boot/Cloud',
@@ -65,13 +173,13 @@ const capabilityDefs: CapabilityDef[] = [
       {
         id: 'frontend',
         label: 'Frontend',
-        description: 'React 19 and TypeScript; htmlcraft CLI, editor and MCP server.',
+        description: 'React 19 and TypeScript dashboards; htmlcraft visual editor; Ant Design and Redux Toolkit in operator UIs.',
         tools: ['React 19', 'TypeScript', 'Vite', 'Ant Design', 'Redux Toolkit', 'HTML/CSS']
       },
       {
         id: 'data-integration',
         label: 'Data & integration',
-        description: 'Relational and document stores; Kong, Nginx and ADK. EV Charge Log uses idempotent Sheets sync.',
+        description: 'Relational and document stores; Kong, Nginx, and ADK. EV Charge Log uses idempotent Google Sheets sync.',
         tools: [
           'PostgreSQL',
           'MySQL/MariaDB',
@@ -89,33 +197,40 @@ const capabilityDefs: CapabilityDef[] = [
   {
     id: 'agent',
     label: 'Agent systems',
-    description: 'Agent templates, LLM integration and an approval-gated control tower.',
+    description: 'Agent templates, LLM integration, and the Agent Control Tower: warm agent pool, knowledge space, self-improvement pipeline, dynamic workflow, notifications, and dashboard.',
     position: [2.0, 1.0, -0.2],
     groups: [
       {
         id: 'ai-agents',
         label: 'AI agents',
-        description: 'Agent templates, A2A v1.0, AG-UI/SSE, approval gates and agent registration.',
-        tools: ['Agent templates', 'Approval gates', 'MCP', 'A2A v1.0', 'AG-UI/SSE', 'Agent registry']
+        description: 'Agent templates, human approval, MCP, A2A v1.0, AG-UI/SSE, and agent registration.',
+        tools: ['Agent templates', 'Human approval', 'MCP', 'A2A v1.0', 'AG-UI/SSE', 'Agent registry']
       },
       {
         id: 'llm',
         label: 'LLM',
-        description: 'LLM integration and prompt/tool design; LangChain, OpenSandbox. AI Glass uses VLM verification.',
+        description: 'LLM integration and prompt/tool design; LangChain and OpenSandbox. AI Glass uses VLM verification.',
         tools: ['LLM integration', 'Prompt/tool design', 'LangChain', 'OpenSandbox']
       },
       {
         id: 'control-tower',
-        label: 'Control Tower',
-        description: 'Design owner at OOCL: a warm agent pool for high-volume tasks, with a generic agent platform on top — HITL approval, spec versioning, live status, multi-replica routing, Mongo state and credential proxy. aria-conductor is the open-source simplification.',
+        label: 'Agent Control Tower',
+        description: 'Design owner at OOCL: a warm agent pool for high-volume tasks, with a generic agent platform on top — knowledge space, self-improvement pipeline, dynamic workflow, active notification system, dynamic dashboard, human approval, spec versioning, live state tracking, multi-replica routing, and agent registration. aria-conductor is the open-source simplification.',
         tone: 'pine',
         tools: [
-          'HITL approval',
+          'Warm agent pool',
+          'Knowledge space',
+          'Self-improvement pipeline',
+          'Dynamic workflow',
+          'Active notification system',
+          'Dynamic dashboard',
+          'Human approval gate',
           'Spec versioning',
-          'Live agent status',
+          'Live state tracking',
           'A2A v1.0',
           'Multi-replica routing',
-          'Mongo task state',
+          'MongoDB task state',
+          'Agent registration',
           'Credential proxy'
         ]
       }
@@ -124,13 +239,13 @@ const capabilityDefs: CapabilityDef[] = [
   {
     id: 'observability',
     label: 'Observability',
-    description: 'Metrics, logs and distributed scheduling under production load.',
+    description: 'Metrics, logs, cloud monitoring, and release checks for a 20+ service platform.',
     position: [2.0, -1.05, 0.25],
     groups: [
       {
         id: 'observability-tools',
         label: 'Observability tools',
-        description: 'Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat and Metabase.',
+        description: 'Grafana dashboards, Prometheus metrics, Azure Monitor, Elasticsearch/Filebeat logs, Metabase reporting, and p50/p95 latency.',
         tools: [
           'Grafana',
           'Prometheus',
@@ -143,22 +258,19 @@ const capabilityDefs: CapabilityDef[] = [
       {
         id: 'reliability',
         label: 'Reliability',
-        description: 'Load and concurrency E2E, rollout verification, zero 5xx and error-rate evidence.',
+        description: 'Load and concurrency E2E, rollout verification, and release checks before production.',
         tools: [
           'Load E2E',
           'Concurrency E2E',
-          'Rollout verification',
-          'Zero 5xx',
-          'errorRate = 0',
-          '6× pool saturation'
+          'Rollout verification'
         ]
       },
       {
         id: 'distributed',
         label: 'Distributed scheduling',
-        description: 'Recursive decomposition, async fan-out, heartbeat dispatch, backpressure and resource-aware scaling.',
+        description: 'Recursive job → task → sub-task decomposition across N levels, async fan-out, heartbeat dispatch, backpressure, and resource-aware scaling.',
         tools: [
-          'Recursive decomposition',
+          'Job → task → sub-task',
           'Async fan-out',
           'Heartbeat dispatch',
           'Backpressure',
@@ -170,13 +282,13 @@ const capabilityDefs: CapabilityDef[] = [
   {
     id: 'delivery',
     label: 'Delivery & ops',
-    description: 'CI/CD, containers and deterministic test harnesses.',
+    description: 'CI/CD, containers, and test harnesses for the 20+ service estate and open-source projects.',
     position: [-2.0, -1.05, -0.15],
     groups: [
       {
         id: 'cicd',
         label: 'CI/CD',
-        description: 'Jenkins, GitHub Actions and SonarQube quality gates; OIDC trusted publishing for htmlcraft.',
+        description: 'Jenkins pipelines, GitHub Actions, SonarQube quality gates, and OIDC trusted publishing for htmlcraft.',
         tools: [
           'Jenkins',
           'GitHub Actions',
@@ -188,21 +300,21 @@ const capabilityDefs: CapabilityDef[] = [
       {
         id: 'containers',
         label: 'Containers & runtime',
-        description: 'Docker, Kubernetes, Rancher, Linux and UAT deploys.',
+        description: 'Docker, Kubernetes, Rancher, Linux, and UAT deploys.',
         tools: ['Docker', 'Kubernetes', 'Rancher', 'Linux', 'UAT deploys']
       },
       {
         id: 'testing-harness',
         label: 'Testing & harness',
-        description: 'Playwright, jsdom and deterministic fixtures. aria-conductor harness: 100-read p95 ≈0.9 s, 16-client errorRate=0, 6× pool saturation zero 5xx.',
+        description: 'Playwright, jsdom, deterministic fixtures, and contract/API/E2E tests. aria-conductor includes a concurrency harness for approval races.',
         tone: 'pine',
         tools: [
           'Playwright',
           'jsdom',
           'Deterministic fixtures',
           'Contract/API/E2E',
-          'TOCTOU concurrency test',
-          'aria load harness'
+          'Concurrency test',
+          'aria-conductor harness'
         ]
       }
     ]
@@ -217,7 +329,7 @@ const self: KnowledgeNode = {
   label: 'Happy',
   kind: 'self',
   meta: cv.role,
-  description: cv.summary,
+  description: 'Platform engineer with 7+ years on production systems. Design owner of the Agent Control Tower: warm agent pool, generic agent platform, and high-volume agent tasks; production observability across a 20+ service estate.',
   tone: 'pine',
   size: 0.36,
   position: [0, 0, 0]
@@ -274,6 +386,8 @@ capabilityDefs.forEach(def => {
         label,
         kind: 'tool',
         parent: group.id,
+        meta: toolContext[group.id] ?? groupDef.label,
+        description: toolNotes[label] ?? groupDef.description,
         tone: 'muted',
         size: 0.078,
         position: [
@@ -293,7 +407,7 @@ const backgroundChildren: KnowledgeNode[] = [
     kind: 'role' as const,
     parent: 'background',
     meta: `${job.role} · ${job.period}`,
-    description: job.bullets[0],
+    description: roleNotes[job.company] ?? job.bullets[0],
     tone: 'muted' as const,
     size: 0.07,
     position: [
@@ -308,6 +422,7 @@ const backgroundChildren: KnowledgeNode[] = [
     kind: 'education' as const,
     parent: 'background',
     meta: `${item.degree} · ${item.period}`,
+    description: educationNotes[item.school] ?? `${item.degree} — ${item.school} (${item.period})`,
     tone: 'muted' as const,
     size: 0.07,
     position: [
@@ -324,7 +439,7 @@ const background: KnowledgeNode = {
   kind: 'background',
   parent: 'happy',
   meta: 'Experience & education',
-  description: 'OOCL, NTT DATA, Hutchison Ports and InnoNext; BSc Computer Science, University of Wollongong.',
+  description: 'OOCL, NTT DATA, Hutchison Ports, InnoNext; BSc Computer Science with Distinction, University of Wollongong (WAM 75.67/100).',
   tone: 'muted',
   size: 0.17,
   position: [0, -2.55, 0.2]

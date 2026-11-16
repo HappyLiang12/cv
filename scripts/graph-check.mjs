@@ -102,6 +102,7 @@ try {
       title: document.querySelector('.graph-inspector h2')?.textContent ?? null,
       path: document.querySelector('.graph-inspector .gi-path')?.textContent ?? null,
       list: document.querySelector('.graph-inspector .gi-list')?.textContent ?? null,
+      desc: document.querySelector('.graph-inspector .gi-desc')?.textContent ?? null,
       cursor: document.body.style.cursor
     })`);
   const shot = async file => {
@@ -207,28 +208,39 @@ try {
   await click(capX, capY);
   const clickCap = await inspector();
   expect(clickCap.title === 'Agent systems', 'Capability click failed');
-  expect(clickCap.list?.includes('Control Tower'), 'Skill groups missing');
+  expect(clickCap.list?.includes('Agent Control Tower'), 'Skill groups missing');
   console.log('CLICK CAP', JSON.stringify(clickCap));
 
-  const groupPoint = await labelPoint('Control Tower', 24);
+  const groupPoint = await labelPoint('Agent Control Tower', 24);
   expect(groupPoint, 'Group label missing');
   await click(groupPoint.x, groupPoint.y);
   const clickGroup = await inspector();
-  expect(clickGroup.title === 'Control Tower', 'Group click failed');
-  expect(clickGroup.path === 'Happy / Agent systems / Control Tower', 'Group path wrong');
-  expect(clickGroup.list?.includes('HITL approval'), 'Tools missing');
+  expect(clickGroup.title === 'Agent Control Tower', 'Group click failed');
+  expect(clickGroup.path === 'Happy / Agent systems / Agent Control Tower', 'Group path wrong');
+  expect(clickGroup.list?.includes('Warm agent pool'), 'Tools missing');
   console.log('CLICK GROUP', JSON.stringify(clickGroup));
 
-  const toolPoint = await labelPoint('HITL approval', 19);
-  expect(toolPoint, 'Tool label missing');
-  await move(toolPoint.x, toolPoint.y);
-  const toolProbe = await inspector();
-  expect(toolProbe.path?.startsWith('Happy / Agent systems / Control Tower /'), 'Tool hover path failed');
-  const toolHit = { ...toolPoint, ...toolProbe };
+  let toolHit = null;
+  for (const offset of [19, 12, 26, 4, 33]) {
+    const point = await labelPoint('Warm agent pool', offset);
+    if (!point) continue;
+    await move(point.x, point.y);
+    await sleep(350);
+    const probe = await inspector();
+    console.log('TOOL PROBE', offset, JSON.stringify({ point, ...probe }));
+    if (
+      probe.path?.startsWith('Happy / Agent systems / Agent Control Tower /') &&
+      probe.desc?.includes('Pre-warmed agent workers')
+    ) {
+      toolHit = { ...point, ...probe };
+      break;
+    }
+  }
+  expect(toolHit, 'Tool hover description missing');
   console.log('HOVER TOOL', JSON.stringify(toolHit));
   await shot('/tmp/graph-hover-tool.png');
 
-  const releaseGroup = await labelPoint('Control Tower', 24);
+  const releaseGroup = await labelPoint('Agent Control Tower', 24);
   await click(releaseGroup.x, releaseGroup.y);
   await sleep(900);
   const backgroundTarget = await labelPoint('Background', 28);

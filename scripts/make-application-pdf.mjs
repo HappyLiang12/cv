@@ -46,7 +46,7 @@ const html = fs.readFileSync(source, 'utf8')
   .replace(/<p class="contact">[\s\S]*?<\/p>/, `<p class="contact">${contact}</p>`)
   .replace('<span>CV · 2026</span>', '<span>Application CV · 2026</span>')
   .replace(
-    '<footer>Static CV · no trackers · no phone number published</footer>',
+    /<footer>[^<]*<\/footer>/,
     `<footer>Application CV · ${esc(legalName)}</footer>`
   );
 

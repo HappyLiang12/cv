@@ -21,14 +21,42 @@ let expected = [
   "summary",
   "core skills",
   "selected projects",
-  "aria-conductor — source",
+  "agent control tower",
+  "aria-conductor — repository",
+  "htmlcraft — repository",
+  "physical-infrastructure background",
+  "zero tolerance for dispatch errors",
+  "live state tracking",
   "warm agent pool",
   "high-volume agent tasks",
   "generic agent platform",
+  "knowledge space",
+  "self-improvement pipeline",
+  "dynamic workflow",
+  "active notification system",
+  "dynamic dashboard",
+  "sub-task",
   "with distinction",
   "wam 75.67/100",
   "innonext (hk)",
   "laing17573@gmail.com"
+]
+
+let forbidden = [
+  "work unit",
+  "toctou",
+  "5/8",
+  "0/8",
+  "0.9 s",
+  "100-read",
+  "16-client",
+  "pool saturation",
+  "no trackers",
+  "memphis",
+  "control plane",
+  "control planes",
+  "agent fleets",
+  "hitl"
 ]
 
 var failures: [String] = []
@@ -37,6 +65,9 @@ if document.pageCount != 2 {
 }
 for phrase in expected where !text.contains(phrase) {
   failures.append("missing text: \(phrase)")
+}
+for phrase in forbidden where text.contains(phrase) {
+  failures.append("forbidden text: \(phrase)")
 }
 
 print("pages=\(document.pageCount)")

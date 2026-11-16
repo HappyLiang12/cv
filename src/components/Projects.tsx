@@ -7,7 +7,7 @@ export function Projects() {
       id="projects"
       number="05"
       label="Selected Projects"
-      title="Built, measured, and shipped."
+      title="Open-source and production systems."
     >
       <div className="projects">
         {cv.projects.map((project, index) => (
@@ -24,7 +24,7 @@ export function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  View source ↗
+                  View repository ↗
                 </a>
               )}
             </div>

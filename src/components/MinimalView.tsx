@@ -3,9 +3,6 @@ import { EmailReveal } from './EmailReveal';
 
 const base = import.meta.env.BASE_URL;
 const linkedin = cv.contact.linkedin.trim();
-const service = cv.metrics.find(metric => metric.label === 'Service estate');
-const approvals = cv.metrics.find(metric => metric.label === 'Double approvals');
-const load = cv.metrics.find(metric => metric.label === 'Load p95');
 
 export function MinimalView() {
   return (
@@ -16,7 +13,7 @@ export function MinimalView() {
           <h1>{cv.name}</h1>
           <p className="minimal-summary">{cv.summary}</p>
           <p className="minimal-proof mono">
-            {service?.value} service estate · {approvals?.value} double approvals after fix · p95 {load?.value}
+            20+ services · Agent Control Tower design owner · job → task → sub-task (N levels)
           </p>
           <p className="avail">{cv.availabilityNote}</p>
         </header>
@@ -109,8 +106,6 @@ export function MinimalView() {
             <a href={`${base}cv/`}>Full CV / HTML</a>
             <span aria-hidden="true">·</span>
             <a href={`${base}cv.txt`}>cv.txt</a>
-            <span aria-hidden="true">·</span>
-            <a href={`${base}llms.txt`}>llms.txt</a>
           </p>
         </section>
       </div>

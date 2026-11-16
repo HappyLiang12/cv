@@ -174,7 +174,7 @@ export function StaticMap({ variant }: StaticMapProps) {
         <text x="135" y="348">DELIVERY &amp; OPS</text>
         <text x="340" y="268" fill="var(--text)" fontSize="10">HAPPY</text>
         <text x="340" y="432" fill="var(--accent)" fontSize="8">
-          CONTROL TOWER ↔ TESTING HARNESS · ARIA OSS
+          AGENT CONTROL TOWER ↔ TESTING HARNESS · ARIA OSS
         </text>
       </g>
     </svg>

@@ -11,14 +11,14 @@ export function Header({ mode, onToggle }: HeaderProps) {
   return (
     <header className={`top${mode === 'minimal' ? ' is-minimal' : ''}`}>
       <div className="top-inner">
-        <a className="brand" href="#top" aria-label="Happy Liang Yee Ching — back to top">
-          <span className="brand-full">HAPPY LIANG YEE CHING</span>
-          <span className="brand-short" aria-hidden="true">HAPPY LIANG</span>
+        <a className="brand" href="#top" aria-label="LIANG Yee Ching (Happy) — back to top">
+          <span className="brand-full">LIANG YEE CHING (HAPPY)</span>
+          <span className="brand-short" aria-hidden="true">LIANG YEE CHING</span>
         </a>
         {mode === 'full' && (
           <nav className="nav" aria-label="Sections">
             <a href="#experience">Experience</a>
-            <a href="#control-tower">Systems</a>
+            <a href="#control-tower">Agent Control Tower</a>
             <a href="#observability">Observability</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>

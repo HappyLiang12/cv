@@ -1,5 +1,5 @@
 {
-  "name": "Happy LIANG Yee Ching",
+  "name": "LIANG Yee Ching (Happy)",
   "legalName": "LIANG Yee Ching (Happy)",
   "shortName": "Happy Liang",
   "role": "Platform & observability engineer",
@@ -10,10 +10,10 @@
     "github": "https://github.com/HappyLiang12",
     "linkedin": "https://www.linkedin.com/in/happy-liang-89a20117a/"
   },
-  "summary": "Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of an agent-platform Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top (registry, HITL approval, live fleet state, spec versioning). Strong across Java/Spring Boot, Python, ReactJS, and 20+ service estates, with recursive job decomposition, heartbeat-based scheduling, and production observability.",
-  "summaryLong": "Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of an agent-platform Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top (registry, HITL approval, live fleet state, spec versioning). Strong across Java/Spring Boot, Python, ReactJS, and 20+ service estates, with recursive job decomposition and heartbeat-based scheduling. Production observability with Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, and Metabase. AI-native developer: agent templates, agentic workflows, LLM integration, and agent management systems. Known for making systems testable and building repeatable automation rather than chasing test counts.",
-  "availability": "US work authorization: requires sponsorship | Available to relocate to Memphis, TN",
-  "availabilityNote": "Open to relocate to Memphis, TN · US work authorization requires sponsorship",
+  "summary": "Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of the Agent Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top, plus recursive job → task → sub-task scheduling and production observability across a 20+ service estate, with a physical-infrastructure background at Hutchison Ports and OOCL.",
+  "summaryLong": "Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of the Agent Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top — knowledge space, self-improvement pipeline, dynamic workflow, active notification system, dynamic dashboard, human-in-the-loop approval, live state tracking, and spec versioning. Strong across Java/Spring Boot, Python, ReactJS, and 20+ service estates, with recursive job → task → sub-task scheduling. Physical-infrastructure background at Hutchison Ports and OOCL, where dispatch errors have immediate operational consequences. Production observability with Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, and Metabase. Builds with LLMs and agents: agent templates, agentic workflows, and agent management. Known for making systems testable and building repeatable automation rather than chasing test counts.",
+  "availability": "Open to relocation to the United States · Will require employer-sponsored US work authorization",
+  "availabilityNote": "Open to relocation to the United States · Will require employer-sponsored US work authorization",
   "metrics": [
     {
       "label": "Experience",
@@ -26,14 +26,14 @@
       "note": "Java · Python · React"
     },
     {
-      "label": "Double approvals",
-      "value": "0/8",
-      "note": "was 5/8 before fix"
+      "label": "Agent Control Tower",
+      "value": "Design owner",
+      "note": "warm pool + platform"
     },
     {
-      "label": "Load p95",
-      "value": "0.9 s",
-      "note": "100-read burst"
+      "label": "Job Decomposer",
+      "value": "N levels",
+      "note": "job → task → sub-task"
     }
   ],
   "experience": [
@@ -43,19 +43,19 @@
       "period": "Oct 2021 — present",
       "location": "Hong Kong",
       "bullets": [
-        "Design owner of the Control Tower: a warm agent pool for high-volume agent tasks using the same decomposition and heartbeat-dispatch ideas as the job decomposer, with a generic agent platform on top (agent registry, HITL approval, live agent status, spec versioning).",
-        "Designed a recursive job decomposer in the platform scheduler: job → task → work-unit decomposition, asynchronous fan-out, heartbeat dispatch, and backpressure.",
+        "Design owner of the Agent Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top (knowledge space, self-improvement pipeline, dynamic workflow, active notification system, dynamic dashboard, human-in-the-loop approval, live state tracking, and spec versioning).",
+        "Designed a recursive job decomposer in the platform scheduler: job → task → sub-task decomposition across N levels, asynchronous fan-out, heartbeat dispatch, and backpressure.",
         "Own production observability across Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, and Metabase on Rancher-managed Kubernetes.",
         "Own Jenkins CI/CD and Kubernetes UAT deploys; build deterministic E2E harnesses and CI quality gates for a 20+ service estate."
       ],
       "cvBullets": [
-        "Work across a 20+ service platform spanning Java/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, and ADK agent services; system analysis, revamp, and migration of existing flows into microservices and shared libraries.",
-        "Design owner of the Control Tower: a warm agent pool for high-volume agent tasks using the same decomposition and heartbeat-dispatch ideas as the job decomposer, with a generic agent platform on top (agent registry, HITL approval, live agent status, spec versioning).",
-        "Designed the job-decomposer library in the platform scheduler: recursively decomposes a job into tasks and work units across N levels, then dispatches them over asynchronous messaging and scales workers from config or available resources.",
+        "Work across a 20+ service platform for global shipping operations spanning Java/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, and ADK agent services; system analysis, revamp, and migration of existing flows into microservices and shared libraries.",
+        "Design owner of the Agent Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top (knowledge space, self-improvement pipeline, dynamic workflow, active notification system, dynamic dashboard, human-in-the-loop approval, live state tracking, and spec versioning).",
+        "Designed the job-decomposer library in the platform scheduler: recursively decomposes a job into tasks and sub-tasks across N levels, then dispatches them over asynchronous messaging and scales workers from config or available resources.",
         "Built the heartbeat-based scheduling loop that keeps dispatching work, applies backpressure, and respects the async queue framework's limits, so large or continuously loaded jobs do not stall.",
         "Own production observability: Grafana, Prometheus on Rancher-managed Kubernetes, Azure Monitor, Elasticsearch/Filebeat, and Metabase.",
         "Own Jenkins CI/CD and Kubernetes UAT deploys; design for testability and build repeatable automation (deterministic E2E harnesses, real-boundary integration tests, CI quality gates).",
-        "Introduced an agent template and agentic development workflow to the team; wire LLM-backed agents into platform services and the Control Tower (A2A v1.0, AG-UI/SSE, MCP).",
+        "Introduced an agent template and agentic development workflow to the team; wire LLM-backed agents into platform services and the Agent Control Tower (A2A v1.0, AG-UI/SSE, MCP).",
         "Own correctness rules: OAuth2/OIDC, ABAC, optimistic locking, and dual JPA + jOOQ access."
       ]
     },
@@ -77,10 +77,10 @@
       "period": "2019 — 2021",
       "location": "Hong Kong",
       "bullets": [
-        "Built asynchronous microservices for port automation in Kotlin, Java, and ReactJS; built a DQN/RL proof of concept with TensorFlow."
+        "Built asynchronous microservices for container-terminal automation in Kotlin, Java, and ReactJS, in an environment with zero tolerance for dispatch errors; built a DQN/RL proof of concept with TensorFlow."
       ],
       "cvBullets": [
-        "Built asynchronous microservices for port automation using Kotlin, Java, ReactJS, Gradle, and Maven.",
+        "Built asynchronous microservices for port automation using Kotlin, Java, ReactJS, Gradle, and Maven, in an environment with zero tolerance for dispatch errors.",
         "Built a DQN/RL proof of concept with TensorFlow for port automation."
       ]
     },
@@ -117,8 +117,8 @@
   ],
   "coreSkills": [
     "Platform engineering: 20+ service estates; Java 21/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, ADK agent services; system analysis, microservices migration, shared libraries, API contracts.",
-    "Distributed scheduling: recursive job → task → work-unit decomposition; asynchronous fan-out; heartbeat-based dispatch; resource-aware scaling; backpressure and queue-limit handling.",
-    "AI-native development: agent templates, agentic coding workflows, LLM integration, prompt and tool design, MCP, A2A v1.0, AG-UI/SSE, agent orchestration, warm agent pools, approval gates, agent registry.",
+    "Distributed scheduling: recursive job → task → sub-task decomposition across N levels; asynchronous fan-out; heartbeat-based dispatch; resource-aware scaling; backpressure and queue-limit handling.",
+    "Agent and LLM development: agent templates, agentic coding workflows, LLM integration, prompt and tool design, MCP, A2A v1.0, AG-UI/SSE, agent orchestration, warm agent pools, human approval, agent registry.",
     "Observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase (production); Rancher-managed Kubernetes; p50/p95 latency instrumentation; load and concurrency E2E; rollout verification.",
     "Testing and automation: testability by design; contract, API, and E2E automation; deterministic fixtures; real-boundary integration tests; CI quality gates; Playwright; jsdom.",
     "Backend: Spring Boot, Spring Cloud, JPA/Hibernate, jOOQ, REST, OAuth2/OIDC, ABAC, RabbitMQ, Flask, Node.js.",
@@ -141,20 +141,44 @@
     }
   ],
   "controlTower": {
-    "intro": "Design owner of the Control Tower at OOCL — a multi-service control plane centered on a warm agent pool for high-volume agent tasks, with a generic agent platform on top (agent registry, HITL approval, live agent status, spec versioning). Every action is attributable; every change is versioned.",
-    "openSource": "Locally runnable simplification of the same pattern: Java 21 and React, approval gates, agent chains, and a real concurrency harness.",
+    "intro": "Design owner of the Agent Control Tower at OOCL — a multi-service platform centered on a warm agent pool for high-volume agent tasks, with a generic agent platform on top: knowledge space, self-improvement pipeline, dynamic workflow, active notification system, dynamic dashboard, agent registry, human-in-the-loop approval, live state tracking, and spec versioning. Every action is attributable; every change is versioned.",
+    "openSource": "aria-conductor is the open-source simplification: Java 21 and React, approval gates, agent chains, and a concurrency harness.",
     "capabilities": [
       {
-        "name": "HITL approval gate",
-        "meta": "Approve · Reject"
+        "name": "Warm agent pool",
+        "meta": "High-volume tasks"
+      },
+      {
+        "name": "Knowledge space",
+        "meta": "Shared context"
+      },
+      {
+        "name": "Self-improvement pipeline",
+        "meta": "Feedback → update"
+      },
+      {
+        "name": "Dynamic workflow",
+        "meta": "Runtime-defined"
+      },
+      {
+        "name": "Active notification system",
+        "meta": "Events → operators"
+      },
+      {
+        "name": "Dynamic dashboard",
+        "meta": "Live views"
+      },
+      {
+        "name": "Human approval gate",
+        "meta": "Approve · reject"
       },
       {
         "name": "Spec versioning",
         "meta": "Every change"
       },
       {
-        "name": "Live agent status",
-        "meta": "Fleet state"
+        "name": "Live state tracking",
+        "meta": "Current work"
       },
       {
         "name": "A2A v1.0 · AG-UI · SSE",
@@ -165,67 +189,69 @@
         "meta": "Dispatch"
       },
       {
-        "name": "Mongo-backed state",
-        "meta": "Task · Thread"
+        "name": "MongoDB task state",
+        "meta": "Task · thread"
       },
       {
         "name": "Agent registration",
         "meta": "Registry"
       },
       {
-        "name": "Credential-proxy auth",
-        "meta": "Auth"
+        "name": "Credential proxy",
+        "meta": "Agent auth"
       }
     ],
-    "note": "Validated end-to-end on a Docker/Podman compose stack — control-tower UI, core services, shims, MySQL and Mongo. An always-up registry/forwarder removed a boot-time blocking failure in A2A card fetch: dispatch now fails fast instead of blocking worker boot."
+    "note": "Validated end-to-end on a Docker/Podman compose stack — operator UI, core services, MySQL and MongoDB. An always-available registry/forwarder removed a startup failure where A2A card fetch blocked worker boot; dispatch now fails fast instead of blocking."
   },
   "decomposer": {
-    "body": "Designed the job-decomposer library in the platform scheduler. A job is decomposed recursively into tasks and work units across N levels, then dispatched over asynchronous messaging. The heartbeat loop keeps dispatching, respects queue limits, and applies backpressure so large or continuously loaded jobs do not stall. Workers scale from configuration or available resources; job definitions persist in the scheduler and dispatch through its processing API."
+    "body": "Designed the job-decomposer library in the platform scheduler. A job is decomposed recursively into tasks and sub-tasks across N levels, then dispatched over asynchronous messaging. The heartbeat loop keeps dispatching, respects queue limits, and applies backpressure so large or continuously loaded jobs do not stall. Workers scale from configuration or available resources; job definitions persist in the scheduler and dispatch through its processing API."
   },
   "observability": {
-    "body": "Production observability on Rancher-managed Kubernetes: Grafana and Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase. p50/p95 latency instrumentation, load and concurrency E2E, and rollout verification are part of delivery, not an afterthought.",
-    "proof": [
+    "body": "Production observability on Rancher-managed Kubernetes. I own the metrics, logs, cloud monitoring, and release checks for a 20+ service platform, and use the same signals to verify rollouts and investigate incidents.",
+    "scope": [
       {
-        "scenario": "100-read burst",
-        "result": "p95 ≈ 0.9 s"
+        "area": "Metrics and dashboards",
+        "detail": "Grafana dashboards and Prometheus metrics for service health and latency."
       },
       {
-        "scenario": "16-client mixed load",
-        "result": "errorRate = 0"
+        "area": "Logs",
+        "detail": "Elasticsearch and Filebeat for production log search."
       },
       {
-        "scenario": "6× pool saturation",
-        "result": "zero 5xx"
+        "area": "Cloud and cluster",
+        "detail": "Azure Monitor and Rancher-managed Kubernetes."
       },
       {
-        "scenario": "Concurrent opposing approvals",
-        "result": "5/8 → 0/8 double commits"
+        "area": "Reporting",
+        "detail": "Metabase for operational reporting."
+      },
+      {
+        "area": "Release checks",
+        "detail": "p50/p95 latency, load and concurrency E2E, and rollout verification."
       }
-    ],
-    "proofCaption": "Load & concurrency evidence — aria-conductor harness",
-    "stackLine": "Metrics — Grafana · Prometheus / Logs — Elasticsearch · Filebeat / Cloud — Azure Monitor / Kubernetes — Rancher / BI — Metabase / Delivery — Jenkins · GitHub Actions"
+    ]
   },
   "projects": [
     {
-      "name": "Control Tower",
-      "meta": "Internal · Design owner · 2026",
-      "description": "Control plane centered on a warm agent pool for high-volume agent tasks, with a generic agent platform on top: HITL approval, live status, spec versioning, A2A/AG-UI runtime, credential proxy.",
-      "cvDescription": "Design owner of the Control Tower: a multi-service control plane centered on a warm agent pool for high-volume agent tasks using the same decomposition and heartbeat-dispatch ideas as the job decomposer, with a generic agent platform on top (agent registry, HITL approval, live agent status, spec versioning). Designed the HITL approval gate and spec-versioning workflow; integrated an internal ADK runtime with A2A v1.0 and AG-UI/SSE, agent profiles, multi-replica routing, Mongo-backed task/thread state, agent registration, and credential-proxy auth. Built the local/live stack with Docker/Podman compose and validated the end-to-end approval path.",
+      "name": "Agent Control Tower",
+      "meta": "OOCL · Design owner · 2026",
+      "description": "Multi-service platform centered on a warm agent pool for high-volume agent tasks, with a generic agent platform on top: knowledge space, self-improvement pipeline, dynamic workflow, active notification system, dynamic dashboard, human approval, live state tracking, and spec versioning.",
+      "cvDescription": "Design owner of the Agent Control Tower: a multi-service platform centered on a warm agent pool for high-volume agent tasks, with a generic agent platform on top — knowledge space, self-improvement pipeline, dynamic workflow, active notification system, dynamic dashboard, human approval, live state tracking, and spec versioning. Integrated an internal ADK runtime with A2A v1.0 and AG-UI/SSE, agent profiles, multi-replica routing, MongoDB task/thread state, agent registration, and a credential proxy. Built the local/live stack with Docker/Podman compose and validated the end-to-end approval path.",
       "url": ""
     },
     {
       "name": "aria-conductor",
       "meta": "MIT · Open source · 2026 — present",
-      "description": "Java 21 + React 19 control tower for agent chains. Found and fixed a TOCTOU governance bypass; built the load and concurrency harness.",
-      "cvDescription": "Designed and built a multi-service control tower: Java 21/Spring Boot backend, React 19/TypeScript dashboard, Node/TypeScript MCP server, MariaDB/H2, Docker/Podman, and per-agent OpenSandbox containers. Implemented governance and operator workflows: task approval gates, versioned knowledge, BA→Dev→QA agent chains, live run status, kanban, and activity timeline. Found a TOCTOU governance bypass under concurrent opposing approvals (5/8 double-commits); replaced read-check-write with an atomic conditional UPDATE, reducing double approvals to 0/8 with clean 409s for losers. Fixed a 500/rollback-poisoning failure that fired 12/12 under mixed load; built the load and concurrency E2E harness (100-read burst p95 ≈0.9 s, 16-client mixed load errorRate=0, 6× pool saturation zero 5xx) plus Playwright UI coverage.",
+      "description": "Java 21 + React 19 control tower for agent chains. Fixed a concurrent-approval race that allowed double approvals; built the load and concurrency harness.",
+      "cvDescription": "Designed and built a multi-service control tower: Java 21/Spring Boot backend, React 19/TypeScript dashboard, Node/TypeScript MCP server, MariaDB/H2, Docker/Podman, and per-agent OpenSandbox containers. Implemented governance and operator workflows: task approval gates, versioned knowledge, BA→Dev→QA agent chains, live run status, kanban, and activity timeline. Fixed a concurrent-approval race where two opposing approvals could both pass the same pending check and commit; replaced read-check-write with an atomic conditional update, so one request wins and the other is rejected with an HTTP 409 conflict. Fixed a 500 that rolled back the whole transaction under mixed load; built the load and concurrency E2E harness plus Playwright UI coverage.",
       "url": "https://github.com/HappyLiang12/aria-conductor"
     },
     {
       "name": "htmlcraft",
-      "meta": "npm 0.1.1 · MIT · 2026",
-      "description": "8-package TypeScript monorepo: CLI, editor, renderer, runtime, host, MCP server, htmlppt. OIDC trusted publishing; 528 downloads last month.",
-      "cvDescription": "8-package TypeScript monorepo (CLI, core, editor, renderer, runtime, host, MCP, htmlppt); visual editor, CLI, and MCP server; OIDC trusted publishing from GitHub Actions; 528 downloads last month.",
-      "url": ""
+      "meta": "MIT · npm 0.1.1 · TypeScript",
+      "description": "Open-source toolkit for single-file HTML presentations: a visual editor, CLI, and MCP server. An agent writes one HTML deck; a person edits layout and copy, then exports HTML, PDF, or one PNG per slide.",
+      "cvDescription": "Open-source TypeScript toolkit for single-file HTML presentations: a local visual editor, CLI, and MCP server. An agent writes one self-contained HTML deck; a person edits layout and copy and exports standalone HTML, PDF, or one PNG per slide. No project file or build step; the HTML file is the source of truth. MIT, npm 0.1.1.",
+      "url": "https://github.com/HappyLiang12/htmlcraft"
     },
     {
       "name": "EV Charge Log",

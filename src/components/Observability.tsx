@@ -7,27 +7,26 @@ export function Observability() {
       id="observability"
       number="04"
       label="Observability"
-      title="Uptime is a design property, not a dashboard."
+      title="Production metrics, logs, and release checks."
     >
       <p>{cv.observability.body}</p>
       <table className="proof">
-        <caption>{cv.observability.proofCaption}</caption>
+        <caption>What I monitor in production</caption>
         <thead>
           <tr>
-            <th scope="col">Scenario</th>
-            <th scope="col">Result</th>
+            <th scope="col">Area</th>
+            <th scope="col">Tools and checks</th>
           </tr>
         </thead>
         <tbody>
-          {cv.observability.proof.map(row => (
-            <tr key={row.scenario}>
-              <td>{row.scenario}</td>
-              <td>{row.result}</td>
+          {cv.observability.scope.map(row => (
+            <tr key={row.area}>
+              <td>{row.area}</td>
+              <td>{row.detail}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <p className="stack-line mono">{cv.observability.stackLine}</p>
     </Section>
   );
 }

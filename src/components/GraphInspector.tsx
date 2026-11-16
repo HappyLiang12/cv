@@ -50,7 +50,7 @@ function InspectorContent({
 
   const description = node
     ? node.description ?? parent?.description ?? node.meta
-    : `${capabilityCount} capabilities, ${groupCount} skill groups and ${toolCount} tools — each path converges on Happy.`;
+    : `${capabilityCount} capabilities, ${groupCount} skill groups and ${toolCount} tools.`;
   const meta = node?.meta;
 
   return (
@@ -81,7 +81,7 @@ function InspectorContent({
         )}
         {related && (
           <p className="gi-related mono">
-            Control Tower ↔ Testing &amp; harness · aria-conductor is the open-source link
+            Agent Control Tower ↔ Testing &amp; harness · aria-conductor is the open-source link
           </p>
         )}
         {meta && (!listLabel || children.length === 0) && (

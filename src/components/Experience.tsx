@@ -7,7 +7,7 @@ export function Experience() {
       id="experience"
       number="01"
       label="Experience"
-      title="Seven years of systems that had to stay up."
+      title="Agent platforms and production systems."
     >
       {cv.experience.map(job => (
         <article className="job" key={job.company}>

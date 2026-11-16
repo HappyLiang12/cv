@@ -45,7 +45,8 @@ const personJsonLd = {
   knowsAbout: [
     'Platform engineering', 'Observability', 'Kubernetes', 'Grafana', 'Prometheus',
     'Distributed scheduling', 'Java', 'Spring Boot', 'React', 'AI agents',
-    'Warm agent pools', 'Agent platforms', 'MCP', 'A2A'
+    'Agent Control Tower', 'Warm agent pools', 'Knowledge space', 'Self-improvement pipeline',
+    'Dynamic workflow', 'Active notification systems', 'Dynamic dashboards', 'MCP', 'A2A'
   ]
 };
 
@@ -65,7 +66,7 @@ const experienceText = cv.experience.map(job => {
 
 const projectsHtml = cv.projects.map(project => `
   <section class="project">
-    <h3>${esc(project.name)}${project.url ? ` — <a href="${esc(project.url)}">source</a>` : ''}</h3>
+    <h3>${esc(project.name)}${project.url ? ` — <a href="${esc(project.url)}">repository</a>` : ''}</h3>
     <p class="meta">${esc(project.meta)}</p>
     <p>${esc(project.cvDescription || project.description)}</p>
   </section>`).join('');
@@ -85,8 +86,8 @@ const cvHtml = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Happy LIANG Yee Ching — CV</title>
-<meta name="description" content="CV of Happy LIANG Yee Ching, platform and observability engineer in Hong Kong. Agent-platform Control Tower with warm agent pools, distributed scheduling, and production observability.">
+<title>${esc(cv.name)} — CV</title>
+<meta name="description" content="CV of ${esc(cv.name)}, platform and observability engineer in Hong Kong. Agent Control Tower with a warm agent pool, recursive job → task → sub-task scheduling, and production observability.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${siteUrl}cv/">
 <link rel="alternate" type="text/plain" href="../cv.txt" title="CV (plain text)">
@@ -173,7 +174,7 @@ const cvHtml = `<!doctype html>
 
   <p class="pdf-link no-print"><a href="../Happy-Liang-CV.pdf">Download PDF</a> · <a href="../cv.txt">Plain text</a></p>
 </main>
-<footer>Static CV · no trackers · no phone number published</footer>
+<footer>${esc(cv.name)} · ${esc(cv.location)}</footer>
 </body>
 </html>`;
 
@@ -207,7 +208,7 @@ const llmsText = `# ${cv.name}
 
 ${cv.role} based in ${cv.location}. ${cv.availability}
 
-## Canonical pages
+## Pages
 - Portfolio: ${siteUrl}
 - CV (HTML): ${siteUrl}cv/
 - CV (plain text): ${siteUrl}cv.txt
@@ -215,14 +216,14 @@ ${cv.role} based in ${cv.location}. ${cv.availability}
 - This file: ${siteUrl}llms.txt
 
 ## Focus
-- Control planes for agent fleets: warm agent pools for high-volume tasks, a generic agent platform, HITL approval gates, live fleet state, spec versioning, A2A v1.0, AG-UI/SSE, MCP.
-- Distributed scheduling: recursive job -> task -> work-unit decomposition, async fan-out, heartbeat dispatch, backpressure.
+- Agent Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top — knowledge space, self-improvement pipeline, dynamic workflow, active notification system, dynamic dashboard, human-in-the-loop approval, live agent status, spec versioning, A2A v1.0, AG-UI/SSE, and MCP.
+- Distributed scheduling: recursive job -> task -> sub-task decomposition across N levels, async fan-out, heartbeat dispatch, backpressure.
 - Production observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase on Rancher-managed Kubernetes.
-- Correctness-sensitive systems: OAuth2/OIDC, ABAC, optimistic locking, TOCTOU fixes, deterministic E2E and load harnesses.
+- Correctness-sensitive systems: OAuth2/OIDC, ABAC, optimistic locking, deterministic E2E and load harnesses.
 
 ## Selected evidence
-- aria-conductor: concurrent opposing approvals reduced from 5/8 to 0/8 double commits with an atomic conditional update.
-- aria-conductor harness: 100-read burst p95 ~0.9 s; 16-client mixed load errorRate 0; 6x pool saturation zero 5xx.
+- Agent Control Tower: design owner; a warm agent pool for high-volume agent tasks, with a generic agent platform on top.
+- aria-conductor: fixed a concurrent-approval race with an atomic conditional update; built a load and concurrency harness.
 - 20+ service estate across Java 21/Spring Boot, Python, React, Kong, Nginx, and ADK agent services.
 
 ## Experience
@@ -236,10 +237,9 @@ ${cv.education.map(item => `- ${item.degree} — ${item.school} (${item.period})
 2. ${siteUrl}cv/ — the same CV as semantic HTML.
 3. ${siteUrl} — portfolio narrative and selected projects.
 
-## Notes
-- No phone number is published.
-- No analytics or trackers.
-- Contact: ${email || 'available on request'}; LinkedIn: ${linkedin}.
+## Contact
+- Email: ${email || 'available on request'}
+- LinkedIn: ${linkedin}
 `;
 
 fs.writeFileSync(path.join(publicDir, 'llms.txt'), llmsText);

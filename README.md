@@ -1,7 +1,7 @@
 # cv-3d — Happy LIANG Yee Ching
 
 A live CV for platform and observability engineering roles. The page pairs an editorial
-layout with a three-level technical skill graph: 74 tools connect upward through 12 skill
+layout with a three-level technical skill graph: 78 tools connect upward through 12 skill
 groups and four capabilities to Happy. The content itself is always plain HTML.
 
 - Live URL: https://happyliang12.github.io/cv/
@@ -83,7 +83,7 @@ separate.
   reveals its name and full lineage.
 - The graph is deliberately **mouse-only**: no graph-level select menu, chips, buttons, or
   keyboard stops. The static CV remains the keyboard and assistive-technology path.
-- Project evidence is folded into the skill model: Control Tower sits under Agent systems;
+- Project evidence is folded into the skill model: Agent Control Tower sits under Agent systems;
   Testing & harness includes aria-conductor, and the green edge links the two.
 
 ## Verification (2026-11-17)
@@ -103,11 +103,14 @@ Chromium, production preview. Screenshots in `docs/screenshots/`.
   `aria-pressed` checked.
 - Reduced motion, WebGL-off fallback, no-JS fallback, static `/cv/` checked.
 - Contact email reveal, `/cv/`, `cv.txt`, `llms.txt`, HTML, and public PDF checked.
-- Warm agent pool, high-volume agent tasks, and generic agent platform are present in the
-  summary, OOCL experience, Control Tower copy, project copy, and generated artifacts.
-  Education shows Distinction with WAM 75.67/100; InnoNext is labelled `(HK)`.
-- Public PDF is 2 pages with a clean text layer (`npm run check:pdf`) and no phone number.
-  The private application PDF is also 2 pages, with legal name, email, and phone.
+- Warm agent pool, knowledge space, self-improvement pipeline, dynamic workflow, active
+  notification system, dynamic dashboard, human approval, and job → task → sub-task are
+  present in the summary, OOCL experience, Agent Control Tower copy, project copy, and
+  generated artifacts. Education shows Distinction with WAM 75.67/100; InnoNext is labelled `(HK)`.
+- Summary, experience, and Control Tower copy state the zero-fault physical-infrastructure background at Hutchison Ports and OOCL and the Agent Control Tower's live state tracking.
+- Public PDF is 2 pages with a clean text layer (`npm run check:pdf`), no phone number, and
+  no internal system names or stray harness metrics. The private application PDF is also
+  2 pages, with legal name, email, and phone.
 - GitHub Pages base `/cv/` build served from a subpath: assets and the lazy 3D chunk
   load with the correct prefix; graph interaction check passes.
 - Keyboard: skip link activates `#main`; the page shell remains keyboard accessible.
@@ -118,7 +121,7 @@ Chromium, production preview. Screenshots in `docs/screenshots/`.
 | Desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 | 0 ms |
 | Mobile | 98 | 100 | 100 | 100 | 2.0 s | 0 | 0 ms |
 
-Initial JavaScript is 268 kB raw / 83 kB gzip. The 3D chunk (952 kB raw / 253 kB gzip)
+Initial JavaScript is 275 kB raw / 85 kB gzip. The 3D chunk (952 kB raw / 253 kB gzip)
 loads only on wide screens (981 px and up) and is not fetched on mobile or in Minimal mode.
 The scene mounts without a separate WebGL probe; if the context fails, the static map is
 kept and the inspector is hidden.

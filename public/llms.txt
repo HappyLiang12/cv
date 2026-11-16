@@ -1,10 +1,10 @@
-# Happy LIANG Yee Ching
+# LIANG Yee Ching (Happy)
 
-> Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of an agent-platform Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top (registry, HITL approval, live fleet state, spec versioning). Strong across Java/Spring Boot, Python, ReactJS, and 20+ service estates, with recursive job decomposition, heartbeat-based scheduling, and production observability.
+> Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of the Agent Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top, plus recursive job → task → sub-task scheduling and production observability across a 20+ service estate, with a physical-infrastructure background at Hutchison Ports and OOCL.
 
-Platform & observability engineer based in Hong Kong. US work authorization: requires sponsorship | Available to relocate to Memphis, TN
+Platform & observability engineer based in Hong Kong. Open to relocation to the United States · Will require employer-sponsored US work authorization
 
-## Canonical pages
+## Pages
 - Portfolio: https://happyliang12.github.io/cv/
 - CV (HTML): https://happyliang12.github.io/cv/cv/
 - CV (plain text): https://happyliang12.github.io/cv/cv.txt
@@ -12,14 +12,14 @@ Platform & observability engineer based in Hong Kong. US work authorization: req
 - This file: https://happyliang12.github.io/cv/llms.txt
 
 ## Focus
-- Control planes for agent fleets: warm agent pools for high-volume tasks, a generic agent platform, HITL approval gates, live fleet state, spec versioning, A2A v1.0, AG-UI/SSE, MCP.
-- Distributed scheduling: recursive job -> task -> work-unit decomposition, async fan-out, heartbeat dispatch, backpressure.
+- Agent Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top — knowledge space, self-improvement pipeline, dynamic workflow, active notification system, dynamic dashboard, human-in-the-loop approval, live agent status, spec versioning, A2A v1.0, AG-UI/SSE, and MCP.
+- Distributed scheduling: recursive job -> task -> sub-task decomposition across N levels, async fan-out, heartbeat dispatch, backpressure.
 - Production observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase on Rancher-managed Kubernetes.
-- Correctness-sensitive systems: OAuth2/OIDC, ABAC, optimistic locking, TOCTOU fixes, deterministic E2E and load harnesses.
+- Correctness-sensitive systems: OAuth2/OIDC, ABAC, optimistic locking, deterministic E2E and load harnesses.
 
 ## Selected evidence
-- aria-conductor: concurrent opposing approvals reduced from 5/8 to 0/8 double commits with an atomic conditional update.
-- aria-conductor harness: 100-read burst p95 ~0.9 s; 16-client mixed load errorRate 0; 6x pool saturation zero 5xx.
+- Agent Control Tower: design owner; a warm agent pool for high-volume agent tasks, with a generic agent platform on top.
+- aria-conductor: fixed a concurrent-approval race with an atomic conditional update; built a load and concurrency harness.
 - 20+ service estate across Java 21/Spring Boot, Python, React, Kong, Nginx, and ADK agent services.
 
 ## Experience
@@ -37,7 +37,6 @@ Platform & observability engineer based in Hong Kong. US work authorization: req
 2. https://happyliang12.github.io/cv/cv/ — the same CV as semantic HTML.
 3. https://happyliang12.github.io/cv/ — portfolio narrative and selected projects.
 
-## Notes
-- No phone number is published.
-- No analytics or trackers.
-- Contact: laing17573@gmail.com; LinkedIn: https://www.linkedin.com/in/happy-liang-89a20117a/.
+## Contact
+- Email: laing17573@gmail.com
+- LinkedIn: https://www.linkedin.com/in/happy-liang-89a20117a/
