@@ -107,7 +107,7 @@ const capabilityDefs: CapabilityDef[] = [
       {
         id: 'control-tower',
         label: 'Control Tower',
-        description: 'Design owner at OOCL: HITL approval, spec versioning, live status, multi-replica routing, Mongo state and credential proxy. aria-conductor is the open-source simplification.',
+        description: 'Design owner at OOCL: a warm agent pool for high-volume tasks, with a generic agent platform on top — HITL approval, spec versioning, live status, multi-replica routing, Mongo state and credential proxy. aria-conductor is the open-source simplification.',
         tone: 'pine',
         tools: [
           'HITL approval',

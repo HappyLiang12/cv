@@ -6,12 +6,12 @@ GitHub: https://github.com/HappyLiang12
 US work authorization: requires sponsorship | Available to relocate to Memphis, TN
 
 SUMMARY
-Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of an agent-platform Control Tower: multi-service control plane, human-in-the-loop approval, live fleet state, and spec versioning. Strong across Java/Spring Boot, Python, ReactJS, and 20+ service estates, with recursive job decomposition and heartbeat-based scheduling. Production observability with Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, and Metabase. AI-native developer: agent templates, agentic workflows, LLM integration, and agent management systems. Known for making systems testable and building repeatable automation rather than chasing test counts.
+Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of an agent-platform Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top (registry, HITL approval, live fleet state, spec versioning). Strong across Java/Spring Boot, Python, ReactJS, and 20+ service estates, with recursive job decomposition and heartbeat-based scheduling. Production observability with Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, and Metabase. AI-native developer: agent templates, agentic workflows, LLM integration, and agent management systems. Known for making systems testable and building repeatable automation rather than chasing test counts.
 
 CORE SKILLS
 - Platform engineering: 20+ service estates; Java 21/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, ADK agent services; system analysis, microservices migration, shared libraries, API contracts.
 - Distributed scheduling: recursive job → task → work-unit decomposition; asynchronous fan-out; heartbeat-based dispatch; resource-aware scaling; backpressure and queue-limit handling.
-- AI-native development: agent templates, agentic coding workflows, LLM integration, prompt and tool design, MCP, A2A v1.0, AG-UI/SSE, agent orchestration, approval gates, agent registry.
+- AI-native development: agent templates, agentic coding workflows, LLM integration, prompt and tool design, MCP, A2A v1.0, AG-UI/SSE, agent orchestration, warm agent pools, approval gates, agent registry.
 - Observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase (production); Rancher-managed Kubernetes; p50/p95 latency instrumentation; load and concurrency E2E; rollout verification.
 - Testing and automation: testability by design; contract, API, and E2E automation; deterministic fixtures; real-boundary integration tests; CI quality gates; Playwright; jsdom.
 - Backend: Spring Boot, Spring Cloud, JPA/Hibernate, jOOQ, REST, OAuth2/OIDC, ABAC, RabbitMQ, Flask, Node.js.
@@ -25,7 +25,7 @@ EXPERIENCE
 OOCL — Senior Technical Analyst
 Hong Kong | Oct 2021 — present
   - Work across a 20+ service platform spanning Java/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, and ADK agent services; system analysis, revamp, and migration of existing flows into microservices and shared libraries.
-  - Design owner of the Control Tower: a multi-service control plane for agent fleets with a human-in-the-loop approval gate, live agent status, and spec versioning.
+  - Design owner of the Control Tower: a warm agent pool for high-volume agent tasks using the same decomposition and heartbeat-dispatch ideas as the job decomposer, with a generic agent platform on top (agent registry, HITL approval, live agent status, spec versioning).
   - Designed the job-decomposer library in the platform scheduler: recursively decomposes a job into tasks and work units across N levels, then dispatches them over asynchronous messaging and scales workers from config or available resources.
   - Built the heartbeat-based scheduling loop that keeps dispatching work, applies backpressure, and respects the async queue framework's limits, so large or continuously loaded jobs do not stall.
   - Own production observability: Grafana, Prometheus on Rancher-managed Kubernetes, Azure Monitor, Elasticsearch/Filebeat, and Metabase.
@@ -42,13 +42,13 @@ Hong Kong | 2019 — 2021
   - Built asynchronous microservices for port automation using Kotlin, Java, ReactJS, Gradle, and Maven.
   - Built a DQN/RL proof of concept with TensorFlow for port automation.
 
-InnoNext — Web Developer, part-time
+InnoNext (HK) — Web Developer, part-time
 Hong Kong | 2018 — 2019
   - Built web applications with PHP, Spring, and JavaScript.
 
 SELECTED PROJECTS
 Control Tower (Internal · Design owner · 2026)
-Design owner of the Control Tower: a multi-service control plane that manages agent fleets, exposes live agent status, and gates actions through human approval. Designed the HITL approval gate and spec-versioning workflow; integrated an internal ADK runtime with A2A v1.0 and AG-UI/SSE, agent profiles, multi-replica routing, Mongo-backed task/thread state, agent registration, and credential-proxy auth. Built the local/live stack with Docker/Podman compose and validated the end-to-end approval path.
+Design owner of the Control Tower: a multi-service control plane centered on a warm agent pool for high-volume agent tasks using the same decomposition and heartbeat-dispatch ideas as the job decomposer, with a generic agent platform on top (agent registry, HITL approval, live agent status, spec versioning). Designed the HITL approval gate and spec-versioning workflow; integrated an internal ADK runtime with A2A v1.0 and AG-UI/SSE, agent profiles, multi-replica routing, Mongo-backed task/thread state, agent registration, and credential-proxy auth. Built the local/live stack with Docker/Podman compose and validated the end-to-end approval path.
 
 aria-conductor (MIT · Open source · 2026 — present)
 https://github.com/HappyLiang12/aria-conductor
@@ -64,5 +64,5 @@ AI Glass PoC (Real-time VLM · Browser)
 Real-time browser assistant with speech input, VLM verification, HUD overlays, and barge-in; latency instrumentation for turn, barge-in, and dropped turns; high coverage and Playwright E2E.
 
 EDUCATION
-Bachelor of Computer Science — University of Wollongong (2018 — 2019)
+Bachelor of Computer Science with Distinction (WAM 75.67/100) — University of Wollongong (2018 — 2019)
 Associate Degree in Engineering — Community College of City University (2015 — 2018)

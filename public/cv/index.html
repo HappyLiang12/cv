@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Happy LIANG Yee Ching — CV</title>
-<meta name="description" content="CV of Happy LIANG Yee Ching, platform and observability engineer in Hong Kong. Control planes for agent fleets, distributed scheduling, and production observability.">
+<meta name="description" content="CV of Happy LIANG Yee Ching, platform and observability engineer in Hong Kong. Agent-platform Control Tower with warm agent pools, distributed scheduling, and production observability.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://happyliang12.github.io/cv/cv/">
 <link rel="alternate" type="text/plain" href="../cv.txt" title="CV (plain text)">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Happy LIANG Yee Ching","alternateName":"Happy Liang","jobTitle":"Senior Technical Analyst","worksFor":{"@type":"Organization","name":"OOCL"},"address":{"@type":"PostalAddress","addressLocality":"Hong Kong"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Wollongong"},{"@type":"CollegeOrUniversity","name":"Community College of City University"}],"sameAs":["https://github.com/HappyLiang12","https://www.linkedin.com/in/happy-liang-89a20117a/"],"url":"https://happyliang12.github.io/cv/","knowsAbout":["Platform engineering","Observability","Kubernetes","Grafana","Prometheus","Distributed scheduling","Java","Spring Boot","React","AI agents","MCP","A2A"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Happy LIANG Yee Ching","alternateName":"Happy Liang","jobTitle":"Senior Technical Analyst","worksFor":{"@type":"Organization","name":"OOCL"},"address":{"@type":"PostalAddress","addressLocality":"Hong Kong"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Wollongong"},{"@type":"CollegeOrUniversity","name":"Community College of City University"}],"sameAs":["https://github.com/HappyLiang12","https://www.linkedin.com/in/happy-liang-89a20117a/"],"url":"https://happyliang12.github.io/cv/","knowsAbout":["Platform engineering","Observability","Kubernetes","Grafana","Prometheus","Distributed scheduling","Java","Spring Boot","React","AI agents","Warm agent pools","Agent platforms","MCP","A2A"]}</script>
 <style>
   :root { color-scheme: light; }
   * { box-sizing: border-box; }
@@ -38,13 +38,27 @@
   .pdf-link a { color: #2c5f4f; }
   footer { max-width: 820px; margin: 0 auto; padding: 0 28px 36px; color: #64645d; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; letter-spacing: .07em; text-transform: uppercase; }
   @media print {
-    body { background: #fff; color: #000; font-size: 10.5pt; }
-    .top, .no-print { display: none !important; }
+    * { letter-spacing: 0 !important; }
+    body { background: #fff; color: #000; }
+    .top, .no-print, footer { display: none !important; }
     main { max-width: none; padding: 0; }
     a { color: inherit; text-decoration: none; }
-    h2 { margin-top: 18px; border-color: #999; }
-    .job, .project { break-inside: avoid; }
-    @page { margin: 16mm; }
+    h1 { font-size: 26pt; margin-bottom: 3px; }
+    .role { font-size: 8pt; margin-bottom: 6px; }
+    .contact, .avail { font-size: 9.3pt; margin-bottom: 1px; }
+    p, li { font-size: 8.9pt; line-height: 1.31; }
+    ul { margin-top: 2px; }
+    li { margin-bottom: 1px; }
+    h2,
+    h3 {
+      font-family: Arial, Helvetica, sans-serif !important;
+      text-transform: none !important;
+    }
+    h2 { font-size: 10.2pt; margin: 11px 0 4px; padding-bottom: 2px; border-color: #999; }
+    h3 { font-size: 10.2pt; margin-bottom: 1px; }
+    .dates, .meta { font-size: 7pt; }
+    .job, .project { margin-bottom: 9px; break-inside: avoid; }
+    @page { margin: 11mm 13mm; }
   }
 </style>
 </head>
@@ -61,10 +75,10 @@
   <p class="avail">US work authorization: requires sponsorship | Available to relocate to Memphis, TN</p>
 
   <h2>Summary</h2>
-  <p>Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of an agent-platform Control Tower: multi-service control plane, human-in-the-loop approval, live fleet state, and spec versioning. Strong across Java/Spring Boot, Python, ReactJS, and 20+ service estates, with recursive job decomposition and heartbeat-based scheduling. Production observability with Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, and Metabase. AI-native developer: agent templates, agentic workflows, LLM integration, and agent management systems. Known for making systems testable and building repeatable automation rather than chasing test counts.</p>
+  <p>Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of an agent-platform Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top (registry, HITL approval, live fleet state, spec versioning). Strong across Java/Spring Boot, Python, ReactJS, and 20+ service estates, with recursive job decomposition and heartbeat-based scheduling. Production observability with Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, and Metabase. AI-native developer: agent templates, agentic workflows, LLM integration, and agent management systems. Known for making systems testable and building repeatable automation rather than chasing test counts.</p>
 
   <h2>Core Skills</h2>
-  <ul><li>Platform engineering: 20+ service estates; Java 21/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, ADK agent services; system analysis, microservices migration, shared libraries, API contracts.</li><li>Distributed scheduling: recursive job → task → work-unit decomposition; asynchronous fan-out; heartbeat-based dispatch; resource-aware scaling; backpressure and queue-limit handling.</li><li>AI-native development: agent templates, agentic coding workflows, LLM integration, prompt and tool design, MCP, A2A v1.0, AG-UI/SSE, agent orchestration, approval gates, agent registry.</li><li>Observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase (production); Rancher-managed Kubernetes; p50/p95 latency instrumentation; load and concurrency E2E; rollout verification.</li><li>Testing and automation: testability by design; contract, API, and E2E automation; deterministic fixtures; real-boundary integration tests; CI quality gates; Playwright; jsdom.</li><li>Backend: Spring Boot, Spring Cloud, JPA/Hibernate, jOOQ, REST, OAuth2/OIDC, ABAC, RabbitMQ, Flask, Node.js.</li><li>Frontend: React 19, Vite, TypeScript, Ant Design, Redux Toolkit, HTML5/CSS.</li><li>Data: PostgreSQL, MySQL/MariaDB, MongoDB, Oracle (working knowledge), H2, SQLite; schema design, optimistic locking, native CTE queries, idempotent sync.</li><li>Ops: Docker, Kubernetes, Rancher, Jenkins, GitHub Actions, SonarQube, Linux; AWS/GCP (working knowledge).</li><li>AI/ML: TensorFlow (DQN/RL POC), LangChain, OpenSandbox.</li><li>Practices: TDD, clean architecture, Scrum Master, Jira/Confluence/Bitbucket.</li></ul>
+  <ul><li>Platform engineering: 20+ service estates; Java 21/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, ADK agent services; system analysis, microservices migration, shared libraries, API contracts.</li><li>Distributed scheduling: recursive job → task → work-unit decomposition; asynchronous fan-out; heartbeat-based dispatch; resource-aware scaling; backpressure and queue-limit handling.</li><li>AI-native development: agent templates, agentic coding workflows, LLM integration, prompt and tool design, MCP, A2A v1.0, AG-UI/SSE, agent orchestration, warm agent pools, approval gates, agent registry.</li><li>Observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase (production); Rancher-managed Kubernetes; p50/p95 latency instrumentation; load and concurrency E2E; rollout verification.</li><li>Testing and automation: testability by design; contract, API, and E2E automation; deterministic fixtures; real-boundary integration tests; CI quality gates; Playwright; jsdom.</li><li>Backend: Spring Boot, Spring Cloud, JPA/Hibernate, jOOQ, REST, OAuth2/OIDC, ABAC, RabbitMQ, Flask, Node.js.</li><li>Frontend: React 19, Vite, TypeScript, Ant Design, Redux Toolkit, HTML5/CSS.</li><li>Data: PostgreSQL, MySQL/MariaDB, MongoDB, Oracle (working knowledge), H2, SQLite; schema design, optimistic locking, native CTE queries, idempotent sync.</li><li>Ops: Docker, Kubernetes, Rancher, Jenkins, GitHub Actions, SonarQube, Linux; AWS/GCP (working knowledge).</li><li>AI/ML: TensorFlow (DQN/RL POC), LangChain, OpenSandbox.</li><li>Practices: TDD, clean architecture, Scrum Master, Jira/Confluence/Bitbucket.</li></ul>
 
   <h2>Experience</h2>
   
@@ -73,7 +87,7 @@
       <h3>Senior Technical Analyst — OOCL</h3>
       <span class="dates">Hong Kong · Oct 2021 — present</span>
     </div>
-    <ul><li>Work across a 20+ service platform spanning Java/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, and ADK agent services; system analysis, revamp, and migration of existing flows into microservices and shared libraries.</li><li>Design owner of the Control Tower: a multi-service control plane for agent fleets with a human-in-the-loop approval gate, live agent status, and spec versioning.</li><li>Designed the job-decomposer library in the platform scheduler: recursively decomposes a job into tasks and work units across N levels, then dispatches them over asynchronous messaging and scales workers from config or available resources.</li><li>Built the heartbeat-based scheduling loop that keeps dispatching work, applies backpressure, and respects the async queue framework&#39;s limits, so large or continuously loaded jobs do not stall.</li><li>Own production observability: Grafana, Prometheus on Rancher-managed Kubernetes, Azure Monitor, Elasticsearch/Filebeat, and Metabase.</li><li>Own Jenkins CI/CD and Kubernetes UAT deploys; design for testability and build repeatable automation (deterministic E2E harnesses, real-boundary integration tests, CI quality gates).</li><li>Introduced an agent template and agentic development workflow to the team; wire LLM-backed agents into platform services and the Control Tower (A2A v1.0, AG-UI/SSE, MCP).</li><li>Own correctness rules: OAuth2/OIDC, ABAC, optimistic locking, and dual JPA + jOOQ access.</li></ul>
+    <ul><li>Work across a 20+ service platform spanning Java/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, and ADK agent services; system analysis, revamp, and migration of existing flows into microservices and shared libraries.</li><li>Design owner of the Control Tower: a warm agent pool for high-volume agent tasks using the same decomposition and heartbeat-dispatch ideas as the job decomposer, with a generic agent platform on top (agent registry, HITL approval, live agent status, spec versioning).</li><li>Designed the job-decomposer library in the platform scheduler: recursively decomposes a job into tasks and work units across N levels, then dispatches them over asynchronous messaging and scales workers from config or available resources.</li><li>Built the heartbeat-based scheduling loop that keeps dispatching work, applies backpressure, and respects the async queue framework&#39;s limits, so large or continuously loaded jobs do not stall.</li><li>Own production observability: Grafana, Prometheus on Rancher-managed Kubernetes, Azure Monitor, Elasticsearch/Filebeat, and Metabase.</li><li>Own Jenkins CI/CD and Kubernetes UAT deploys; design for testability and build repeatable automation (deterministic E2E harnesses, real-boundary integration tests, CI quality gates).</li><li>Introduced an agent template and agentic development workflow to the team; wire LLM-backed agents into platform services and the Control Tower (A2A v1.0, AG-UI/SSE, MCP).</li><li>Own correctness rules: OAuth2/OIDC, ABAC, optimistic locking, and dual JPA + jOOQ access.</li></ul>
   </section>
   <section class="job">
     <div class="job-head">
@@ -91,7 +105,7 @@
   </section>
   <section class="job">
     <div class="job-head">
-      <h3>Web Developer, part-time — InnoNext</h3>
+      <h3>Web Developer, part-time — InnoNext (HK)</h3>
       <span class="dates">Hong Kong · 2018 — 2019</span>
     </div>
     <ul><li>Built web applications with PHP, Spring, and JavaScript.</li></ul>
@@ -102,7 +116,7 @@
   <section class="project">
     <h3>Control Tower</h3>
     <p class="meta">Internal · Design owner · 2026</p>
-    <p>Design owner of the Control Tower: a multi-service control plane that manages agent fleets, exposes live agent status, and gates actions through human approval. Designed the HITL approval gate and spec-versioning workflow; integrated an internal ADK runtime with A2A v1.0 and AG-UI/SSE, agent profiles, multi-replica routing, Mongo-backed task/thread state, agent registration, and credential-proxy auth. Built the local/live stack with Docker/Podman compose and validated the end-to-end approval path.</p>
+    <p>Design owner of the Control Tower: a multi-service control plane centered on a warm agent pool for high-volume agent tasks using the same decomposition and heartbeat-dispatch ideas as the job decomposer, with a generic agent platform on top (agent registry, HITL approval, live agent status, spec versioning). Designed the HITL approval gate and spec-versioning workflow; integrated an internal ADK runtime with A2A v1.0 and AG-UI/SSE, agent profiles, multi-replica routing, Mongo-backed task/thread state, agent registration, and credential-proxy auth. Built the local/live stack with Docker/Podman compose and validated the end-to-end approval path.</p>
   </section>
   <section class="project">
     <h3>aria-conductor — <a href="https://github.com/HappyLiang12/aria-conductor">source</a></h3>
@@ -126,7 +140,7 @@
   </section>
 
   <h2>Education</h2>
-  <ul><li><strong>Bachelor of Computer Science</strong> — University of Wollongong <span class="dates">2018 — 2019</span></li><li><strong>Associate Degree in Engineering</strong> — Community College of City University <span class="dates">2015 — 2018</span></li></ul>
+  <ul><li><strong>Bachelor of Computer Science with Distinction (WAM 75.67/100)</strong> — University of Wollongong <span class="dates">2018 — 2019</span></li><li><strong>Associate Degree in Engineering</strong> — Community College of City University <span class="dates">2015 — 2018</span></li></ul>
 
   <p class="pdf-link no-print"><a href="../Happy-Liang-CV.pdf">Download PDF</a> · <a href="../cv.txt">Plain text</a></p>
 </main>

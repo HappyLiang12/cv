@@ -44,7 +44,8 @@ const personJsonLd = {
   url: siteUrl,
   knowsAbout: [
     'Platform engineering', 'Observability', 'Kubernetes', 'Grafana', 'Prometheus',
-    'Distributed scheduling', 'Java', 'Spring Boot', 'React', 'AI agents', 'MCP', 'A2A'
+    'Distributed scheduling', 'Java', 'Spring Boot', 'React', 'AI agents',
+    'Warm agent pools', 'Agent platforms', 'MCP', 'A2A'
   ]
 };
 
@@ -85,7 +86,7 @@ const cvHtml = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Happy LIANG Yee Ching — CV</title>
-<meta name="description" content="CV of Happy LIANG Yee Ching, platform and observability engineer in Hong Kong. Control planes for agent fleets, distributed scheduling, and production observability.">
+<meta name="description" content="CV of Happy LIANG Yee Ching, platform and observability engineer in Hong Kong. Agent-platform Control Tower with warm agent pools, distributed scheduling, and production observability.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${siteUrl}cv/">
 <link rel="alternate" type="text/plain" href="../cv.txt" title="CV (plain text)">
@@ -119,13 +120,27 @@ const cvHtml = `<!doctype html>
   .pdf-link a { color: #2c5f4f; }
   footer { max-width: 820px; margin: 0 auto; padding: 0 28px 36px; color: #64645d; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; letter-spacing: .07em; text-transform: uppercase; }
   @media print {
-    body { background: #fff; color: #000; font-size: 10.5pt; }
-    .top, .no-print { display: none !important; }
+    * { letter-spacing: 0 !important; }
+    body { background: #fff; color: #000; }
+    .top, .no-print, footer { display: none !important; }
     main { max-width: none; padding: 0; }
     a { color: inherit; text-decoration: none; }
-    h2 { margin-top: 18px; border-color: #999; }
-    .job, .project { break-inside: avoid; }
-    @page { margin: 16mm; }
+    h1 { font-size: 26pt; margin-bottom: 3px; }
+    .role { font-size: 8pt; margin-bottom: 6px; }
+    .contact, .avail { font-size: 9.3pt; margin-bottom: 1px; }
+    p, li { font-size: 8.9pt; line-height: 1.31; }
+    ul { margin-top: 2px; }
+    li { margin-bottom: 1px; }
+    h2,
+    h3 {
+      font-family: Arial, Helvetica, sans-serif !important;
+      text-transform: none !important;
+    }
+    h2 { font-size: 10.2pt; margin: 11px 0 4px; padding-bottom: 2px; border-color: #999; }
+    h3 { font-size: 10.2pt; margin-bottom: 1px; }
+    .dates, .meta { font-size: 7pt; }
+    .job, .project { margin-bottom: 9px; break-inside: avoid; }
+    @page { margin: 11mm 13mm; }
   }
 </style>
 </head>
@@ -200,7 +215,7 @@ ${cv.role} based in ${cv.location}. ${cv.availability}
 - This file: ${siteUrl}llms.txt
 
 ## Focus
-- Control planes for agent fleets: HITL approval gates, live fleet state, spec versioning, A2A v1.0, AG-UI/SSE, MCP.
+- Control planes for agent fleets: warm agent pools for high-volume tasks, a generic agent platform, HITL approval gates, live fleet state, spec versioning, A2A v1.0, AG-UI/SSE, MCP.
 - Distributed scheduling: recursive job -> task -> work-unit decomposition, async fan-out, heartbeat dispatch, backpressure.
 - Production observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase on Rancher-managed Kubernetes.
 - Correctness-sensitive systems: OAuth2/OIDC, ABAC, optimistic locking, TOCTOU fixes, deterministic E2E and load harnesses.
@@ -209,6 +224,12 @@ ${cv.role} based in ${cv.location}. ${cv.availability}
 - aria-conductor: concurrent opposing approvals reduced from 5/8 to 0/8 double commits with an atomic conditional update.
 - aria-conductor harness: 100-read burst p95 ~0.9 s; 16-client mixed load errorRate 0; 6x pool saturation zero 5xx.
 - 20+ service estate across Java 21/Spring Boot, Python, React, Kong, Nginx, and ADK agent services.
+
+## Experience
+${cv.experience.map(job => `- ${job.role} — ${job.company} (${job.period})`).join('\n')}
+
+## Education
+${cv.education.map(item => `- ${item.degree} — ${item.school} (${item.period})`).join('\n')}
 
 ## Reading order for agents
 1. ${siteUrl}cv.txt — complete structured CV.

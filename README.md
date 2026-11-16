@@ -25,6 +25,8 @@ npm run build      # typecheck, regenerate /public artifacts, build
 npm run preview    # serve dist at http://localhost:4174/
 npm run content    # regenerate public/cv/, cv.txt, llms.txt, sitemap, robots
 npm run pdf        # regenerate public/Happy-Liang-CV.pdf (needs local Chrome)
+npm run check:pdf  # verify public PDF is 2 pages with a clean text layer
+APPLICATION_PHONE=... npm run application-pdf  # private application PDF
 ```
 
 ## Content
@@ -35,12 +37,17 @@ npm run pdf        # regenerate public/Happy-Liang-CV.pdf (needs local Chrome)
 - `public/cv.txt`, `public/llms.txt`
 - `public/sitemap.xml`, `public/robots.txt`, `.nojekyll`
 
-The PDF is generated separately with headless Chrome. Run `npm run pdf` after changing
-the CV, before building for deployment.
+The public PDF is generated separately with headless Chrome. Run `npm run pdf` after
+changing the CV, before building for deployment; it is two pages and excludes the phone
+number. Run `npm run check:pdf` to verify page count and text extraction.
 
-Contact fields live in `src/data/cv.json` under `contact`. The site intentionally has no
-phone number. The homepage hides the email behind a click-to-reveal control; `/cv/` and
-the PDF expose it for recruiters and ATS parsers.
+For applications, set `APPLICATION_PHONE` and run `npm run application-pdf`. It writes
+`private/LIANG-Yee-Ching-Happy-Application-CV.pdf` with the legal name, email, and phone;
+`private/` is gitignored and is never deployed. Do not commit the application PDF.
+
+Contact fields live in `src/data/cv.json` under `contact`. The homepage hides the email
+behind a click-to-reveal control; `/cv/` and the public PDF expose it for recruiters and
+ATS parsers. The site intentionally publishes no phone number.
 
 ## Deployment
 
@@ -95,7 +102,12 @@ Chromium, production preview. Screenshots in `docs/screenshots/`.
 - Minimal mode toggle, persistence, condensed content, hidden section nav, and
   `aria-pressed` checked.
 - Reduced motion, WebGL-off fallback, no-JS fallback, static `/cv/` checked.
-- Contact email reveal, `/cv/`, `cv.txt`, `llms.txt`, and regenerated PDF checked.
+- Contact email reveal, `/cv/`, `cv.txt`, `llms.txt`, HTML, and public PDF checked.
+- Warm agent pool, high-volume agent tasks, and generic agent platform are present in the
+  summary, OOCL experience, Control Tower copy, project copy, and generated artifacts.
+  Education shows Distinction with WAM 75.67/100; InnoNext is labelled `(HK)`.
+- Public PDF is 2 pages with a clean text layer (`npm run check:pdf`) and no phone number.
+  The private application PDF is also 2 pages, with legal name, email, and phone.
 - GitHub Pages base `/cv/` build served from a subpath: assets and the lazy 3D chunk
   load with the correct prefix; graph interaction check passes.
 - Keyboard: skip link activates `#main`; the page shell remains keyboard accessible.
@@ -103,10 +115,10 @@ Chromium, production preview. Screenshots in `docs/screenshots/`.
 
 | Preset | Performance | Accessibility | Best practices | SEO | LCP | CLS | TBT |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Desktop | 100 | 100 | 100 | 100 | 0.6 s | 0 | 0 ms |
+| Desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 | 0 ms |
 | Mobile | 98 | 100 | 100 | 100 | 2.0 s | 0 | 0 ms |
 
-Initial JavaScript is 267 kB raw / 83 kB gzip. The 3D chunk (952 kB raw / 253 kB gzip)
+Initial JavaScript is 268 kB raw / 83 kB gzip. The 3D chunk (952 kB raw / 253 kB gzip)
 loads only on wide screens (981 px and up) and is not fetched on mobile or in Minimal mode.
 The scene mounts without a separate WebGL probe; if the context fails, the static map is
 kept and the inspector is hidden.
@@ -138,4 +150,5 @@ node --experimental-websocket scripts/graph-check.mjs http://localhost:4174/cv/
 - The 3D scene is a schematic skill graph, not live data.
 - The graph has no keyboard interaction by design; use the static CV or Minimal mode for
   keyboard and assistive-technology access.
+- The application PDF is generated locally under ignored `private/`; it is not published.
 - GitHub Pages performance may differ from the local Lighthouse run.

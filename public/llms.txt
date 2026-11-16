@@ -1,6 +1,6 @@
 # Happy LIANG Yee Ching
 
-> Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of an agent-platform Control Tower; production observability, recursive job decomposition, and human-in-the-loop control across a 20+ service estate.
+> Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of an agent-platform Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top (registry, HITL approval, live fleet state, spec versioning). Strong across Java/Spring Boot, Python, ReactJS, and 20+ service estates, with recursive job decomposition, heartbeat-based scheduling, and production observability.
 
 Platform & observability engineer based in Hong Kong. US work authorization: requires sponsorship | Available to relocate to Memphis, TN
 
@@ -12,7 +12,7 @@ Platform & observability engineer based in Hong Kong. US work authorization: req
 - This file: https://happyliang12.github.io/cv/llms.txt
 
 ## Focus
-- Control planes for agent fleets: HITL approval gates, live fleet state, spec versioning, A2A v1.0, AG-UI/SSE, MCP.
+- Control planes for agent fleets: warm agent pools for high-volume tasks, a generic agent platform, HITL approval gates, live fleet state, spec versioning, A2A v1.0, AG-UI/SSE, MCP.
 - Distributed scheduling: recursive job -> task -> work-unit decomposition, async fan-out, heartbeat dispatch, backpressure.
 - Production observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase on Rancher-managed Kubernetes.
 - Correctness-sensitive systems: OAuth2/OIDC, ABAC, optimistic locking, TOCTOU fixes, deterministic E2E and load harnesses.
@@ -21,6 +21,16 @@ Platform & observability engineer based in Hong Kong. US work authorization: req
 - aria-conductor: concurrent opposing approvals reduced from 5/8 to 0/8 double commits with an atomic conditional update.
 - aria-conductor harness: 100-read burst p95 ~0.9 s; 16-client mixed load errorRate 0; 6x pool saturation zero 5xx.
 - 20+ service estate across Java 21/Spring Boot, Python, React, Kong, Nginx, and ADK agent services.
+
+## Experience
+- Senior Technical Analyst — OOCL (Oct 2021 — present)
+- Full Stack Developer — NTT DATA (2021)
+- Programmer, IT Department — Hutchison Ports (2019 — 2021)
+- Web Developer, part-time — InnoNext (HK) (2018 — 2019)
+
+## Education
+- Bachelor of Computer Science with Distinction (WAM 75.67/100) — University of Wollongong (2018 — 2019)
+- Associate Degree in Engineering — Community College of City University (2015 — 2018)
 
 ## Reading order for agents
 1. https://happyliang12.github.io/cv/cv.txt — complete structured CV.

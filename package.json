@@ -10,7 +10,10 @@
     "preview": "vite preview --port 4174",
     "typecheck": "tsc --noEmit",
     "content": "node scripts/generate-content.mjs",
-    "pdf": "node scripts/make-pdf.mjs"
+    "pdf": "node scripts/make-pdf.mjs",
+    "check:pdf": "swift scripts/check-pdf.swift public/Happy-Liang-CV.pdf",
+    "preapplication-pdf": "node scripts/generate-content.mjs",
+    "application-pdf": "node scripts/make-application-pdf.mjs"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.3.0",
