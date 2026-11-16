@@ -218,7 +218,7 @@ ${cv.role} based in ${cv.location}. ${cv.availability}
 ## Notes
 - No phone number is published.
 - No analytics or trackers.
-- Contact details are available on request.
+- Contact: ${email || 'available on request'}; LinkedIn: ${linkedin}.
 `;
 
 fs.writeFileSync(path.join(publicDir, 'llms.txt'), llmsText);

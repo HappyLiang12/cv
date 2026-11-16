@@ -1,5 +1,6 @@
 import { lazy, Suspense, useRef, useState } from 'react';
 import cv from '../data/cv.json';
+import { useHoverIntent } from '../hooks/useHoverIntent';
 import { useInView } from '../hooks/useInView';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { usePageVisible } from '../hooks/usePageVisible';
@@ -19,7 +20,7 @@ export function Hero() {
   const sceneInView = useInView(sceneRef, '160px');
 
   const [selected, setSelected] = useState<string | null>(null);
-  const [hovered, setHovered] = useState<string | null>(null);
+  const { hovered, onHover } = useHoverIntent();
   const [sceneFailed, setSceneFailed] = useState(false);
 
   const showScene = desktop;
@@ -83,7 +84,7 @@ export function Hero() {
                           selected={selected}
                           hovered={hovered}
                           wide={wide}
-                          onHover={setHovered}
+                          onHover={onHover}
                           onSelect={selectNode}
                         />
                       </Suspense>

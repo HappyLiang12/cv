@@ -79,36 +79,43 @@ separate.
 - Project evidence is folded into the skill model: Control Tower sits under Agent systems;
   Testing & harness includes aria-conductor, and the green edge links the two.
 
-## Verification (2026-11-16)
+## Verification (2026-11-17)
 
 Chromium, production preview. Screenshots in `docs/screenshots/`.
 
 - 1440 / 1024 / 768 / 390 / 320 px: no horizontal overflow, no console errors.
-- 1440 px live WebGL skill graph: shaded 3D nodes, four capabilities, initial six labels,
-  hover path to Happy, tool drill-down, background expansion.
+- 1440 px live WebGL skill graph: shaded 3D nodes, four capabilities, six initially visible
+  labels, hover path to Happy, tool drill-down, background expansion.
+- Graph labels stay mounted and fade between states; inspector content crossfades, and
+  rapid hover produces no intermediate inspector titles (`scripts/graph-check.mjs`).
+- Clicking a node eases the camera toward it and release returns to the overview; the
+  selected 1440 px label moved from 162 px to 44 px from the canvas center.
 - Mouse-only graph controls verified with `scripts/graph-check.mjs`: inspector has zero
   focusable controls and the canvas has no `tabindex`.
 - Minimal mode toggle, persistence, condensed content, hidden section nav, and
   `aria-pressed` checked.
 - Reduced motion, WebGL-off fallback, no-JS fallback, static `/cv/` checked.
+- Contact email reveal, `/cv/`, `cv.txt`, `llms.txt`, and regenerated PDF checked.
 - GitHub Pages base `/cv/` build served from a subpath: assets and the lazy 3D chunk
   load with the correct prefix; graph interaction check passes.
 - Keyboard: skip link activates `#main`; the page shell remains keyboard accessible.
-- Lighthouse 12.8.2 (local preview, SwiftShader):
+- Lighthouse 12.8.2 (Vite preview, SwiftShader):
 
 | Preset | Performance | Accessibility | Best practices | SEO | LCP | CLS | TBT |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Desktop | 100 | 100 | 100 | 100 | 0.6 s | 0 | 30 ms |
+| Desktop | 100 | 100 | 100 | 100 | 0.6 s | 0 | 0 ms |
 | Mobile | 98 | 100 | 100 | 100 | 2.0 s | 0 | 0 ms |
 
-Initial JavaScript is 266 kB raw / 82 kB gzip. The 3D chunk (951 kB raw / 252 kB gzip)
+Initial JavaScript is 267 kB raw / 83 kB gzip. The 3D chunk (952 kB raw / 253 kB gzip)
 loads only on wide screens (981 px and up) and is not fetched on mobile or in Minimal mode.
 The scene mounts without a separate WebGL probe; if the context fails, the static map is
 kept and the inspector is hidden.
-Run the graph interaction check with:
+Run the production graph interaction check with:
 
 ```bash
-node --experimental-websocket scripts/graph-check.mjs http://localhost:4174/
+GITHUB_ACTIONS=true npm run build
+GITHUB_ACTIONS=true npm run preview
+node --experimental-websocket scripts/graph-check.mjs http://localhost:4174/cv/
 ```
 
 ### Screenshots
@@ -116,6 +123,7 @@ node --experimental-websocket scripts/graph-check.mjs http://localhost:4174/
 - `docs/screenshots/desktop-hero.png`
 - `docs/screenshots/desktop-graph-capability.png`
 - `docs/screenshots/desktop-graph-tool.png`
+- `docs/screenshots/desktop-contact.png`
 - `docs/screenshots/tablet-768.png`
 - `docs/screenshots/mobile-390.png`
 - `docs/screenshots/mobile-320.png`
@@ -127,7 +135,6 @@ node --experimental-websocket scripts/graph-check.mjs http://localhost:4174/
 
 ## Known limitations
 
-- The contact email is still pending; until set, the site says “Email available on request”.
 - The 3D scene is a schematic skill graph, not live data.
 - The graph has no keyboard interaction by design; use the static CV or Minimal mode for
   keyboard and assistive-technology access.

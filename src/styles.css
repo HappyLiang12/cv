@@ -274,9 +274,10 @@ h1 {
   text-transform: none;
   white-space: nowrap;
   user-select: none;
-  transition: opacity .18s;
+  transition: opacity .22s ease, transform .22s ease;
 }
 .scene-label.is-dim { opacity: .28; }
+.scene-label.is-hidden { opacity: 0; transform: translateY(2px); }
 .scene-label-self {
   color: var(--accent);
   font-family: var(--sans);
@@ -301,13 +302,33 @@ h1 {
 .scene-label-education { color: var(--muted); font-size: 9px; }
 /* Graph inspector */
 .graph-inspector {
+  position: relative;
   border-top: 1px solid var(--line);
   padding: 12px 0 10px;
+  min-height: 104px;
+}
+.gi-layer {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
   gap: 20px;
   align-items: start;
-  min-height: 104px;
+}
+.gi-layer-current { animation: gi-in .18s ease both; }
+.gi-layer-outgoing {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  animation: gi-out .09s ease both;
+}
+@keyframes gi-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gi-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-2px); }
 }
 .gi-kind { color: var(--accent); font-size: 8px; letter-spacing: .1em; }
 .gi-main h2 {
@@ -825,7 +846,7 @@ h1 {
 @media (max-width: 1100px) {
   .hero-grid { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); }
   .hero-copy { max-width: 480px; }
-  .graph-inspector { grid-template-columns: 1fr; gap: 8px; }
+  .gi-layer { grid-template-columns: 1fr; gap: 8px; }
   .gi-side { align-items: flex-start; }
   .gi-list,
   .gi-related,

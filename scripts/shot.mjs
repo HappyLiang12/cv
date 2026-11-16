@@ -84,7 +84,8 @@ try {
     source: `window.__errs = [];
       addEventListener('error', event => window.__errs.push(String(event.message || event.error)));
       addEventListener('unhandledrejection', event => window.__errs.push(String(event.reason)));
-      ${process.env.FULL ? "localStorage.setItem('cv-mode', 'full');" : ''}`
+      ${process.env.FULL ? "localStorage.setItem('cv-mode', 'full');" : ''}
+      ${process.env.MINIMAL ? "localStorage.setItem('cv-mode', 'minimal');" : ''}`
   });
   await send('Emulation.setDeviceMetricsOverride', {
     width: Number(w),

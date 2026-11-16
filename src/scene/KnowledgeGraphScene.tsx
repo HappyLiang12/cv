@@ -1,7 +1,8 @@
-import { Canvas, useFrame, type ThreeEvent } from '@react-three/fiber';
+import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
 import { AdaptiveDpr, Html, OrbitControls } from '@react-three/drei';
-import { useLayoutEffect, useMemo, useRef } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
+import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import {
   accentEdges,
   adjacency,
@@ -24,6 +25,15 @@ type SceneProps = {
   onSelect: (id: string | null) => void;
 };
 
+type FocusTween = {
+  startedAt: number;
+  duration: number;
+  fromTarget: THREE.Vector3;
+  toTarget: THREE.Vector3;
+  fromPosition: THREE.Vector3;
+  toPosition: THREE.Vector3;
+};
+
 function labelOffsetY(node: KnowledgeNode) {
   if (node.kind === 'self') return node.size + 0.34;
   if (node.kind === 'capability') return node.size + 0.27;
@@ -32,7 +42,15 @@ function labelOffsetY(node: KnowledgeNode) {
   return node.size + 0.2;
 }
 
-function Label({ node, dim }: { node: KnowledgeNode; dim: boolean }) {
+function Label({
+  node,
+  dim,
+  visible
+}: {
+  node: KnowledgeNode;
+  dim: boolean;
+  visible: boolean;
+}) {
   const [x, y, z] = node.position!;
   return (
     <Html
@@ -44,7 +62,9 @@ function Label({ node, dim }: { node: KnowledgeNode; dim: boolean }) {
       style={{ pointerEvents: 'none' }}
     >
       <span
-        className={`scene-label scene-label-${node.kind}${dim ? ' is-dim' : ''}`}
+        className={`scene-label scene-label-${node.kind}${dim ? ' is-dim' : ''}${
+          visible ? '' : ' is-hidden'
+        }`}
         aria-hidden="true"
       >
         {node.label}
@@ -84,24 +104,35 @@ function NodeMesh({
   onSelect: (id: string | null) => void;
 }) {
   const mesh = useRef<THREE.Mesh>(null);
+  const material = useRef<THREE.MeshLambertMaterial>(null);
   const target = selected ? 1.28 : active ? 1.14 : 1;
+  const opacity = dim ? 0.3 : node.tone === 'muted' ? 0.78 : 1;
 
   useFrame((_, delta) => {
     if (!mesh.current) return;
     mesh.current.scale.setScalar(
       THREE.MathUtils.damp(mesh.current.scale.x, target, 8, delta)
     );
+    if (material.current) {
+      material.current.opacity = THREE.MathUtils.damp(
+        material.current.opacity,
+        opacity,
+        10,
+        delta
+      );
+    }
   });
 
   return (
     <group position={node.position!}>
-      <mesh ref={mesh}>
+      <mesh ref={mesh} scale={0.05}>
         {geometryFor(node)}
         <meshLambertMaterial
+          ref={material}
           color={colorFor(node)}
           flatShading
           transparent
-          opacity={dim ? 0.3 : node.tone === 'muted' ? 0.78 : 1}
+          opacity={0}
         />
       </mesh>
       <mesh
@@ -141,23 +172,34 @@ function ChildNode({
   onSelect: (id: string | null) => void;
 }) {
   const mesh = useRef<THREE.Mesh>(null);
+  const material = useRef<THREE.MeshLambertMaterial>(null);
+  const opacity = dim ? 0.26 : 0.92;
 
   useFrame((_, delta) => {
     if (!mesh.current) return;
     mesh.current.scale.setScalar(
       THREE.MathUtils.damp(mesh.current.scale.x, active ? 1.2 : 1, 10, delta)
     );
+    if (material.current) {
+      material.current.opacity = THREE.MathUtils.damp(
+        material.current.opacity,
+        opacity,
+        10,
+        delta
+      );
+    }
   });
 
   return (
     <group position={node.position!}>
-      <mesh ref={mesh}>
+      <mesh ref={mesh} scale={0.05}>
         <tetrahedronGeometry args={[node.size, 0]} />
         <meshLambertMaterial
+          ref={material}
           color={node.tone === 'muted' ? '#73736b' : '#2c5f4f'}
           flatShading
           transparent
-          opacity={dim ? 0.26 : 0.92}
+          opacity={0}
         />
       </mesh>
       <mesh
@@ -361,8 +403,45 @@ function CoreRings() {
 
 function SceneContents({ selected, hovered, wide, onHover, onSelect }: Omit<SceneProps, 'paused'>) {
   const group = useRef<THREE.Group>(null);
+  const orbit = useRef<OrbitControlsImpl>(null);
+  const focusTween = useRef<FocusTween | null>(null);
+  const camera = useThree(state => state.camera);
   const active = hovered ?? selected;
   const selectedNode = selected ? nodeById.get(selected) : undefined;
+  const lastSelected = useRef(selected);
+
+  useEffect(() => {
+    if (selected === lastSelected.current) return;
+    lastSelected.current = selected;
+    if (!orbit.current) return;
+
+    const targetNode = selected ? nodeById.get(selected) : undefined;
+    const toTarget = new THREE.Vector3(...(targetNode?.position ?? [0, -0.1, 0]));
+    const offset = camera.position.clone().sub(orbit.current.target);
+    if (offset.lengthSq() < 0.0001) offset.set(0.3, 0.9, 12);
+    offset.setLength(targetNode ? 8.4 : 12);
+
+    focusTween.current = {
+      startedAt: performance.now(),
+      duration: 650,
+      fromTarget: orbit.current.target.clone(),
+      toTarget,
+      fromPosition: camera.position.clone(),
+      toPosition: toTarget.clone().add(offset)
+    };
+  }, [camera, selected]);
+
+  useFrame(() => {
+    const tween = focusTween.current;
+    const controls = orbit.current;
+    if (!tween || !controls) return;
+    const progress = Math.min(1, (performance.now() - tween.startedAt) / tween.duration);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    controls.target.lerpVectors(tween.fromTarget, tween.toTarget, eased);
+    camera.position.lerpVectors(tween.fromPosition, tween.toPosition, eased);
+    controls.update();
+    if (progress >= 1) focusTween.current = null;
+  });
 
   const activePath = useMemo(
     () => (active ? pathToRoot(active) : []),
@@ -554,16 +633,21 @@ function SceneContents({ selected, hovered, wide, onHover, onSelect }: Omit<Scen
         >
           <span />
         </Html>
-        {visibleNodes.filter(showLabel).map(node => (
+        {visibleNodes.map(node => (
           <Label
             key={`label-${node.id}`}
             node={node}
             dim={Boolean(highlighted && !highlighted.has(node.id))}
+            visible={showLabel(node)}
           />
         ))}
       </group>
       <OrbitControls
+        ref={orbit}
         makeDefault
+        onStart={() => {
+          focusTween.current = null;
+        }}
         enablePan={false}
         enableDamping
         dampingFactor={0.08}
