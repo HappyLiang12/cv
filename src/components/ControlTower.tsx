@@ -7,7 +7,6 @@ export function ControlTower() {
   return (
     <Section
       id="control-tower"
-      number="02"
       label="Agent Control Tower"
       title="Warm agent pool and generic agent platform."
     >

@@ -68,10 +68,6 @@ export function Hero() {
               aria-label="Technical skill graph: tools, skill groups and capabilities converging on Happy"
             >
               <div className="scene-frame">
-                <div className="scene-meta mono">
-                  <span>Fig. 01 — Skill graph</span>
-                  <span>Tools → groups → capabilities</span>
-                </div>
                 <div className="scene-canvas">
                   {useR3F ? (
                     <SceneBoundary
@@ -117,7 +113,7 @@ export function Hero() {
         {!desktop && (
           <figure className="mobile-scene" aria-label="Technical skill graph: tools, skill groups and capabilities converging on Happy">
             <StaticMap variant="mobile" />
-            <figcaption className="mono">Technical skill map</figcaption>
+            <figcaption className="mono">Skill graph</figcaption>
           </figure>
         )}
 

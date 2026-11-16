@@ -19,15 +19,19 @@ const esc = value => String(value)
 const email = cv.contact.email.trim();
 const linkedin = cv.contact.linkedin.trim();
 const github = cv.contact.github.trim();
+const linkedinLabel = linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/+$/, '');
+const githubLabel = github.replace(/^https?:\/\/(www\.)?/, '').replace(/\/+$/, '');
 const contactParts = [];
 if (email) contactParts.push(`<a href="mailto:${esc(email)}">${esc(email)}</a>`);
 else contactParts.push('Email available on request');
-if (linkedin) contactParts.push(`<a href="${esc(linkedin)}">LinkedIn</a>`);
-if (github) contactParts.push(`<a href="${esc(github)}">github.com/HappyLiang12</a>`);
+contactParts.push(`<a href="${esc(siteUrl)}">happyliang12.github.io/cv</a>`);
+if (linkedin) contactParts.push(`<a href="${esc(linkedin)}">${esc(linkedinLabel)}</a>`);
+if (github) contactParts.push(`<a href="${esc(github)}">${esc(githubLabel)}</a>`);
 
 const contactPlain = [];
 if (email) contactPlain.push(email);
 else contactPlain.push('Email: available on request');
+contactPlain.push(`CV: ${siteUrl}`);
 if (linkedin) contactPlain.push(`LinkedIn: ${linkedin}`);
 if (github) contactPlain.push(`GitHub: ${github}`);
 

@@ -30,7 +30,6 @@ Platform & observability engineer based in Hong Kong. Open to relocation to the 
 
 ## Education
 - Bachelor of Computer Science with Distinction (WAM 75.67/100) — University of Wollongong (2018 — 2019)
-- Associate Degree in Engineering — Community College of City University (2015 — 2018)
 
 ## Reading order for agents
 1. https://happyliang12.github.io/cv/cv.txt — complete structured CV.

@@ -28,6 +28,9 @@ const esc = value => String(value)
 const email = cv.contact.email.trim();
 const link = cv.contact.linkedin.trim();
 const github = cv.contact.github.trim();
+const site = (process.env.SITE_URL || cv.siteUrl).replace(/\/+$/, '') + '/';
+const linkLabel = link.replace(/^https?:\/\/(www\.)?/, '').replace(/\/+$/, '');
+const githubLabel = github.replace(/^https?:\/\/(www\.)?/, '').replace(/\/+$/, '');
 if (!email) {
   console.error('Missing contact email in src/data/cv.json.');
   process.exit(1);
@@ -36,8 +39,9 @@ if (!email) {
 const contact = [
   `<a href="mailto:${esc(email)}">${esc(email)}</a>`,
   `<a href="tel:${esc(phone.replace(/\s+/g, ''))}">${esc(phone)}</a>`,
-  `<a href="${esc(link)}">LinkedIn</a>`,
-  `<a href="${esc(github)}">github.com/HappyLiang12</a>`
+  `<a href="${esc(site)}">happyliang12.github.io/cv</a>`,
+  `<a href="${esc(link)}">${esc(linkLabel)}</a>`,
+  `<a href="${esc(github)}">${esc(githubLabel)}</a>`
 ].join(' · ');
 
 const html = fs.readFileSync(source, 'utf8')

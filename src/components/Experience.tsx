@@ -5,7 +5,6 @@ export function Experience() {
   return (
     <Section
       id="experience"
-      number="01"
       label="Experience"
       title="Agent platforms and production systems."
     >

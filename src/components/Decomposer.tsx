@@ -5,7 +5,6 @@ export function Decomposer() {
   return (
     <Section
       id="decomposer"
-      number="03"
       label="Job Decomposer"
       title="Recursive job → task → sub-task scheduling."
     >

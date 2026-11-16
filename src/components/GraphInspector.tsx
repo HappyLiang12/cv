@@ -60,10 +60,10 @@ function InspectorContent({
     >
       <div className="gi-main">
         <span className="mono gi-kind">
-          {node ? kindLabel[node.kind] : 'Technical skill graph'}
+          {node ? kindLabel[node.kind] : 'Overview'}
           {meta ? ` · ${meta}` : ''}
         </span>
-        <h2>{node?.label ?? 'A graph of my knowledge'}</h2>
+        <h2>{node?.label ?? 'Skill graph'}</h2>
         {trail.length > 0 && (
           <p className="mono gi-path">{trail.join(' / ')}</p>
         )}

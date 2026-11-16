@@ -45,9 +45,8 @@ For applications, set `APPLICATION_PHONE` and run `npm run application-pdf`. It 
 `private/LIANG-Yee-Ching-Happy-Application-CV.pdf` with the legal name, email, and phone;
 `private/` is gitignored and is never deployed. Do not commit the application PDF.
 
-Contact fields live in `src/data/cv.json` under `contact`. The homepage hides the email
-behind a click-to-reveal control; `/cv/` and the public PDF expose it for recruiters and
-ATS parsers. The site intentionally publishes no phone number.
+Contact fields live in `src/data/cv.json` under `contact`. The homepage, `/cv/`, and the
+public PDF show the email directly; the site publishes no phone number.
 
 ## Deployment
 
@@ -102,15 +101,17 @@ Chromium, production preview. Screenshots in `docs/screenshots/`.
 - Minimal mode toggle, persistence, condensed content, hidden section nav, and
   `aria-pressed` checked.
 - Reduced motion, WebGL-off fallback, no-JS fallback, static `/cv/` checked.
-- Contact email reveal, `/cv/`, `cv.txt`, `llms.txt`, HTML, and public PDF checked.
+- Contact email, `/cv/`, `cv.txt`, `llms.txt`, HTML, and public PDF checked.
 - Warm agent pool, knowledge space, self-improvement pipeline, dynamic workflow, active
   notification system, dynamic dashboard, human approval, and job → task → sub-task are
   present in the summary, OOCL experience, Agent Control Tower copy, project copy, and
-  generated artifacts. Education shows Distinction with WAM 75.67/100; InnoNext is labelled `(HK)`.
+  generated artifacts. Education lists the University of Wollongong degree with Distinction
+  and WAM 75.67/100 only; InnoNext is labelled `(HK)`.
 - Summary, experience, and Control Tower copy state the zero-fault physical-infrastructure background at Hutchison Ports and OOCL and the Agent Control Tower's live state tracking.
 - Public PDF is 2 pages with a clean text layer (`npm run check:pdf`), no phone number, and
-  no internal system names or stray harness metrics. The private application PDF is also
-  2 pages, with legal name, email, and phone.
+  no internal system names or stray harness metrics. Its contact line includes the CV,
+  LinkedIn, and GitHub URLs. The private application PDF is also 2 pages, with legal name,
+  email, phone, and the same URLs.
 - GitHub Pages base `/cv/` build served from a subpath: assets and the lazy 3D chunk
   load with the correct prefix; graph interaction check passes.
 - Keyboard: skip link activates `#main`; the page shell remains keyboard accessible.

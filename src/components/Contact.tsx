@@ -1,15 +1,14 @@
 import cv from '../data/cv.json';
-import { EmailReveal } from './EmailReveal';
 import { Section } from './Section';
 
 const base = import.meta.env.BASE_URL;
 const linkedin = cv.contact.linkedin.trim();
+const email = cv.contact.email.trim();
 
 export function Contact() {
   return (
     <Section
       id="contact"
-      number="06"
       label="Contact"
       title="Contact details."
       className="contact"
@@ -19,7 +18,9 @@ export function Contact() {
         Open to relocation to the United States; will require employer-sponsored US work authorization.
       </p>
       <div className="contact-actions">
-        <EmailReveal />
+        {email && (
+          <a className="text-link primary" href={`mailto:${email}`}>{email}</a>
+        )}
         <a
           className="text-link"
           href={cv.contact.github}

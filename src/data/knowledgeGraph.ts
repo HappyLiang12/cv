@@ -142,8 +142,7 @@ const roleNotes: Record<string, string> = {
 };
 
 const educationNotes: Record<string, string> = {
-  'University of Wollongong': 'Bachelor of Computer Science with Distinction (WAM 75.67/100), 2018–2019.',
-  'Community College of City University': 'Associate Degree in Engineering, 2015–2018.'
+  'University of Wollongong': 'Bachelor of Computer Science with Distinction (WAM 75.67/100), 2018–2019.'
 };
 
 

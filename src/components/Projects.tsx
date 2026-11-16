@@ -5,14 +5,12 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      number="05"
       label="Selected Projects"
       title="Open-source and production systems."
     >
       <div className="projects">
-        {cv.projects.map((project, index) => (
+        {cv.projects.map(project => (
           <article className="project" key={project.name}>
-            <span className="n mono">{String(index + 1).padStart(2, '0')}</span>
             <div>
               <h3>{project.name}</h3>
               <div className="meta mono">{project.meta}</div>

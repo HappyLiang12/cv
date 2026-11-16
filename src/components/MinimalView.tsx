@@ -1,8 +1,8 @@
 import cv from '../data/cv.json';
-import { EmailReveal } from './EmailReveal';
 
 const base = import.meta.env.BASE_URL;
 const linkedin = cv.contact.linkedin.trim();
+const email = cv.contact.email.trim();
 
 export function MinimalView() {
   return (
@@ -89,7 +89,9 @@ export function MinimalView() {
         <section className="min-section" aria-labelledby="min-contact">
           <h2 className="min-label" id="min-contact">Contact</h2>
           <div className="min-contact-links">
-            <EmailReveal />
+            {email && (
+              <a className="text-link" href={`mailto:${email}`}>{email}</a>
+            )}
             <a className="text-link" href={cv.contact.github} target="_blank" rel="me noopener noreferrer">
               GitHub ↗
             </a>

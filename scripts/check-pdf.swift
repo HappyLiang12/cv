@@ -39,7 +39,10 @@ let expected = [
   "with distinction",
   "wam 75.67/100",
   "innonext (hk)",
-  "laing17573@gmail.com"
+  "laing17573@gmail.com",
+  "happyliang12.github.io/cv",
+  "linkedin.com/in/happy-liang-89a20117a",
+  "github.com/happyliang12"
 ]
 
 let forbidden = [

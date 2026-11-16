@@ -1,6 +1,7 @@
 LIANG Yee Ching (Happy)
 Platform & observability engineer — Hong Kong
 laing17573@gmail.com
+CV: https://happyliang12.github.io/cv/
 LinkedIn: https://www.linkedin.com/in/happy-liang-89a20117a/
 GitHub: https://github.com/HappyLiang12
 Open to relocation to the United States · Will require employer-sponsored US work authorization
@@ -66,4 +67,3 @@ Real-time browser assistant with speech input, VLM verification, HUD overlays, a
 
 EDUCATION
 Bachelor of Computer Science with Distinction (WAM 75.67/100) — University of Wollongong (2018 — 2019)
-Associate Degree in Engineering — Community College of City University (2015 — 2018)

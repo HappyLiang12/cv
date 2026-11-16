@@ -135,7 +135,7 @@ try {
   })`);
   expect(rect.w > 400 && rect.h > 300, 'Graph canvas missing');
   expect(controls.inspector === 0 && controls.canvas === null, 'Graph exposes keyboard controls');
-  expect((await evaluate(`document.querySelector('.graph-inspector h2')?.textContent`)) === 'A graph of my knowledge', 'Initial inspector state wrong');
+  expect((await evaluate(`document.querySelector('.graph-inspector h2')?.textContent`)) === 'Skill graph', 'Initial inspector state wrong');
   console.log('INITIAL', JSON.stringify({ rect, controls }));
 
   const initialLabels = await evaluate(`document.querySelectorAll('.scene-label').length`);

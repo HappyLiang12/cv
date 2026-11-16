@@ -5,7 +5,6 @@ export function Observability() {
   return (
     <Section
       id="observability"
-      number="04"
       label="Observability"
       title="Production metrics, logs, and release checks."
     >
