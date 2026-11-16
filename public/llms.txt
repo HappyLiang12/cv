@@ -1,0 +1,33 @@
+# Happy LIANG Yee Ching
+
+> Senior technical analyst and hands-on platform engineer with 7+ years building mission-critical operational platforms. Design owner of an agent-platform Control Tower; production observability, recursive job decomposition, and human-in-the-loop control across a 20+ service estate.
+
+Platform & observability engineer based in Hong Kong. US work authorization: requires sponsorship | Available to relocate to Memphis, TN
+
+## Canonical pages
+- Portfolio: https://happyliang12.github.io/cv/
+- CV (HTML): https://happyliang12.github.io/cv/cv/
+- CV (plain text): https://happyliang12.github.io/cv/cv.txt
+- GitHub: https://github.com/HappyLiang12
+- This file: https://happyliang12.github.io/cv/llms.txt
+
+## Focus
+- Control planes for agent fleets: HITL approval gates, live fleet state, spec versioning, A2A v1.0, AG-UI/SSE, MCP.
+- Distributed scheduling: recursive job -> task -> work-unit decomposition, async fan-out, heartbeat dispatch, backpressure.
+- Production observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase on Rancher-managed Kubernetes.
+- Correctness-sensitive systems: OAuth2/OIDC, ABAC, optimistic locking, TOCTOU fixes, deterministic E2E and load harnesses.
+
+## Selected evidence
+- aria-conductor: concurrent opposing approvals reduced from 5/8 to 0/8 double commits with an atomic conditional update.
+- aria-conductor harness: 100-read burst p95 ~0.9 s; 16-client mixed load errorRate 0; 6x pool saturation zero 5xx.
+- 20+ service estate across Java 21/Spring Boot, Python, React, Kong, Nginx, and ADK agent services.
+
+## Reading order for agents
+1. https://happyliang12.github.io/cv/cv.txt — complete structured CV.
+2. https://happyliang12.github.io/cv/cv/ — the same CV as semantic HTML.
+3. https://happyliang12.github.io/cv/ — portfolio narrative and selected projects.
+
+## Notes
+- No phone number is published.
+- No analytics or trackers.
+- Contact details are available on request.
