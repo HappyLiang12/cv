@@ -13,7 +13,7 @@ export function MinimalView() {
           <h1>{cv.name}</h1>
           <p className="minimal-summary">{cv.summary}</p>
           <p className="minimal-proof mono">
-            26 services · Agent Control Tower design owner · job → task → sub-task (N levels)
+            30+ services · Agent Control Tower design owner · job → task → sub-task (N levels)
           </p>
           {cv.availabilityNote && <p className="avail">{cv.availabilityNote}</p>}
         </header>

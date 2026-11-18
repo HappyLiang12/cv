@@ -11,7 +11,7 @@
     "linkedin": "https://www.linkedin.com/in/happy-liang-89a20117a/"
   },
   "summary": "AI platform engineer and design owner with 7+ years building mission-critical operational systems. Delivers agent platforms from architecture through production, with the controls and visibility needed to operate them safely. Builds reliable systems from ambiguous operational requirements and aligns engineering and operations from design through release. Background includes container-terminal and shipping operations, where correctness and uptime are operational requirements.",
-  "summaryLong": "AI platform engineer and design owner with 7+ years building mission-critical operational systems. Delivers agent platforms from architecture through production, with the controls and visibility needed to operate them safely. Has shipped AI for document review, shared AI access, and knowledge retrieval, and owns the reliability behind those systems: dependable job execution, clear monitoring, controlled releases, and fast recovery. Rolled out a shared delivery model for AI work across a 26-service platform, with design, review, and release checks that remain measurable as the platform changes. Accountable for delivery end to end: design, build, production operation, and alignment across engineering and operations. Background includes container-terminal and shipping operations, where correctness and uptime are operational requirements.",
+  "summaryLong": "AI platform engineer and design owner with 7+ years building mission-critical operational systems. Delivers agent platforms from architecture through production, with the controls and visibility needed to operate them safely. Has shipped AI for document review, shared AI access, and knowledge retrieval, and owns the reliability behind those systems: dependable job execution, clear monitoring, controlled releases, and fast recovery. Rolled out a shared delivery model for AI work across a platform of 30+ services, with design, review, and release checks that remain measurable as the platform changes. Accountable for delivery end to end: design, build, production operation, and alignment across engineering and operations. Background includes container-terminal and shipping operations, where correctness and uptime are operational requirements.",
   "availability": "",
   "availabilityNote": "",
   "metrics": [
@@ -22,7 +22,7 @@
     },
     {
       "label": "Service estate",
-      "value": "26",
+      "value": "30+",
       "note": "services · 32 repos"
     },
     {
@@ -43,20 +43,20 @@
       "period": "Oct 2021 — present",
       "location": "Hong Kong",
       "bullets": [
-        "Design owner of the Agent Control Tower: the self-built agent core, with warm agent profiles, full agent lifecycle, self-improvement, knowledge space, dynamic workflow, an active notification system, human approval, live state, spec versioning, and agent-generated dashboards.",
+        "Design owner of the Agent Control Tower: the self-built agent core, with an agent task queue, a warm agent pool, full agent lifecycle, self-improvement, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state, versioned agent definitions, and agent-generated dashboards.",
         "Designed the job-decomposer library and heartbeat dispatch loop for recursive job → task → sub-task decomposition, asynchronous fan-out, queue limits, backpressure, and resource-aware scaling.",
-        "Shipped production AI: an LLM review agent, an AI gateway with A2A/MCP, and a BM25+graph knowledge system; designed an agentic SDLC across a 26-service platform.",
-        "Own production observability (Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase), Jenkins CI/CD, Kubernetes UAT deploys, and platform correctness for a 26-service estate."
+        "Shipped production AI: an LLM review agent, an AI gateway with A2A/MCP, and a BM25+graph knowledge system; designed an agentic SDLC across a platform of 30+ services.",
+        "Own production observability (Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase), Jenkins CI/CD, Kubernetes UAT deploys, and platform correctness for an estate of 30+ services."
       ],
       "cvBullets": [
-        "Work across a 26-service platform spanning 32 repositories: Java/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, and self-built agent services; system analysis, revamp, and migration of existing flows into microservices and shared libraries.",
-        "Design owner of the Agent Control Tower: the self-built agent core, with warm agent profiles, full agent lifecycle (draft → active → retiring → retired), and agent-generated dynamic dashboards.",
-        "Platform capabilities include a self-improvement pipeline, knowledge space, dynamic workflow, an active notification system, human approval, live state tracking, spec versioning, A2A v1.0/AG-UI/SSE, multi-replica routing, MongoDB task state, a self-built agent-pod registry, and a credential proxy.",
+        "Work across a platform of 30+ services spanning 32 repositories: Java/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, and self-built agent services; system analysis, revamp, and migration of existing flows into microservices and shared libraries.",
+        "Design owner of the Agent Control Tower: the self-built agent core, with an agent task queue, a warm agent pool, full agent lifecycle (draft → active → retiring → retired), and agent-generated dynamic dashboards.",
+        "Platform capabilities include an agent task queue, a self-improvement pipeline, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state tracking, versioned agent definitions, A2A/AG-UI/SSE, multi-replica routing, durable task state, a self-built agent-pod registry, and a credential proxy.",
         "Designed the job-decomposer library and heartbeat dispatch loop: recursive job → task → sub-task decomposition across N levels, asynchronous fan-out, queue limits, backpressure, and resource-aware scaling.",
-        "Shipped production AI: a document-review agent with a five-verdict relevance gate, an AI gateway with A2A/MCP, and a BM25+graph knowledge system (recall@5 1.00 at half the context tokens); fixed a recipient-mapping bug affecting 12,912 of 25,041 records.",
-        "Designed an agentic SDLC: a 10-agent crew, 32 checkpoints, and three evidence gates (design, QA plan, release); rolled spec-driven development across 26 services and built an agent evaluation playbook.",
+        "Shipped production AI: a document-review agent with a relevance gate, an AI gateway with A2A/MCP, and a BM25+graph knowledge system (recall@5 1.00 at half the context tokens); fixed a recipient-mapping bug affecting 12,912 of 25,041 records.",
+        "Designed an agentic SDLC: a 10-agent crew, 32 checkpoints, and three evidence gates (design, QA plan, release); rolled spec-driven development across 30+ services and built an agent evaluation playbook.",
         "Own production observability: Grafana, Prometheus on Rancher-managed Kubernetes, Azure Monitor, Elasticsearch/Filebeat, and Metabase.",
-        "Own Jenkins CI/CD, Kubernetes UAT deploys, and platform correctness: OAuth2/OIDC, ABAC, optimistic locking, and dual JPA + jOOQ access."
+        "Own Jenkins CI/CD, Kubernetes UAT deploys, and platform correctness: OAuth2/OpenID Connect (OIDC), ABAC, optimistic locking, and dual JPA + jOOQ access."
       ]
     },
     {
@@ -77,11 +77,11 @@
       "period": "2019 — 2021",
       "location": "Hong Kong",
       "bullets": [
-        "Built asynchronous microservices for container-terminal automation in Kotlin, Java, and ReactJS, in an environment with zero tolerance for dispatch errors; built a DQN/RL proof of concept with TensorFlow."
+        "Built asynchronous microservices for container-terminal automation in Kotlin, Java, and ReactJS, in an environment with zero tolerance for dispatch errors; built a DQN/RL reinforcement-learning prototype with TensorFlow."
       ],
       "cvBullets": [
         "Built asynchronous microservices for port automation using Kotlin, Java, ReactJS, Gradle, and Maven, in an environment with zero tolerance for dispatch errors.",
-        "Built a DQN/RL proof of concept with TensorFlow for port automation."
+        "Built a DQN/RL reinforcement-learning prototype with TensorFlow for port automation."
       ]
     },
     {
@@ -112,20 +112,20 @@
     },
     {
       "label": "AI",
-      "items": "Agent profiles · Agent lifecycle · Self-improvement · Knowledge space · Dynamic workflow · MCP · A2A v1.0 · AG-UI · Agentic SDLC · OpenSandbox · TensorFlow (DQN/RL POC)"
+      "items": "Agent profiles · Agent lifecycle · Agent task queue · Self-improvement · Knowledge base · Dynamic workflow · MCP · A2A · AG-UI · Agentic SDLC · OpenSandbox · TensorFlow (DQN/RL)"
     }
   ],
   "coreSkills": [
-    "Platform engineering: 26 services across 32 repositories; Java 21/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, self-built agent services; system analysis, microservices migration, shared libraries, API contracts.",
+    "Platform engineering: 30+ services across 32 repositories; Java 21/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, self-built agent services; system analysis, microservices migration, shared libraries, API contracts.",
     "Distributed scheduling: job-decomposer library; recursive job → task → sub-task decomposition across N levels; asynchronous fan-out; heartbeat-based dispatch; resource-aware scaling; backpressure and queue-limit handling.",
-    "Agent and LLM development: agent profiles and lifecycle, self-improvement pipeline, knowledge space, dynamic workflow, an active notification system, agent-generated dashboards, human approval, live state, spec versioning, agentic SDLC, LLM integration, prompt and tool design, MCP, A2A v1.0, AG-UI/SSE, self-built agent-pod registry, credential proxy.",
+    "Agent and LLM development: agent profiles and lifecycle, agent task queue, self-improvement pipeline, knowledge base, dynamic workflow, an active notification system, agent-generated dashboards, human-in-the-loop control, live state, versioned agent definitions, agentic SDLC, LLM integration, prompt and tool design, MCP, A2A, AG-UI/SSE, self-built agent-pod registry, credential proxy.",
     "Observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase (production); Rancher-managed Kubernetes; p50/p95 latency instrumentation; load and concurrency E2E; rollout verification.",
     "Testing and automation: testability by design; contract, API, and E2E automation; deterministic fixtures; real-boundary integration tests; CI quality gates; Playwright; jsdom.",
-    "Backend: Spring Boot, Spring Cloud, JPA/Hibernate, jOOQ, REST, OAuth2/OIDC, ABAC, RabbitMQ, Flask, Node.js.",
+    "Backend: Spring Boot, Spring Cloud, JPA/Hibernate, jOOQ, REST, OAuth2/OpenID Connect (OIDC), ABAC, RabbitMQ, Flask, Node.js.",
     "Frontend: React 19, Vite, TypeScript, Ant Design, Redux Toolkit, HTML5/CSS.",
     "Data: PostgreSQL, MySQL/MariaDB, MongoDB, Oracle (working knowledge), H2, SQLite; schema design, optimistic locking, native CTE queries, idempotent sync.",
     "Ops: Docker, Kubernetes, Rancher, Jenkins, GitHub Actions, SonarQube, Linux; AWS/GCP (working knowledge).",
-    "AI/ML: TensorFlow (DQN/RL POC), LangChain, OpenSandbox; BM25 + graph retrieval; agent evaluation.",
+    "AI/ML: TensorFlow (DQN/RL), LangChain, OpenSandbox; BM25 + graph retrieval; agent evaluation.",
     "Practices: TDD, clean architecture, Scrum Master, Jira/Confluence/Bitbucket."
   ],
   "education": [
@@ -136,15 +136,19 @@
     }
   ],
   "controlTower": {
-    "intro": "Design owner of the Agent Control Tower at OOCL — an agent platform built around a self-built agent runtime and agent core. Phase 1 delivers the full agent lifecycle (draft → active → retiring → retired) and an agent-generated dynamic dashboard (six element types, declarative queries, CSV/Excel/PDF export). The platform also includes a self-improvement pipeline, knowledge space, dynamic workflow, an active notification system, human approval, live state tracking, spec versioning, multi-replica routing, a self-built agent-pod registry, MongoDB task/thread state, and a credential proxy. Agent profiles and skill changes are versioned; dispatch is attributable per worker pod.",
-    "openSource": "aria-conductor is the open-source simplification: 10 Java modules, approval gates, agent chains, a concurrency harness, and 20/20 API E2E coverage.",
+    "intro": "Design owner of the Agent Control Tower at OOCL — an agent platform built around a self-built agent runtime and agent core. Phase 1 delivers the full agent lifecycle (draft → active → retiring → retired) and an agent-generated dynamic dashboard (six element types, declarative queries, CSV/Excel/PDF export). The platform also includes an agent task queue for dispatching work across worker pods, a self-improvement pipeline, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state tracking, versioned agent definitions, multi-replica routing, durable task/thread state, a self-built agent-pod registry, and a credential proxy. Agent definitions and skill changes are versioned; dispatch is attributable per worker pod.",
+    "openSource": "aria-conductor is the open-source simplification: 10 Java modules, human-in-the-loop gates, agent chains, a concurrency harness, and API E2E coverage.",
     "capabilities": [
       {
         "name": "Agent lifecycle",
         "meta": "Draft → active → retiring → retired"
       },
       {
-        "name": "Warm agent profiles",
+        "name": "Agent task queue",
+        "meta": "Core dispatch"
+      },
+      {
+        "name": "Warm agent pool",
         "meta": "Lazy load · per-replica cap"
       },
       {
@@ -152,7 +156,7 @@
         "meta": "Feedback → update"
       },
       {
-        "name": "Knowledge space",
+        "name": "Knowledge base",
         "meta": "Shared context"
       },
       {
@@ -168,19 +172,19 @@
         "meta": "Agent-generated · live views"
       },
       {
-        "name": "Human approval gate",
-        "meta": "Approve · reject"
+        "name": "Human-in-the-loop gate",
+        "meta": "Review · approve"
       },
       {
-        "name": "Spec versioning",
-        "meta": "Every change"
+        "name": "Versioned agent definitions",
+        "meta": "Change history"
       },
       {
         "name": "Live state tracking",
         "meta": "Current work"
       },
       {
-        "name": "A2A v1.0 · AG-UI · SSE",
+        "name": "A2A · AG-UI · SSE",
         "meta": "Runtime"
       },
       {
@@ -188,7 +192,7 @@
         "meta": "Dispatch"
       },
       {
-        "name": "MongoDB task state",
+        "name": "Durable task state",
         "meta": "Task · thread"
       },
       {
@@ -200,13 +204,13 @@
         "meta": "Agent auth"
       }
     ],
-    "note": "Validated on a 7-service Docker/Podman compose stack; the warm-profile POC measured ~2.1s overhead vs 7–42s cold start; the human-approval POC validated four gating patterns; multi-replica routing was validated across two pods."
+    "note": "Validated on a 7-service Docker/Podman compose stack and across two replicas."
   },
   "decomposer": {
     "body": "Designed the job-decomposer library and heartbeat dispatch loop. A job is decomposed recursively into tasks and sub-tasks across N levels, then dispatched over asynchronous messaging. The heartbeat loop keeps dispatching, respects queue limits, and applies backpressure so large or continuously loaded jobs do not stall. Workers scale from configuration or available resources; job definitions persist with the decomposer and dispatch through its processing API."
   },
   "observability": {
-    "body": "Production observability on Rancher-managed Kubernetes. Owns the metrics, logs, cloud monitoring, and release checks for a 26-service platform, and uses the same signals to verify rollouts and investigate incidents.",
+    "body": "Production observability on Rancher-managed Kubernetes. Owns the metrics, logs, cloud monitoring, and release checks for a platform of 30+ services, and uses the same signals to verify rollouts and investigate incidents.",
     "scope": [
       {
         "area": "Metrics and dashboards",
@@ -234,15 +238,15 @@
     {
       "name": "Agent Control Tower",
       "meta": "OOCL · Design owner · 2026",
-      "description": "Multi-service agent platform built around a self-built agent runtime and agent core: warm agent profiles, full agent lifecycle, self-improvement, knowledge space, dynamic workflow, an active notification system, human approval, live state, spec versioning, agent-generated dashboards, multi-replica routing, MongoDB task state, a self-built agent-pod registry, and a credential proxy.",
-      "cvDescription": "Design owner of the Agent Control Tower: a self-built agent runtime and agent core, with warm agent profiles, full agent lifecycle (draft → active → retiring → retired), agent-generated dynamic dashboards (six element types; CSV/Excel/PDF export), self-improvement pipeline, knowledge space, dynamic workflow, an active notification system, human approval, live state, spec versioning, A2A v1.0 + AG-UI/SSE, multi-replica routing, MongoDB task/thread state, a self-built agent-pod registry, and a credential proxy. Validated on a 7-service Docker/Podman compose stack; warm-profile POC ~2.1s overhead vs 7–42s cold start; multi-replica POC across two pods.",
+      "description": "Multi-service agent platform built around a self-built agent runtime and agent core: an agent task queue, a warm agent pool, full agent lifecycle, self-improvement, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state, versioned agent definitions, agent-generated dashboards, multi-replica routing, durable task state, a self-built agent-pod registry, and a credential proxy.",
+      "cvDescription": "Design owner of the Agent Control Tower: a self-built agent runtime and agent core, with an agent task queue, a warm agent pool, full agent lifecycle (draft → active → retiring → retired), agent-generated dynamic dashboards (six element types; CSV/Excel/PDF export), self-improvement pipeline, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state, versioned agent definitions, A2A + AG-UI/SSE, multi-replica routing, durable task state, a self-built agent-pod registry, and a credential proxy. Validated on a 7-service Docker/Podman compose stack and across two replicas.",
       "url": ""
     },
     {
       "name": "aria-conductor",
       "meta": "MIT · Open source · 2026 — present",
       "description": "Java 21 + React 19 control tower for agent chains. Fixed a concurrent-approval race that allowed double approvals; built the load and concurrency harness.",
-      "cvDescription": "Designed and built a multi-service control tower: 10 Java modules, React 19/TypeScript dashboard, Node/TypeScript MCP server, MariaDB/H2, Docker/Podman, and per-agent OpenSandbox containers; 20/20 API E2E coverage. Implemented governance and operator workflows: task approval gates, versioned knowledge, BA→Dev→QA agent chains, live run status, kanban, and activity timeline. Fixed a concurrent-approval race where two opposing approvals could both pass the same pending check and commit; replaced read-check-write with an atomic conditional update, so one request wins and the other is rejected with an HTTP 409 conflict. Fixed a 500 that rolled back the whole transaction under mixed load; built the load and concurrency E2E harness plus Playwright UI coverage. Added an OpenCode/Qoder ACP bridge.",
+      "cvDescription": "Designed and built a multi-service control tower: 10 Java modules, React 19/TypeScript dashboard, Node/TypeScript MCP server, MariaDB/H2, Docker/Podman, and per-agent OpenSandbox containers; API E2E coverage. Implemented governance and operator workflows: human review gates, versioned knowledge, BA→Dev→QA agent chains, live run status, kanban, and activity timeline. Fixed a concurrent-approval race where two opposing approvals could both pass the same pending check and commit; replaced read-check-write with an atomic conditional update, so one request wins and the other is rejected with an HTTP 409 conflict. Fixed a 500 that rolled back the whole transaction under mixed load; built the load and concurrency E2E harness plus Playwright UI coverage. Added an OpenCode/Qoder ACP bridge.",
       "url": "https://github.com/HappyLiang12/aria-conductor"
     },
     {
@@ -260,7 +264,7 @@
       "url": ""
     },
     {
-      "name": "AI Glass PoC",
+      "name": "AI Glass Prototype",
       "meta": "Real-time VLM · Browser",
       "description": "Browser assistant with speech input, VLM verification, HUD overlays, and barge-in; latency instrumentation for turns, barge-ins, and dropped turns.",
       "cvDescription": "Real-time browser assistant with speech input, VLM verification, HUD overlays, and barge-in; latency instrumentation for turn, barge-in, and dropped turns; high coverage and Playwright E2E.",

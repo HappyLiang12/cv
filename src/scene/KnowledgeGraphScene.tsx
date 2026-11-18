@@ -143,7 +143,6 @@ function NodeMesh({
         }}
         onPointerOut={(event: ThreeEvent<PointerEvent>) => {
           event.stopPropagation();
-          onHover(null);
           document.body.style.cursor = '';
         }}
         onClick={(event: ThreeEvent<MouseEvent>) => {
@@ -210,7 +209,6 @@ function ChildNode({
         }}
         onPointerOut={(event: ThreeEvent<PointerEvent>) => {
           event.stopPropagation();
-          onHover(null);
           document.body.style.cursor = '';
         }}
         onClick={(event: ThreeEvent<MouseEvent>) => {

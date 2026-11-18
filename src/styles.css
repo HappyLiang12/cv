@@ -306,21 +306,9 @@ h1 {
   align-items: start;
 }
 .gi-layer-current { animation: gi-in .18s ease both; }
-.gi-layer-outgoing {
-  position: absolute;
-  top: 12px;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-  animation: gi-out .09s ease both;
-}
 @keyframes gi-in {
   from { opacity: 0; transform: translateY(3px); }
   to { opacity: 1; transform: translateY(0); }
-}
-@keyframes gi-out {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(-2px); }
 }
 .gi-kind { color: var(--accent); font-size: 8px; letter-spacing: .1em; }
 .gi-main h2 {
@@ -343,10 +331,6 @@ h1 {
   line-height: 1.55;
   color: var(--muted);
   margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .gi-side {
   display: flex;
@@ -372,10 +356,7 @@ h1 {
   margin-bottom: 2px;
 }
 .gi-list-items {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  display: block;
 }
 .gi-related {
   margin: 0;

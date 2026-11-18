@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import {
   capabilityCount,
   childrenById,
@@ -24,11 +23,9 @@ type GraphInspectorProps = {
 };
 
 function InspectorContent({
-  active,
-  phase
+  active
 }: {
   active: string | null;
-  phase: 'current' | 'outgoing';
 }) {
   const node = active ? nodeById.get(active) : undefined;
   const parent = node?.parent ? nodeById.get(node.parent) : undefined;
@@ -54,10 +51,7 @@ function InspectorContent({
   const meta = node?.meta;
 
   return (
-    <div
-      className={`gi-layer gi-layer-${phase}`}
-      aria-hidden={phase === 'outgoing' ? 'true' : undefined}
-    >
+    <div className="gi-layer gi-layer-current">
       <div className="gi-main">
         <span className="mono gi-kind">
           {node ? kindLabel[node.kind] : 'Overview'}
@@ -99,33 +93,13 @@ function InspectorContent({
 
 export function GraphInspector({ selected, hovered }: GraphInspectorProps) {
   const active = hovered ?? selected;
-  const [displayed, setDisplayed] = useState<string | null>(active);
-  const [outgoing, setOutgoing] = useState<{ id: string | null; key: number } | null>(null);
-  const [entrance, setEntrance] = useState(0);
-
-  useEffect(() => {
-    if (active === displayed) return;
-    setOutgoing({ id: displayed, key: entrance });
-    setDisplayed(active);
-    setEntrance(value => value + 1);
-  }, [active, displayed, entrance]);
-
-  useEffect(() => {
-    if (!outgoing) return;
-    const timer = window.setTimeout(() => setOutgoing(null), 120);
-    return () => window.clearTimeout(timer);
-  }, [outgoing]);
-
   return (
     <div
       className="graph-inspector"
       role="region"
       aria-label="Technical skill graph details"
     >
-      <InspectorContent key={`current-${entrance}`} active={displayed} phase="current" />
-      {outgoing && (
-        <InspectorContent key={`outgoing-${outgoing.key}`} active={outgoing.id} phase="outgoing" />
-      )}
+      <InspectorContent active={active} />
     </div>
   );
 }

@@ -156,6 +156,18 @@ try {
   expect(hoverCap.title === 'Agent systems', 'Capability hover failed');
   expect(hoverCap.path === 'Happy / Agent systems', 'Capability path wrong');
   expect(hoverCap.cursor === 'pointer', 'Capability cursor missing');
+  const detailFit = await evaluate(`(() => {
+    const desc = document.querySelector('.graph-inspector .gi-desc');
+    const items = document.querySelector('.graph-inspector .gi-list-items');
+    return {
+      descHidden: Boolean(desc && desc.scrollHeight > desc.clientHeight + 1),
+      itemsHidden: Boolean(items && items.scrollHeight > items.clientHeight + 1)
+    };
+  })()`);
+  expect(
+    !detailFit.descHidden && !detailFit.itemsHidden,
+    `Inspector detail is truncated: ${JSON.stringify(detailFit)}`
+  );
   const hoveredLabels = await evaluate(`document.querySelectorAll('.scene-label').length`);
   expect(hoveredLabels === initialLabels, `Graph labels remount on hover (${initialLabels} -> ${hoveredLabels})`);
   const contentMotion = await evaluate(`(() => {
@@ -217,12 +229,28 @@ try {
   const clickGroup = await inspector();
   expect(clickGroup.title === 'Agent Control Tower', 'Group click failed');
   expect(clickGroup.path === 'Happy / Agent systems / Agent Control Tower', 'Group path wrong');
-  expect(clickGroup.list?.includes('Warm agent profiles'), 'Tools missing');
+  expect(clickGroup.list?.includes('Agent task queue'), 'Agent task queue missing');
+  expect(clickGroup.list?.includes('Warm agent pool'), 'Warm agent pool missing');
+  const groupDetail = await evaluate(`(() => {
+    const desc = document.querySelector('.graph-inspector .gi-desc');
+    const items = document.querySelector('.graph-inspector .gi-list-items');
+    return {
+      descHidden: Boolean(desc && desc.scrollHeight > desc.clientHeight + 1),
+      itemsHidden: Boolean(items && items.scrollHeight > items.clientHeight + 1),
+      layers: document.querySelectorAll('.graph-inspector .gi-layer').length
+    };
+  })()`);
+  expect(
+    !groupDetail.descHidden && !groupDetail.itemsHidden,
+    `Group detail is truncated: ${JSON.stringify(groupDetail)}`
+  );
+  expect(groupDetail.layers === 1, `Inspector layers stack: ${groupDetail.layers}`);
   console.log('CLICK GROUP', JSON.stringify(clickGroup));
+  await shot('/tmp/graph-hover-group.png');
 
   let toolHit = null;
   for (const offset of [19, 12, 26, 4, 33]) {
-    const point = await labelPoint('Warm agent profiles', offset);
+    const point = await labelPoint('Warm agent pool', offset);
     if (!point) continue;
     await move(point.x, point.y);
     await sleep(350);

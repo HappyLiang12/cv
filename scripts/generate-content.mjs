@@ -49,7 +49,7 @@ const personJsonLd = {
   knowsAbout: [
     'Platform engineering', 'Observability', 'Kubernetes', 'Grafana', 'Prometheus',
     'Distributed scheduling', 'Java', 'Spring Boot', 'React', 'AI agents', 'Agent runtime',
-    'Agent Control Tower', 'Agent lifecycle', 'Warm agent profiles', 'Knowledge space',
+    'Agent Control Tower', 'Agent lifecycle', 'Agent task queue', 'Warm agent pool', 'Knowledge base',
     'Self-improvement pipeline', 'Dynamic workflow', 'Active notification systems',
     'Agent-generated dashboards', 'Agent-pod registry', 'Agentic SDLC', 'BM25 retrieval', 'MCP', 'A2A'
   ]
@@ -92,7 +92,7 @@ const cvHtml = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(cv.name)} — CV</title>
-<meta name="description" content="CV of ${esc(cv.name)}, AI platform and agent systems engineer in Hong Kong. Agent Control Tower and self-built agent runtime with warm profiles, agent lifecycle, agent-generated dashboards, recursive job decomposition, and production observability.">
+<meta name="description" content="CV of ${esc(cv.name)}, AI platform and agent systems engineer in Hong Kong. Agent Control Tower and self-built agent runtime with a warm agent pool, agent lifecycle, agent-generated dashboards, recursive job decomposition, and production observability.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${siteUrl}cv/">
 <link rel="alternate" type="text/plain" href="../cv.txt" title="CV (plain text)">
@@ -219,15 +219,15 @@ ${cv.role} based in ${cv.location}.${cv.availability ? ` ${cv.availability}` : '
 - This file: ${siteUrl}llms.txt
 
 ## Focus
-- Agent Control Tower: a self-built agent runtime and agent core, with warm agent profiles, full agent lifecycle, self-improvement pipeline, knowledge space, dynamic workflow, an active notification system, human approval, live state, spec versioning, agent-generated dashboards, multi-replica routing, MongoDB task state, a self-built agent-pod registry, and a credential proxy.
+- Agent Control Tower: a self-built agent runtime and agent core, with an agent task queue, a warm agent pool, full agent lifecycle, self-improvement pipeline, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state, versioned agent definitions, agent-generated dashboards, multi-replica routing, durable task state, a self-built agent-pod registry, and a credential proxy.
 - Distributed scheduling: job-decomposer library; recursive job -> task -> sub-task decomposition across N levels, async fan-out, heartbeat dispatch, backpressure.
 - Production observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase on Rancher-managed Kubernetes.
-- Production AI: a five-verdict LLM review agent, an AI gateway with A2A/MCP, a BM25+graph knowledge system (recall@5 1.00), and an agentic SDLC across a 26-service platform.
+- Production AI: an LLM review agent, an AI gateway with A2A/MCP, a BM25+graph knowledge system (recall@5 1.00), and an agentic SDLC across a platform of 30+ services.
 
 ## Selected evidence
-- Agent Control Tower: design owner; self-built agent runtime and agent core, warm profiles, agent lifecycle, active notifications, agent-generated dashboards, and multi-replica routing.
-- aria-conductor: 10 Java modules, 20/20 API E2E, OpenCode/Qoder ACP bridge; fixed a concurrent-approval race with an atomic conditional update.
-- 26 services across 32 repositories: Java 21/Spring Boot, Python, React, Kong, Nginx, and self-built agent services.
+- Agent Control Tower: design owner; self-built agent runtime and agent core, agent task queue, warm agent pool, agent lifecycle, active notifications, agent-generated dashboards, and multi-replica routing.
+- aria-conductor: 10 Java modules, API E2E coverage, OpenCode/Qoder ACP bridge; fixed a concurrent-approval race with an atomic conditional update.
+- 30+ services across 32 repositories: Java 21/Spring Boot, Python, React, Kong, Nginx, and self-built agent services.
 
 ## Experience
 ${cv.experience.map(job => `- ${job.role} — ${job.company} (${job.period})`).join('\n')}

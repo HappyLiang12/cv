@@ -28,13 +28,17 @@ let expected = [
   "zero tolerance for dispatch errors",
   "live state tracking",
   "agent lifecycle",
-  "warm agent profiles",
+  "agent task queue",
+  "warm agent pool",
   "agent-generated dynamic dashboards",
   "agent-pod registry",
   "active notification system",
-  "knowledge space",
+  "knowledge base",
   "self-improvement pipeline",
   "dynamic workflow",
+  "human-in-the-loop",
+  "versioned agent definitions",
+  "durable task state",
   "agentic sdlc",
   "bm25",
   "sub-task",
@@ -63,7 +67,17 @@ let forbidden = [
   "agent fleets",
   "hitl",
   "adk",
-  "agent development kit"
+  "agent development kit",
+  "warm agent profiles",
+  "knowledge space",
+  "human approval",
+  "spec versioning",
+  "mongodb task",
+  "26-service",
+  "26 services",
+  "20/20",
+  "v1.0",
+  "poc"
 ]
 
 var failures: [String] = []

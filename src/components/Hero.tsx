@@ -69,7 +69,13 @@ export function Hero() {
               ref={sceneRef}
               aria-label="Technical skill graph: tools, skill groups and capabilities converging on Happy"
             >
-              <div className="scene-frame">
+              <div
+                className="scene-frame"
+                onPointerLeave={() => {
+                  onHover(null);
+                  document.body.style.cursor = '';
+                }}
+              >
                 <div className="scene-canvas">
                   {useR3F ? (
                     <SceneBoundary

@@ -1,7 +1,7 @@
 # cv-3d — Happy LIANG Yee Ching
 
 A live CV for platform and observability engineering roles. The page pairs an editorial
-layout with a three-level technical skill graph: 81 tools connect upward through 12 skill
+layout with a three-level technical skill graph: 82 tools connect upward through 12 skill
 groups and four capabilities to Happy. The content itself is always plain HTML.
 
 - Live URL: https://happyliang12.github.io/cv/
@@ -92,8 +92,9 @@ Chromium, production preview. Screenshots in `docs/screenshots/`.
 - 1440 / 1024 / 768 / 390 / 320 px: no horizontal overflow, no console errors.
 - 1440 px live WebGL skill graph: shaded 3D nodes, four capabilities, six initially visible
   labels, hover path to Happy, tool drill-down, background expansion.
-- Graph labels stay mounted and fade between states; inspector content crossfades, and
-  rapid hover produces no intermediate inspector titles (`scripts/graph-check.mjs`).
+- Graph labels stay mounted and fade between states; inspector detail updates in place without
+  stacked layers or clipped text, and rapid hover produces no intermediate inspector titles
+  (`scripts/graph-check.mjs`).
 - Clicking a node eases the camera toward it and release returns to the overview; the
   selected 1440 px label moved from 162 px to 44 px from the canvas center.
 - Mouse-only graph controls verified with `scripts/graph-check.mjs`: inspector has zero
@@ -102,9 +103,10 @@ Chromium, production preview. Screenshots in `docs/screenshots/`.
   `aria-pressed` checked.
 - Reduced motion, WebGL-off fallback, no-JS fallback, static `/cv/` checked.
 - Contact email, `/cv/`, `cv.txt`, `llms.txt`, HTML, and public PDF checked.
-- Agent lifecycle, warm agent profiles, knowledge space, self-improvement pipeline,
-  dynamic workflow, active notification system, human approval, live state tracking, spec versioning,
-  agent-generated dashboards, agent-pod registry, and job → task → sub-task are present
+- Agent lifecycle, agent task queue, warm agent pool, knowledge base, self-improvement pipeline,
+  dynamic workflow, active notification system, human-in-the-loop control, live state tracking,
+  versioned agent definitions, agent-generated dashboards, agent-pod registry, durable task state,
+  and job → task → sub-task are present
   in the summary, OOCL experience, Agent Control Tower copy, project copy, and generated
   artifacts. Education lists the University of Wollongong degree with Distinction and WAM
   75.67/100 only; InnoNext is labelled `(HK)`.
