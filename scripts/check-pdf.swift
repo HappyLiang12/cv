@@ -24,17 +24,19 @@ let expected = [
   "agent control tower",
   "aria-conductor — repository",
   "htmlcraft — repository",
-  "physical-infrastructure background",
+  "container-terminal and shipping operations",
   "zero tolerance for dispatch errors",
   "live state tracking",
-  "warm agent pool",
-  "high-volume agent tasks",
-  "generic agent platform",
+  "agent lifecycle",
+  "warm agent profiles",
+  "agent-generated dynamic dashboards",
+  "agent-pod registry",
+  "active notification system",
   "knowledge space",
   "self-improvement pipeline",
   "dynamic workflow",
-  "active notification system",
-  "dynamic dashboard",
+  "agentic sdlc",
+  "bm25",
   "sub-task",
   "with distinction",
   "wam 75.67/100",
@@ -59,7 +61,9 @@ let forbidden = [
   "control plane",
   "control planes",
   "agent fleets",
-  "hitl"
+  "hitl",
+  "adk",
+  "agent development kit"
 ]
 
 var failures: [String] = []

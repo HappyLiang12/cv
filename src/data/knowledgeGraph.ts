@@ -55,7 +55,7 @@ const toolContext: Record<string, string> = {
 };
 
 const toolNotes: Record<string, string> = {
-  'Java 21': 'Primary backend language for the 20+ service platform.',
+  'Java 21': 'Primary backend language for the 26-service platform.',
   'Spring Boot/Cloud': 'Service framework for REST APIs, configuration, and service-to-service calls.',
   'JPA/Hibernate': 'Relational persistence for transactional services.',
   jOOQ: 'Typed SQL for complex queries alongside JPA.',
@@ -76,31 +76,33 @@ const toolNotes: Record<string, string> = {
   Oracle: 'Working knowledge; legacy integration.',
   H2: 'In-memory database for tests and local runs.',
   SQLite: 'Lightweight local storage and test fixtures.',
-  Kong: 'API gateway for the 20+ service platform.',
+  Kong: 'API gateway for the 26-service platform.',
   Nginx: 'Reverse proxy and static file serving.',
-  ADK: 'Agent runtime integrated into the Agent Control Tower.',
+  'Agent runtime': 'Self-built agent runtime and agent core for the Agent Control Tower.',
   'Agent templates': 'Reusable scaffolds for LLM-backed agents.',
+  'Agent profiles': 'Named overlays in the self-built agent runtime that define model, prompt, tools, agents, and skills.',
+  'Agent lifecycle': 'Draft, active, retiring, and retired states.',
+  'Warm agent profiles': 'Agent profiles pre-warmed per worker pod, lazily loaded and capped per replica.',
+  'Agent-generated dashboard': 'Agent-generated views built from declarative queries.',
   'Human approval': 'A person approves an agent action before it executes.',
   MCP: 'Tool interface used by agents and the htmlcraft MCP server.',
   'A2A v1.0': 'Agent-to-agent protocol used by the Agent Control Tower.',
   'AG-UI/SSE': 'Streams agent UI events to operator dashboards.',
-  'Agent registry': 'Registration and discovery for agent profiles.',
+  'Agent-pod registry': 'Self-built registry of agent pods and loaded profiles.',
   'LLM integration': 'Wiring LLM calls into platform services and agents.',
   'Prompt/tool design': 'Prompts and tool schemas for reliable agent behavior.',
   LangChain: 'LLM orchestration used in prototypes.',
   OpenSandbox: 'Per-agent sandbox containers in aria-conductor.',
-  'Warm agent pool': 'Pre-warmed agent workers for high-volume agent tasks.',
   'Knowledge space': 'Shared, versioned knowledge for agent tasks.',
   'Self-improvement pipeline': 'Turns run feedback into agent updates.',
   'Dynamic workflow': 'Workflows defined and changed at runtime.',
-  'Active notification system': 'Pushes task, approval, and failure events to operators.',
+  'Active notification system': 'Pushes agent and workflow events to operators.',
   'Dynamic dashboard': 'Live operator views built from current agent status.',
   'Human approval gate': 'Approve or reject pending agent actions before they run.',
   'Spec versioning': 'Every agent spec change is versioned.',
   'Live state tracking': 'Per-agent state and current work in the operator UI.',
   'Multi-replica routing': 'Routes agent tasks across replica workers.',
   'MongoDB task state': 'Task and thread state stored in MongoDB.',
-  'Agent registration': 'Agent profiles are registered and discoverable.',
   'Credential proxy': 'Brokers credentials so agents do not hold secrets.',
   Grafana: 'Dashboards for service health and latency.',
   Prometheus: 'Metrics collection and alerting on Kubernetes.',
@@ -135,7 +137,7 @@ const toolNotes: Record<string, string> = {
 };
 
 const roleNotes: Record<string, string> = {
-  OOCL: 'Design owner of the Agent Control Tower; production observability, CI/CD, and platform correctness for a 20+ service estate.',
+  OOCL: 'Design owner of the Agent Control Tower: self-built agent runtime and agent core, warm profiles, agent lifecycle, and dashboards; production observability, CI/CD, and platform correctness for a 26-service estate.',
   'NTT DATA': 'Full-stack development and system revamp; microservices migration and Jenkins CI/CD.',
   'Hutchison Ports': 'Asynchronous microservices for port automation; TensorFlow DQN/RL proof of concept.',
   'InnoNext (HK)': 'Web applications with PHP, Spring, and JavaScript.'
@@ -150,13 +152,13 @@ const capabilityDefs: CapabilityDef[] = [
   {
     id: 'platform',
     label: 'Platform',
-    description: '20+ service estate across Java/Spring, Python, React, Kong and Nginx. System analysis, microservice migration, shared libraries, and API contracts.',
+    description: '26 services across 32 repositories: Java/Spring, Python, React, Kong and Nginx. System analysis, microservice migration, shared libraries, and API contracts.',
     position: [-2.0, 0.9, 0.2],
     groups: [
       {
         id: 'backend',
         label: 'Backend',
-        description: 'Java 21/Spring Boot services for the 20+ service platform: REST APIs, OAuth2/OIDC, ABAC, optimistic locking, RabbitMQ, and JPA + jOOQ.',
+        description: 'Java 21/Spring Boot services for the 26-service platform: REST APIs, OAuth2/OIDC, ABAC, optimistic locking, RabbitMQ, and JPA + jOOQ.',
         tools: [
           'Java 21',
           'Spring Boot/Cloud',
@@ -178,7 +180,7 @@ const capabilityDefs: CapabilityDef[] = [
       {
         id: 'data-integration',
         label: 'Data & integration',
-        description: 'Relational and document stores; Kong, Nginx, and ADK. EV Charge Log uses idempotent Google Sheets sync.',
+        description: 'Relational and document stores; Kong and Nginx. EV Charge Log uses idempotent Google Sheets sync.',
         tools: [
           'PostgreSQL',
           'MySQL/MariaDB',
@@ -187,8 +189,7 @@ const capabilityDefs: CapabilityDef[] = [
           'H2',
           'SQLite',
           'Kong',
-          'Nginx',
-          'ADK'
+          'Nginx'
         ]
       }
     ]
@@ -196,14 +197,14 @@ const capabilityDefs: CapabilityDef[] = [
   {
     id: 'agent',
     label: 'Agent systems',
-    description: 'Agent templates, LLM integration, and the Agent Control Tower: warm agent pool, knowledge space, self-improvement pipeline, dynamic workflow, notifications, and dashboard.',
+    description: 'Agent profiles, LLM integration, and the Agent Control Tower: agent lifecycle, warm profiles, self-improvement, knowledge space, dynamic workflow, active notifications, human approval, live state, spec versioning, and agent-generated dashboards.',
     position: [2.0, 1.0, -0.2],
     groups: [
       {
         id: 'ai-agents',
         label: 'AI agents',
-        description: 'Agent templates, human approval, MCP, A2A v1.0, AG-UI/SSE, and agent registration.',
-        tools: ['Agent templates', 'Human approval', 'MCP', 'A2A v1.0', 'AG-UI/SSE', 'Agent registry']
+        description: 'Self-built agent runtime, agent profiles and lifecycle, human approval, active notifications, MCP, A2A v1.0, AG-UI/SSE, and a self-built agent-pod registry.',
+        tools: ['Agent runtime', 'Agent profiles', 'Agent lifecycle', 'Human approval', 'Active notification system', 'MCP', 'A2A v1.0', 'AG-UI/SSE', 'Agent-pod registry']
       },
       {
         id: 'llm',
@@ -214,22 +215,23 @@ const capabilityDefs: CapabilityDef[] = [
       {
         id: 'control-tower',
         label: 'Agent Control Tower',
-        description: 'Design owner at OOCL: a warm agent pool for high-volume tasks, with a generic agent platform on top — knowledge space, self-improvement pipeline, dynamic workflow, active notification system, dynamic dashboard, human approval, spec versioning, live state tracking, multi-replica routing, and agent registration. aria-conductor is the open-source simplification.',
+        description: 'Design owner at OOCL: a self-built agent runtime and agent core, with warm agent profiles, full agent lifecycle, self-improvement pipeline, knowledge space, dynamic workflow, an active notification system, human approval, live state, spec versioning, agent-generated dashboards, multi-replica routing, MongoDB task state, a self-built agent-pod registry, and a credential proxy. aria-conductor is the open-source simplification.',
         tone: 'pine',
         tools: [
-          'Warm agent pool',
-          'Knowledge space',
+          'Agent lifecycle',
+          'Warm agent profiles',
           'Self-improvement pipeline',
+          'Knowledge space',
           'Dynamic workflow',
           'Active notification system',
-          'Dynamic dashboard',
+          'Agent-generated dashboard',
           'Human approval gate',
           'Spec versioning',
           'Live state tracking',
           'A2A v1.0',
           'Multi-replica routing',
           'MongoDB task state',
-          'Agent registration',
+          'Agent-pod registry',
           'Credential proxy'
         ]
       }
@@ -238,7 +240,7 @@ const capabilityDefs: CapabilityDef[] = [
   {
     id: 'observability',
     label: 'Observability',
-    description: 'Metrics, logs, cloud monitoring, and release checks for a 20+ service platform.',
+    description: 'Metrics, logs, cloud monitoring, and release checks for a 26-service platform.',
     position: [2.0, -1.05, 0.25],
     groups: [
       {
@@ -281,7 +283,7 @@ const capabilityDefs: CapabilityDef[] = [
   {
     id: 'delivery',
     label: 'Delivery & ops',
-    description: 'CI/CD, containers, and test harnesses for the 20+ service estate and open-source projects.',
+    description: 'CI/CD, containers, and test harnesses for the 26-service estate and open-source projects.',
     position: [-2.0, -1.05, -0.15],
     groups: [
       {
@@ -328,7 +330,7 @@ const self: KnowledgeNode = {
   label: 'Happy',
   kind: 'self',
   meta: cv.role,
-  description: 'Platform engineer with 7+ years on production systems. Design owner of the Agent Control Tower: warm agent pool, generic agent platform, and high-volume agent tasks; production observability across a 20+ service estate.',
+  description: 'AI platform engineer with 7+ years on production systems. Design owner of the Agent Control Tower: self-built agent runtime and agent core, warm profiles, agent lifecycle, and agent-generated dashboards; production observability across a 26-service estate.',
   tone: 'pine',
   size: 0.36,
   position: [0, 0, 0]

@@ -1,7 +1,7 @@
 # cv-3d — Happy LIANG Yee Ching
 
 A live CV for platform and observability engineering roles. The page pairs an editorial
-layout with a three-level technical skill graph: 78 tools connect upward through 12 skill
+layout with a three-level technical skill graph: 81 tools connect upward through 12 skill
 groups and four capabilities to Happy. The content itself is always plain HTML.
 
 - Live URL: https://happyliang12.github.io/cv/
@@ -85,7 +85,7 @@ separate.
 - Project evidence is folded into the skill model: Agent Control Tower sits under Agent systems;
   Testing & harness includes aria-conductor, and the green edge links the two.
 
-## Verification (2026-11-17)
+## Verification (2026-11-18)
 
 Chromium, production preview. Screenshots in `docs/screenshots/`.
 
@@ -102,12 +102,13 @@ Chromium, production preview. Screenshots in `docs/screenshots/`.
   `aria-pressed` checked.
 - Reduced motion, WebGL-off fallback, no-JS fallback, static `/cv/` checked.
 - Contact email, `/cv/`, `cv.txt`, `llms.txt`, HTML, and public PDF checked.
-- Warm agent pool, knowledge space, self-improvement pipeline, dynamic workflow, active
-  notification system, dynamic dashboard, human approval, and job → task → sub-task are
-  present in the summary, OOCL experience, Agent Control Tower copy, project copy, and
-  generated artifacts. Education lists the University of Wollongong degree with Distinction
-  and WAM 75.67/100 only; InnoNext is labelled `(HK)`.
-- Summary, experience, and Control Tower copy state the zero-fault physical-infrastructure background at Hutchison Ports and OOCL and the Agent Control Tower's live state tracking.
+- Agent lifecycle, warm agent profiles, knowledge space, self-improvement pipeline,
+  dynamic workflow, active notification system, human approval, live state tracking, spec versioning,
+  agent-generated dashboards, agent-pod registry, and job → task → sub-task are present
+  in the summary, OOCL experience, Agent Control Tower copy, project copy, and generated
+  artifacts. Education lists the University of Wollongong degree with Distinction and WAM
+  75.67/100 only; InnoNext is labelled `(HK)`.
+- Summary and experience state the container-terminal and shipping operations background and the zero-tolerance requirement for dispatch errors.
 - Public PDF is 2 pages with a clean text layer (`npm run check:pdf`), no phone number, and
   no internal system names or stray harness metrics. Its contact line includes the CV,
   LinkedIn, and GitHub URLs. The private application PDF is also 2 pages, with legal name,

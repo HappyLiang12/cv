@@ -9,13 +9,13 @@ export function MinimalView() {
     <div className="minimal" id="top">
       <div className="wrap minimal-inner">
         <header className="minimal-head">
-          <p className="kicker mono">Platform &amp; observability engineer — Hong Kong</p>
+          <p className="kicker mono">{cv.role} — Hong Kong</p>
           <h1>{cv.name}</h1>
           <p className="minimal-summary">{cv.summary}</p>
           <p className="minimal-proof mono">
-            20+ services · Agent Control Tower design owner · job → task → sub-task (N levels)
+            26 services · Agent Control Tower design owner · job → task → sub-task (N levels)
           </p>
-          <p className="avail">{cv.availabilityNote}</p>
+          {cv.availabilityNote && <p className="avail">{cv.availabilityNote}</p>}
         </header>
 
         <section className="min-section" aria-labelledby="min-experience">

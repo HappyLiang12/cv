@@ -40,7 +40,7 @@ export function Hero() {
         <div className="hero-grid">
           <div className="hero-copy">
             <p className="kicker mono rise">
-              Platform &amp; observability engineer — Hong Kong
+              {cv.role} — Hong Kong
             </p>
             <h1 className="rise" style={{ animationDelay: '0.05s' }}>
               Agent Control<br />Tower.
@@ -48,9 +48,11 @@ export function Hero() {
             <p className="lede rise" style={{ animationDelay: '0.1s' }}>
               {cv.summary}
             </p>
-            <p className="avail rise" style={{ animationDelay: '0.16s' }}>
-              {cv.availabilityNote}
-            </p>
+            {cv.availabilityNote && (
+              <p className="avail rise" style={{ animationDelay: '0.16s' }}>
+                {cv.availabilityNote}
+              </p>
+            )}
             <div className="actions rise" style={{ animationDelay: '0.22s' }}>
               <a className="text-link primary" href="#experience">
                 Read the CV<span className="arrow" aria-hidden="true">→</span>

@@ -48,9 +48,10 @@ const personJsonLd = {
   url: siteUrl,
   knowsAbout: [
     'Platform engineering', 'Observability', 'Kubernetes', 'Grafana', 'Prometheus',
-    'Distributed scheduling', 'Java', 'Spring Boot', 'React', 'AI agents',
-    'Agent Control Tower', 'Warm agent pools', 'Knowledge space', 'Self-improvement pipeline',
-    'Dynamic workflow', 'Active notification systems', 'Dynamic dashboards', 'MCP', 'A2A'
+    'Distributed scheduling', 'Java', 'Spring Boot', 'React', 'AI agents', 'Agent runtime',
+    'Agent Control Tower', 'Agent lifecycle', 'Warm agent profiles', 'Knowledge space',
+    'Self-improvement pipeline', 'Dynamic workflow', 'Active notification systems',
+    'Agent-generated dashboards', 'Agent-pod registry', 'Agentic SDLC', 'BM25 retrieval', 'MCP', 'A2A'
   ]
 };
 
@@ -91,7 +92,7 @@ const cvHtml = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(cv.name)} — CV</title>
-<meta name="description" content="CV of ${esc(cv.name)}, platform and observability engineer in Hong Kong. Agent Control Tower with a warm agent pool, recursive job → task → sub-task scheduling, and production observability.">
+<meta name="description" content="CV of ${esc(cv.name)}, AI platform and agent systems engineer in Hong Kong. Agent Control Tower and self-built agent runtime with warm profiles, agent lifecycle, agent-generated dashboards, recursive job decomposition, and production observability.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${siteUrl}cv/">
 <link rel="alternate" type="text/plain" href="../cv.txt" title="CV (plain text)">
@@ -158,8 +159,7 @@ const cvHtml = `<!doctype html>
 <main>
   <h1>${esc(cv.name)}</h1>
   <p class="role">${esc(cv.role)} — ${esc(cv.location)}</p>
-  <p class="contact">${contactParts.join(' · ')}</p>
-  <p class="avail">${esc(cv.availability)}</p>
+  <p class="contact">${contactParts.join(' · ')}</p>${cv.availability ? `\n  <p class="avail">${esc(cv.availability)}</p>` : ''}
 
   <h2>Summary</h2>
   <p>${esc(cv.summaryLong)}</p>
@@ -186,8 +186,7 @@ fs.writeFileSync(path.join(cvDir, 'index.html'), cvHtml);
 
 const cvText = `${cv.name}
 ${cv.role} — ${cv.location}
-${contactPlain.join('\n')}
-${cv.availability}
+${contactPlain.join('\n')}${cv.availability ? `\n${cv.availability}` : ''}
 
 SUMMARY
 ${cv.summaryLong}
@@ -210,7 +209,7 @@ const llmsText = `# ${cv.name}
 
 > ${cv.summary}
 
-${cv.role} based in ${cv.location}. ${cv.availability}
+${cv.role} based in ${cv.location}.${cv.availability ? ` ${cv.availability}` : ''}
 
 ## Pages
 - Portfolio: ${siteUrl}
@@ -220,15 +219,15 @@ ${cv.role} based in ${cv.location}. ${cv.availability}
 - This file: ${siteUrl}llms.txt
 
 ## Focus
-- Agent Control Tower: a warm agent pool for high-volume agent tasks, with a generic agent platform on top — knowledge space, self-improvement pipeline, dynamic workflow, active notification system, dynamic dashboard, human-in-the-loop approval, live agent status, spec versioning, A2A v1.0, AG-UI/SSE, and MCP.
-- Distributed scheduling: recursive job -> task -> sub-task decomposition across N levels, async fan-out, heartbeat dispatch, backpressure.
+- Agent Control Tower: a self-built agent runtime and agent core, with warm agent profiles, full agent lifecycle, self-improvement pipeline, knowledge space, dynamic workflow, an active notification system, human approval, live state, spec versioning, agent-generated dashboards, multi-replica routing, MongoDB task state, a self-built agent-pod registry, and a credential proxy.
+- Distributed scheduling: job-decomposer library; recursive job -> task -> sub-task decomposition across N levels, async fan-out, heartbeat dispatch, backpressure.
 - Production observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase on Rancher-managed Kubernetes.
-- Correctness-sensitive systems: OAuth2/OIDC, ABAC, optimistic locking, deterministic E2E and load harnesses.
+- Production AI: a five-verdict LLM review agent, an AI gateway with A2A/MCP, a BM25+graph knowledge system (recall@5 1.00), and an agentic SDLC across a 26-service platform.
 
 ## Selected evidence
-- Agent Control Tower: design owner; a warm agent pool for high-volume agent tasks, with a generic agent platform on top.
-- aria-conductor: fixed a concurrent-approval race with an atomic conditional update; built a load and concurrency harness.
-- 20+ service estate across Java 21/Spring Boot, Python, React, Kong, Nginx, and ADK agent services.
+- Agent Control Tower: design owner; self-built agent runtime and agent core, warm profiles, agent lifecycle, active notifications, agent-generated dashboards, and multi-replica routing.
+- aria-conductor: 10 Java modules, 20/20 API E2E, OpenCode/Qoder ACP bridge; fixed a concurrent-approval race with an atomic conditional update.
+- 26 services across 32 repositories: Java 21/Spring Boot, Python, React, Kong, Nginx, and self-built agent services.
 
 ## Experience
 ${cv.experience.map(job => `- ${job.role} — ${job.company} (${job.period})`).join('\n')}

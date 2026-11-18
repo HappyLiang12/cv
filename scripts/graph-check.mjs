@@ -217,12 +217,12 @@ try {
   const clickGroup = await inspector();
   expect(clickGroup.title === 'Agent Control Tower', 'Group click failed');
   expect(clickGroup.path === 'Happy / Agent systems / Agent Control Tower', 'Group path wrong');
-  expect(clickGroup.list?.includes('Warm agent pool'), 'Tools missing');
+  expect(clickGroup.list?.includes('Warm agent profiles'), 'Tools missing');
   console.log('CLICK GROUP', JSON.stringify(clickGroup));
 
   let toolHit = null;
   for (const offset of [19, 12, 26, 4, 33]) {
-    const point = await labelPoint('Warm agent pool', offset);
+    const point = await labelPoint('Warm agent profiles', offset);
     if (!point) continue;
     await move(point.x, point.y);
     await sleep(350);
@@ -230,7 +230,7 @@ try {
     console.log('TOOL PROBE', offset, JSON.stringify({ point, ...probe }));
     if (
       probe.path?.startsWith('Happy / Agent systems / Agent Control Tower /') &&
-      probe.desc?.includes('Pre-warmed agent workers')
+      probe.desc?.includes('pre-warmed per worker pod')
     ) {
       toolHit = { ...point, ...probe };
       break;

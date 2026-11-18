@@ -10,7 +10,7 @@ export function Observability() {
     >
       <p>{cv.observability.body}</p>
       <table className="proof">
-        <caption>What I monitor in production</caption>
+        <caption>Production monitoring scope</caption>
         <thead>
           <tr>
             <th scope="col">Area</th>

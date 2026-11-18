@@ -14,8 +14,7 @@ export function Contact() {
       className="contact"
     >
       <p>
-        Open to platform engineering, observability, and agent-platform roles.
-        Open to relocation to the United States; will require employer-sponsored US work authorization.
+        Open to AI platform, agent systems, and observability roles.
       </p>
       <div className="contact-actions">
         {email && (
