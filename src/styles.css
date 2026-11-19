@@ -693,16 +693,6 @@ h1 {
   flex-wrap: wrap;
   margin-top: 28px;
 }
-.contact-formats {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  color: var(--muted);
-  font-size: 8px;
-}
-.contact-formats a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
-.contact-formats a:hover { color: var(--accent); border-color: var(--accent); }
-
 /* Minimal view */
 .top.is-minimal .top-actions { margin-left: auto; }
 .minimal { padding: clamp(32px, 5vw, 64px) 0 clamp(56px, 8vw, 96px); }

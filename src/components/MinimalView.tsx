@@ -103,11 +103,8 @@ export function MinimalView() {
             <a className="text-link" href={`${base}Happy-Liang-CV.pdf`} download>
               Download PDF
             </a>
-            <span className="contact-formats mono">
-              <a href={`${base}cv/`}>Full CV / HTML</a>
-              <span aria-hidden="true">·</span>
-              <a href={`${base}cv.txt`}>cv.txt</a>
-            </span>
+            <a className="text-link" href={`${base}cv/`}>Full CV / HTML</a>
+            <a className="text-link" href={`${base}cv.txt`}>cv.txt</a>
           </div>
         </section>
       </div>

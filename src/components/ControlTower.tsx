@@ -8,7 +8,7 @@ export function ControlTower() {
     <Section
       id="control-tower"
       label="Agent Control Tower"
-      title="Human decision support, agent execution, human governance."
+      title="Humans decide, agents execute, governance stays human, operations stay traceable."
     >
       <p>{cv.controlTower.intro}</p>
       <ul className="caps">
