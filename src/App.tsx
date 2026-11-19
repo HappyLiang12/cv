@@ -1,4 +1,6 @@
+import { useRef } from 'react';
 import { useMinimalMode } from './hooks/useMinimalMode';
+import { usePointerGlass } from './hooks/usePointerGlass';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { MinimalView } from './components/MinimalView';
@@ -11,17 +13,19 @@ import { Contact } from './components/Contact';
 
 export default function App() {
   const { mode, toggle } = useMinimalMode();
+  const main = useRef<HTMLElement>(null);
+  usePointerGlass(main, mode);
 
   const handleToggle = () => {
     toggle();
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
       <Header mode={mode} onToggle={handleToggle} />
-      <main id="main" tabIndex={-1}>
+      <main ref={main} id="main" tabIndex={-1}>
         {mode === 'minimal' ? (
           <MinimalView />
         ) : (

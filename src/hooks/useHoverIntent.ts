@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-export function useHoverIntent(delay = 120, clearDelay = 300) {
+export function useHoverIntent(delay = 120, clearDelay = 90) {
   const [hovered, setHovered] = useState<string | null>(null);
   const pending = useRef<string | null>(null);
   const timer = useRef<number | null>(null);
@@ -24,7 +24,14 @@ export function useHoverIntent(delay = 120, clearDelay = 300) {
     [cancel, clearDelay, delay]
   );
 
+  // Selection/reset is deliberate; unlike a mesh/label seam it needs no grace period.
+  const clearHover = useCallback(() => {
+    cancel();
+    pending.current = null;
+    setHovered(null);
+  }, [cancel]);
+
   useEffect(() => cancel, [cancel]);
 
-  return { hovered, onHover };
+  return { hovered, onHover, clearHover };
 }

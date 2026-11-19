@@ -1,5 +1,6 @@
 import cv from '../data/cv.json';
 import { Section } from './Section';
+import { TechText } from './TechText';
 
 export function Observability() {
   return (
@@ -8,7 +9,7 @@ export function Observability() {
       label="Observability"
       title="Production metrics, logs, and release checks."
     >
-      <p>{cv.observability.body}</p>
+      <p><TechText text={cv.observability.body} /></p>
       <table className="proof">
         <caption>Production monitoring scope</caption>
         <thead>
@@ -21,7 +22,7 @@ export function Observability() {
           {cv.observability.scope.map(row => (
             <tr key={row.area}>
               <td>{row.area}</td>
-              <td>{row.detail}</td>
+              <td><TechText text={row.detail} /></td>
             </tr>
           ))}
         </tbody>

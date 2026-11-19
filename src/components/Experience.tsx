@@ -1,5 +1,6 @@
 import cv from '../data/cv.json';
 import { Section } from './Section';
+import { TechText } from './TechText';
 
 export function Experience() {
   return (
@@ -20,7 +21,7 @@ export function Experience() {
             </h3>
             <ul>
               {job.bullets.map(bullet => (
-                <li key={bullet}>{bullet}</li>
+                <li key={bullet}><TechText text={bullet} /></li>
               ))}
             </ul>
           </div>
@@ -33,7 +34,7 @@ export function Experience() {
           {cv.skillGroups.map(group => (
             <div className="stack-item" key={group.label}>
               <div className="mono stack-label">{group.label}</div>
-              <div className="stack-items">{group.items}</div>
+              <div className="stack-items"><TechText text={group.items} /></div>
             </div>
           ))}
         </div>
