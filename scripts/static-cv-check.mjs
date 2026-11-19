@@ -89,15 +89,16 @@ check(
   lede ? (decodeHtml(ledeText) === cv.summary ? 'exact summary text' : 'summary text differs') : 'lede paragraph not found'
 );
 
+const artifacts = new Map();
 for (const relative of [snapshotPath, atsPath, textPath]) {
-  let contents = '';
   try {
-    contents = read(relative);
+    artifacts.set(relative, read(relative));
   } catch (error) {
+    artifacts.set(relative, '');
     fail(`${relative} exists`, error.code === 'ENOENT' ? 'file not found' : error.message);
     continue;
   }
-  check(`${relative} omits the compose-stack claim`, !contents.includes(composeClaim));
+  check(`${relative} omits the compose-stack claim`, !artifacts.get(relative).includes(composeClaim));
 }
 
 const rootRelative = [...snapshot.matchAll(/\b(?:href|src)="\/[^"]*/g)].map(match => match[0]);
@@ -107,7 +108,7 @@ check(
   rootRelative.length === 0 ? 'all links absolute or anchors' : rootRelative.slice(0, 3).join(', ')
 );
 
-const ats = read(atsPath);
+const ats = artifacts.get(atsPath) ?? '';
 const atsSections = ['Summary', 'Core Skills', 'Experience', 'Selected Projects', 'Education'];
 for (const heading of atsSections) {
   check(`${atsPath} has section "${heading}"`, ats.includes(`<h2>${heading}</h2>`));
