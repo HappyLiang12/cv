@@ -16,7 +16,7 @@ CORE SKILLS
 - Testing and automation: testability by design; contract, API, and E2E automation; deterministic fixtures; real-boundary integration tests; CI quality gates; Playwright; jsdom.
 - Backend: Spring Boot, Spring Cloud, JPA/Hibernate, jOOQ, REST, OAuth2/OpenID Connect (OIDC), ABAC, RabbitMQ, Flask, Node.js.
 - Frontend: React 19, Vite, TypeScript, Ant Design, Redux Toolkit, HTML5/CSS.
-- Data: PostgreSQL, MySQL/MariaDB, MongoDB, Oracle (working knowledge), H2, SQLite; schema design, optimistic locking, native CTE queries, idempotent sync.
+- Data: PostgreSQL, MySQL/MariaDB, MongoDB, Milvus, Oracle (working knowledge), H2, SQLite; schema design, optimistic locking, native CTE queries, idempotent sync.
 - Ops: Docker, Kubernetes, Rancher, Jenkins, GitHub Actions, SonarQube, Linux; AWS/GCP (working knowledge).
 - AI/ML: TensorFlow (DQN/RL), LangChain, OpenSandbox; BM25 + graph retrieval; agent evaluation.
 - Practices: TDD, clean code, clean architecture, Scrum Master, CI/CD and workflow standardisation, software-factory delivery, Jira/Confluence/Bitbucket.

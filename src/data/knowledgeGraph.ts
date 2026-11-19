@@ -73,6 +73,7 @@ const toolNotes: Record<string, string> = {
   PostgreSQL: 'Primary relational store for platform services.',
   'MySQL/MariaDB': 'Relational stores for services and local stacks.',
   MongoDB: 'Task and thread state for the Agent Control Tower and aria-conductor.',
+  Milvus: 'Vector database for embedding search and retrieval.',
   Oracle: 'Working knowledge; legacy integration.',
   H2: 'In-memory database for tests and local runs.',
   SQLite: 'Lightweight local storage and test fixtures.',
@@ -181,11 +182,12 @@ const capabilityDefs: CapabilityDef[] = [
       {
         id: 'data-integration',
         label: 'Data & integration',
-        description: 'Relational and document stores; Kong and Nginx. EV Charge Log uses idempotent Google Sheets sync.',
+        description: 'Relational, document, and vector stores; Kong and Nginx. EV Charge Log uses idempotent Google Sheets sync.',
         tools: [
           'PostgreSQL',
           'MySQL/MariaDB',
           'MongoDB',
+          'Milvus',
           'Oracle',
           'H2',
           'SQLite',

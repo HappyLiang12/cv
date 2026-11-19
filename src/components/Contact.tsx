@@ -41,12 +41,12 @@ export function Contact() {
         <a className="text-link" href={`${base}Happy-Liang-CV.pdf`} download>
           Download CV · PDF
         </a>
+        <span className="contact-formats mono">
+          <a href={`${base}cv/`}>CV / HTML</a>
+          <span aria-hidden="true">·</span>
+          <a href={`${base}cv.txt`}>cv.txt</a>
+        </span>
       </div>
-      <p className="contact-secondary mono">
-        <a href={`${base}cv/`}>CV / HTML</a>
-        <span aria-hidden="true">·</span>
-        <a href={`${base}cv.txt`}>cv.txt</a>
-      </p>
     </Section>
   );
 }

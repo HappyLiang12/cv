@@ -594,6 +594,8 @@ h1 {
   font-size: 13px;
 }
 .cap .mono { color: var(--muted); font-size: 8px; text-align: right; white-space: nowrap; }
+.caps + .note { margin-top: 34px; }
+.note + .note { margin-top: 18px; }
 .note {
   margin-top: 22px;
   padding-left: 14px;
@@ -691,33 +693,15 @@ h1 {
   flex-wrap: wrap;
   margin-top: 28px;
 }
-.contact-secondary {
+.contact-formats {
   display: flex;
   gap: 12px;
   align-items: center;
   color: var(--muted);
   font-size: 8px;
-  margin-top: 24px;
 }
-.contact-secondary a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
-.contact-secondary a:hover { color: var(--accent); border-color: var(--accent); }
-
-/* Footer */
-.foot { border-top: 1px solid var(--line); padding: 20px 0 30px; }
-.foot-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: .09em;
-  text-transform: uppercase;
-}
-.foot-links { display: flex; gap: 16px; }
-.foot-links a { color: var(--muted); text-decoration: none; }
-.foot-links a:hover { color: var(--accent); }
+.contact-formats a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+.contact-formats a:hover { color: var(--accent); border-color: var(--accent); }
 
 /* Minimal view */
 .top.is-minimal .top-actions { margin-left: auto; }
@@ -805,7 +789,6 @@ h1 {
   padding-top: 3px;
 }
 .min-contact-links { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
-.min-secondary { margin-top: 18px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -857,8 +840,6 @@ h1 {
   .education-row { flex-direction: column; gap: 2px; }
   .job li { font-size: 12.5px; }
   .contact-actions { gap: 20px; }
-  .foot-inner { flex-direction: column; gap: 8px; }
-  .foot-links { gap: 14px; }
   .min-row { flex-direction: column; gap: 2px; }
   .min-project-head { flex-direction: column; gap: 2px; }
   .min-project-meta { text-align: left; }

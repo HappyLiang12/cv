@@ -101,11 +101,11 @@
   "skillGroups": [
     {
       "label": "Platform",
-      "items": "Java 21 · Spring Boot/Cloud · Python · React 19 · Kong · Nginx · Agent runtime (self-built)"
+      "items": "Java 21 · Spring Boot/Cloud · Python · React 19 · Kong · Nginx · LangChain"
     },
     {
       "label": "Data",
-      "items": "PostgreSQL · MySQL/MariaDB · MongoDB · Oracle · H2 · SQLite"
+      "items": "PostgreSQL · MySQL/MariaDB · MongoDB · Milvus · Oracle · H2 · SQLite"
     },
     {
       "label": "Ops",
@@ -124,7 +124,7 @@
     "Testing and automation: testability by design; contract, API, and E2E automation; deterministic fixtures; real-boundary integration tests; CI quality gates; Playwright; jsdom.",
     "Backend: Spring Boot, Spring Cloud, JPA/Hibernate, jOOQ, REST, OAuth2/OpenID Connect (OIDC), ABAC, RabbitMQ, Flask, Node.js.",
     "Frontend: React 19, Vite, TypeScript, Ant Design, Redux Toolkit, HTML5/CSS.",
-    "Data: PostgreSQL, MySQL/MariaDB, MongoDB, Oracle (working knowledge), H2, SQLite; schema design, optimistic locking, native CTE queries, idempotent sync.",
+    "Data: PostgreSQL, MySQL/MariaDB, MongoDB, Milvus, Oracle (working knowledge), H2, SQLite; schema design, optimistic locking, native CTE queries, idempotent sync.",
     "Ops: Docker, Kubernetes, Rancher, Jenkins, GitHub Actions, SonarQube, Linux; AWS/GCP (working knowledge).",
     "AI/ML: TensorFlow (DQN/RL), LangChain, OpenSandbox; BM25 + graph retrieval; agent evaluation.",
     "Practices: TDD, clean code, clean architecture, Scrum Master, CI/CD and workflow standardisation, software-factory delivery, Jira/Confluence/Bitbucket."
@@ -138,7 +138,7 @@
   ],
   "controlTower": {
     "intro": "Design owner of the Agent Control Tower at OOCL — an agent platform for human decision support, agent execution, and human governance. Core capabilities are the agent lifecycle with queue-based dispatch, an advanced human-in-the-loop approval gate, dynamic workflow, dynamic dashboards, a knowledge base, and active alerts and notifications. The platform also includes a warm agent pool, a self-improvement pipeline, versioned agent definitions, live state tracking, multi-replica routing, durable task/thread state, an agent-pod registry, and a credential proxy.",
-    "openSource": "aria-conductor is the open-source simplification: 10 Java modules, human-in-the-loop gates, agent chains, a concurrency harness, and API E2E coverage.",
+    "openSource": "aria-conductor is the open-source proof of the Control Tower model: 10 Java modules, human-in-the-loop gates, agent chains, a concurrency harness, and API E2E coverage — a playground for scaling the platform and trying new features.",
     "capabilities": [
       {
         "name": "Agent lifecycle & task queue",

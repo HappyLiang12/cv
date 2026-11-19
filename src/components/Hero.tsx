@@ -43,7 +43,7 @@ export function Hero() {
               {cv.name} — Hong Kong
             </p>
             <h1 className="rise" style={{ animationDelay: '0.05s' }}>
-              AI platform &amp; agent systems engineer.
+              AI Platform &amp; Agent Systems Engineer
             </h1>
             <p className="lede rise" style={{ animationDelay: '0.1s' }}>
               {cv.summary}

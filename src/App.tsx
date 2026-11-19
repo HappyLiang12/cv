@@ -8,7 +8,6 @@ import { Decomposer } from './components/Decomposer';
 import { Observability } from './components/Observability';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
 
 export default function App() {
   const { mode, toggle } = useMinimalMode();
@@ -37,7 +36,6 @@ export default function App() {
           </>
         )}
       </main>
-      <Footer />
     </>
   );
 }

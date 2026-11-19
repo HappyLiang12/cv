@@ -1,7 +1,7 @@
 # cv-3d — Happy LIANG Yee Ching
 
 A live CV for platform and observability engineering roles. The page pairs an editorial
-layout with a three-level technical skill graph: 82 tools connect upward through 12 skill
+layout with a three-level technical skill graph: 83 tools connect upward through 12 skill
 groups and four capabilities to Happy. The content itself is always plain HTML.
 
 - Live URL: https://happyliang12.github.io/cv/
