@@ -36,7 +36,15 @@ export function Header({ mode, onToggle }: HeaderProps) {
             <span className="switch" aria-hidden="true" />
             <span>Minimal</span>
           </button>
-          <a className="cv-link" href={`${base}cv/`}>CV</a>
+          <a
+            className="cv-link"
+            href={`${base}Happy-Liang-CV.html`}
+            download
+            title="Download CV (HTML)"
+            aria-label="Download CV (HTML)"
+          >
+            CV
+          </a>
         </div>
       </div>
     </header>

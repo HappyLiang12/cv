@@ -6,7 +6,8 @@ AI Platform & Agent Systems Engineer based in Hong Kong.
 
 ## Pages
 - Portfolio: https://happyliang12.github.io/cv/
-- CV (HTML): https://happyliang12.github.io/cv/cv/
+- CV (HTML page): https://happyliang12.github.io/cv/cv/
+- CV (downloadable HTML): https://happyliang12.github.io/cv/Happy-Liang-CV.html
 - CV (plain text): https://happyliang12.github.io/cv/cv.txt
 - GitHub: https://github.com/HappyLiang12
 - This file: https://happyliang12.github.io/cv/llms.txt

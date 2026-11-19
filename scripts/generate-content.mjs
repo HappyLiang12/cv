@@ -167,11 +167,9 @@ const cvHtml = `<!doctype html>
   <h2>Core Skills</h2>
   <ul>${skillsHtml}</ul>
 
-  <h2>Experience</h2>
-  ${experienceHtml}
+  <h2>Experience</h2>${experienceHtml}
 
-  <h2>Selected Projects</h2>
-  ${projectsHtml}
+  <h2>Selected Projects</h2>${projectsHtml}
 
   <h2>Education</h2>
   <ul>${educationHtml}</ul>
@@ -183,6 +181,18 @@ const cvHtml = `<!doctype html>
 </html>`;
 
 fs.writeFileSync(path.join(cvDir, 'index.html'), cvHtml);
+
+const downloadHtml = cvHtml
+  .replace(
+    '<meta name="robots" content="index,follow">',
+    '<meta name="robots" content="noindex,nofollow">'
+  )
+  .replace('<link rel="icon" type="image/svg+xml" href="../favicon.svg">\n', '')
+  .replaceAll('href="../cv.txt"', `href="${siteUrl}cv.txt"`)
+  .replaceAll('href="../Happy-Liang-CV.pdf"', `href="${siteUrl}Happy-Liang-CV.pdf"`)
+  .replace('href="../"', `href="${siteUrl}"`);
+
+fs.writeFileSync(path.join(publicDir, 'Happy-Liang-CV.html'), downloadHtml);
 
 const cvText = `${cv.name}
 ${cv.role} — ${cv.location}
@@ -213,7 +223,8 @@ ${cv.role} based in ${cv.location}.${cv.availability ? ` ${cv.availability}` : '
 
 ## Pages
 - Portfolio: ${siteUrl}
-- CV (HTML): ${siteUrl}cv/
+- CV (HTML page): ${siteUrl}cv/
+- CV (downloadable HTML): ${siteUrl}Happy-Liang-CV.html
 - CV (plain text): ${siteUrl}cv.txt
 - GitHub: ${github}
 - This file: ${siteUrl}llms.txt
@@ -264,4 +275,4 @@ Sitemap: ${siteUrl}sitemap.xml
 `);
 fs.writeFileSync(path.join(publicDir, '.nojekyll'), '');
 
-console.log('generated public/cv/index.html, public/cv.txt, public/llms.txt, sitemap.xml, robots.txt');
+console.log('generated public/cv/index.html, public/Happy-Liang-CV.html, public/cv.txt, public/llms.txt, sitemap.xml, robots.txt');
