@@ -182,17 +182,52 @@ const cvHtml = `<!doctype html>
 
 fs.writeFileSync(path.join(cvDir, 'index.html'), cvHtml);
 
-const downloadHtml = cvHtml
-  .replace(
-    '<meta name="robots" content="index,follow">',
-    '<meta name="robots" content="noindex,nofollow">'
-  )
-  .replace('<link rel="icon" type="image/svg+xml" href="../favicon.svg">\n', '')
-  .replaceAll('href="../cv.txt"', `href="${siteUrl}cv.txt"`)
-  .replaceAll('href="../Happy-Liang-CV.pdf"', `href="${siteUrl}Happy-Liang-CV.pdf"`)
-  .replace('href="../"', `href="${siteUrl}"`);
+const styles = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
+const snapshotDescription = 'CV of LIANG Yee Ching (Happy), AI platform and agent systems engineer in Hong Kong. Agent Control Tower for human decision support, agent execution, and human governance, with agent lifecycle, queue-based dispatch, dynamic workflow, and production observability.';
 
-fs.writeFileSync(path.join(publicDir, 'Happy-Liang-CV.html'), downloadHtml);
+let snapshotBody;
+const { createServer } = await import('vite');
+const vite = await createServer({
+  server: { middlewareMode: true },
+  appType: 'custom',
+  logLevel: 'error'
+});
+try {
+  const { StaticCv } = await vite.ssrLoadModule('/src/static/StaticCv.tsx');
+  const { createElement } = await import('react');
+  const { renderToStaticMarkup } = await import('react-dom/server');
+  snapshotBody = renderToStaticMarkup(createElement(StaticCv));
+} finally {
+  await vite.close();
+}
+
+// Rendered links use import.meta.env.BASE_URL; make them absolute for offline use.
+const absolutize = html => html
+  .replaceAll('href="/cv/', `href="${siteUrl}`)
+  .replaceAll('src="/cv/', `src="${siteUrl}`)
+  .replaceAll('href="/', `href="${siteUrl}`)
+  .replaceAll('src="/', `src="${siteUrl}`);
+
+const snapshotHtml = `<!doctype html>
+<html lang="en" data-mode="full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LIANG Yee Ching (Happy) — AI Platform &amp; Agent Systems Engineer</title>
+<meta name="description" content="${snapshotDescription}">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#fcfcfb">
+<link rel="canonical" href="${siteUrl}">
+<link rel="icon" type="image/svg+xml" href="${siteUrl}favicon.svg">
+<style>
+${styles}</style>
+</head>
+<body>
+${absolutize(snapshotBody)}
+</body>
+</html>`;
+
+fs.writeFileSync(path.join(publicDir, 'Happy-Liang-CV.html'), snapshotHtml);
 
 const cvText = `${cv.name}
 ${cv.role} — ${cv.location}
@@ -275,4 +310,4 @@ Sitemap: ${siteUrl}sitemap.xml
 `);
 fs.writeFileSync(path.join(publicDir, '.nojekyll'), '');
 
-console.log('generated public/cv/index.html, public/Happy-Liang-CV.html, public/cv.txt, public/llms.txt, sitemap.xml, robots.txt');
+console.log('generated public/Happy-Liang-CV.html (static snapshot), public/cv/index.html, public/cv.txt, public/llms.txt, public/sitemap.xml, public/robots.txt');

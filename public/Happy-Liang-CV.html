@@ -1,145 +1,462 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-mode="full">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LIANG Yee Ching (Happy) — CV</title>
+<title>LIANG Yee Ching (Happy) — AI Platform &amp; Agent Systems Engineer</title>
 <meta name="description" content="CV of LIANG Yee Ching (Happy), AI platform and agent systems engineer in Hong Kong. Agent Control Tower for human decision support, agent execution, and human governance, with agent lifecycle, queue-based dispatch, dynamic workflow, and production observability.">
 <meta name="robots" content="noindex,nofollow">
-<link rel="canonical" href="https://happyliang12.github.io/cv/cv/">
-<link rel="alternate" type="text/plain" href="https://happyliang12.github.io/cv/cv.txt" title="CV (plain text)">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"LIANG Yee Ching (Happy)","alternateName":"Happy Liang","jobTitle":"Senior Technical Analyst","worksFor":{"@type":"Organization","name":"OOCL"},"address":{"@type":"PostalAddress","addressLocality":"Hong Kong"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Wollongong"}],"sameAs":["https://github.com/HappyLiang12","https://www.linkedin.com/in/happy-liang-89a20117a/"],"url":"https://happyliang12.github.io/cv/","knowsAbout":["Platform engineering","Observability","Kubernetes","Grafana","Prometheus","Distributed scheduling","Java","Spring Boot","React","AI agents","Agent runtime","Agent Control Tower","Agent lifecycle","Agent task queue","Warm agent pool","Knowledge base","Self-improvement pipeline","Dynamic workflow","Active notification systems","Agent-generated dashboards","Agent-pod registry","Agentic SDLC","BM25 retrieval","MCP","A2A"]}</script>
+<meta name="theme-color" content="#fcfcfb">
+<link rel="canonical" href="https://happyliang12.github.io/cv/">
+<link rel="icon" type="image/svg+xml" href="https://happyliang12.github.io/cv/favicon.svg">
 <style>
-  :root { color-scheme: light; }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: #fcfcfb; color: #16171a; font-family: Georgia, "Times New Roman", serif; line-height: 1.55; }
-  .top { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; max-width: 820px; margin: 0 auto; padding: 22px 28px 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #64645d; }
-  .top a { color: #2c5f4f; text-decoration: none; }
-  .top button { border: 1px solid #c9c9c0; background: transparent; color: #16171a; font: inherit; letter-spacing: .08em; text-transform: uppercase; padding: 6px 10px; cursor: pointer; }
-  main { max-width: 820px; margin: 0 auto; padding: 26px 28px 64px; }
-  h1 { font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: clamp(34px, 5vw, 44px); font-weight: 500; letter-spacing: -.035em; line-height: 1.05; margin: 0 0 6px; }
-  .role { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #2c5f4f; font-size: 10px; letter-spacing: .13em; text-transform: uppercase; margin: 0 0 12px; }
-  .contact, .avail { font-size: 13px; color: #4a4a43; margin: 0 0 3px; }
-  .contact a { color: #2c5f4f; }
-  h2 { font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #c9c9c0; }
-  p, li { font-size: 13.5px; color: #33332e; }
-  ul { margin: 6px 0 0; padding-left: 18px; }
-  li { margin-bottom: 5px; }
-  .job { margin: 0 0 18px; }
-  .job-head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
-  h3 { font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; font-weight: 600; margin: 0 0 4px; letter-spacing: -.01em; }
-  .dates { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #64645d; font-size: 9px; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
-  .meta { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #64645d; font-size: 9px; letter-spacing: .05em; text-transform: uppercase; margin: 0 0 4px; }
-  .project { margin: 0 0 16px; }
-  .project p { margin: 0 0 4px; }
-  .project a { color: #2c5f4f; }
-  .pdf-link { margin-top: 30px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
-  .pdf-link a { color: #2c5f4f; }
-  footer { max-width: 820px; margin: 0 auto; padding: 0 28px 36px; color: #64645d; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; letter-spacing: .07em; text-transform: uppercase; }
-  @media print {
-    * { letter-spacing: 0 !important; }
-    body { background: #fff; color: #000; }
-    .top, .no-print, footer { display: none !important; }
-    main { max-width: none; padding: 0; }
-    a { color: inherit; text-decoration: none; }
-    h1 { font-size: 26pt; margin-bottom: 3px; }
-    .role { font-size: 8pt; margin-bottom: 6px; }
-    .contact, .avail { font-size: 9.3pt; margin-bottom: 1px; }
-    p, li { font-size: 8.9pt; line-height: 1.31; }
-    ul { margin-top: 2px; }
-    li { margin-bottom: 1px; }
-    h2,
-    h3 {
-      font-family: Arial, Helvetica, sans-serif !important;
-      text-transform: none !important;
-    }
-    h2 { font-size: 10.2pt; margin: 11px 0 4px; padding-bottom: 2px; border-color: #999; }
-    h3 { font-size: 10.2pt; margin-bottom: 1px; }
-    .dates, .meta { font-size: 7pt; }
-    .job, .project { margin-bottom: 9px; break-inside: avoid; }
-    @page { margin: 11mm 13mm; }
-  }
+:root {
+  --bg: #fcfcfb;
+  --surface: #ffffff;
+  --text: #16171a;
+  --muted: #5f6368;
+  --line: #e3e4e5;
+  --line-strong: #c8cbce;
+  --accent: #2c5f4f;
+  --accent-soft: #f2f4f3;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --max: 1320px;
+  --pad: clamp(24px, 4.5vw, 64px);
+  --header-h: 76px;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 24px); background: var(--bg); }
+body { margin: 0; color: var(--text); background: var(--bg); font-family: var(--sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--accent); color: var(--surface); }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+button { cursor: pointer; }
+img, svg { max-width: 100%; }
+.mono { font-family: var(--mono); font-size: 11px; letter-spacing: .09em; text-transform: uppercase; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.skip { position: fixed; left: -9999px; top: 12px; background: var(--text); color: var(--surface); padding: 12px 18px; z-index: 100; font-size: 14px; border-radius: 6px; }
+.skip:focus { left: 16px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+main:focus, h3[tabindex="-1"]:focus { outline: none; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+.top { position: sticky; top: 0; z-index: 30; background: var(--bg); border-bottom: 1px solid var(--line); }
+.top-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); height: var(--header-h); display: flex; align-items: center; gap: 26px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-family: var(--mono); font-size: 10px; letter-spacing: .075em; text-decoration: none; white-space: nowrap; }
+.brand-short { display: none; }
+.brand-mark { position: relative; width: 22px; height: 22px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px; transform: rotate(-8deg); transition: transform .6s var(--ease); }
+.brand-mark span { background: var(--accent); border-radius: 50% 50% 2px 50%; }
+.brand-mark span:nth-child(2) { opacity: .45; transform: rotate(90deg); }
+.brand-mark span:nth-child(3) { opacity: .65; transform: rotate(-90deg); }
+.brand-mark span:nth-child(4) { opacity: .85; transform: rotate(180deg); }
+.brand:hover .brand-mark { transform: rotate(0); }
+.nav { display: flex; align-items: center; gap: 20px; margin-left: auto; }
+.nav a { position: relative; display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; color: var(--muted); text-decoration: none; white-space: nowrap; transition: color .2s; }
+.nav a[href="#decomposer"] { display: none; }
+.nav a::after { content: ""; position: absolute; bottom: 7px; height: 1px; left: 0; right: 0; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
+.nav a:hover, .nav a[aria-current] { color: var(--accent); }
+.nav a:hover::after, .nav a[aria-current]::after { transform: scaleX(1); }
+.top-actions { display: flex; align-items: center; gap: 14px; margin-left: auto; }
+.mode-toggle { border: 1px solid var(--line-strong); border-radius: 24px; background: transparent; min-height: 44px; padding: 0 14px; display: inline-flex; align-items: center; gap: 7px; font-size: 12px; transition: background .3s, border-color .3s, color .3s; }
+.mode-toggle:hover { background: var(--accent-soft); border-color: var(--accent); }
+.minimal-icon { width: 17px; height: 17px; }
+.mode-toggle[aria-pressed="true"] { color: var(--surface); background: var(--text); border-color: var(--text); }
+.cv-link { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; min-width: 44px; font-size: 12px; text-decoration: none; }
+.cv-link svg { width: 16px; height: 16px; transition: transform .3s var(--ease); }
+.cv-link:hover { color: var(--accent); }
+.cv-link:hover svg { transform: translateY(2px); }
+.nav-menu { display: none; width: 44px; height: 44px; padding: 11px; border: 0; border-radius: 50%; background: transparent; }
+.nav-menu:hover { background: var(--accent-soft); }
+.nav-menu svg { display: block; width: 22px; height: 22px; }
+
+.hero { padding: clamp(46px, 6vw, 78px) 0 0; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(36px, 4.6vw, 68px); align-items: center; }
+.hero-copy { max-width: 560px; padding-bottom: 12px; }
+.kicker { color: var(--muted); margin: 0 0 28px; font-size: 10px; letter-spacing: .07em; }
+.kicker::before { content: ""; display: inline-block; vertical-align: middle; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); margin: 0 11px 2px 0; }
+.kicker-divider { color: var(--line-strong); margin: 0 6px; }
+.rise { animation: rise .9s var(--ease) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+h1 { font-size: clamp(46px, 4.7vw, 64px); line-height: 1.08; letter-spacing: -.052em; font-weight: 500; margin: 0 0 28px; }
+.hero-emphasis { font: inherit; letter-spacing: inherit; color: inherit; }
+.hero-line-break { display: none; }
+.lede { max-width: 51ch; font-size: 15.5px; line-height: 1.85; color: var(--muted); margin: 0 0 24px; text-wrap: pretty; }
+.avail { font-size: 13px; color: var(--muted); margin: 0 0 24px; }
+.actions { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+.text-link { display: inline-flex; align-items: center; min-height: 44px; padding: 5px 0; font-size: 14px; font-weight: 500; color: var(--text); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 7px; text-decoration-thickness: 1px; transition: color .25s, text-decoration-color .25s; background: none; border: 0; font-family: var(--sans); cursor: pointer; text-align: left; }
+.text-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.text-link.primary { color: var(--accent); text-decoration-color: var(--accent); }
+.text-link .arrow { display: inline-block; margin-left: 10px; transition: transform .35s var(--ease); }
+.text-link:hover .arrow { transform: translate(2px, 2px); }
+
+.hero-scene { margin: 0; min-width: 0; align-self: center; }
+.scene-frame { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 16px 42px -32px rgba(0,0,0,.16); overflow: hidden; }
+.scene-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 22px 0; color: var(--muted); font-size: 11px; }
+.scene-heading .mono { color: var(--accent); font-size: 10px; }
+.scene-heading-dot { padding: 0 5px; }
+.scene-canvas { position: relative; height: clamp(340px, 27vw, 388px); min-height: 340px; overflow: clip; isolation: isolate; }
+.scene-canvas canvas { display: block; }
+.scene-label { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 5px; padding: 6px 10px; color: var(--text); background: var(--surface); font-family: var(--sans); font-size: 12px; font-weight: 500; line-height: 1.2; white-space: nowrap; user-select: none; transition: opacity .25s, background .25s, border-color .25s, box-shadow .25s; }
+button.scene-label:hover, button.scene-label:focus-visible { background: var(--accent-soft); border-color: var(--accent); }
+.scene-label.is-dim { color: var(--muted); }
+.scene-label.is-hidden { opacity: 0; pointer-events: none; }
+.scene-label-self { background: var(--accent); border-color: var(--accent); color: var(--surface); font-size: 14px; padding: 7px 13px; }
+button.scene-label-self:hover, button.scene-label-self:focus-visible { background: var(--accent); color: var(--surface); }
+.scene-label-group { font-size: 11px; }
+.scene-label-tool, .scene-label-role, .scene-label-education { font-size: 11px; color: var(--accent); }
+.scene-label-background { color: var(--muted); font-size: 11px; }
+.graph-inspector { position: relative; height: 280px; min-height: 280px; overflow: hidden; overflow-anchor: none; border-top: 1px solid var(--line); padding: 18px 22px; background: #f7f8f8; }
+.gi-layer { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; height: 100%; }
+.gi-main, .gi-side { overflow-y: auto; overflow-x: hidden; min-height: 0; scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+.gi-main { padding-right: 8px; }
+.gi-main:focus-visible { outline-offset: -2px; }
+.gi-kind { color: var(--accent); font-size: 10px; letter-spacing: .06em; }
+.gi-state { display: block; margin: 4px 0 7px; color: var(--muted); font-size: 9px; letter-spacing: .02em; }
+.gi-preview-path { color: var(--muted); font-size: 9px; line-height: 1.7; margin: 0 0 10px; letter-spacing: .025em; }
+.gi-main h2 { font-family: var(--sans); font-size: 21px; font-weight: 500; letter-spacing: -.025em; margin: 2px 0 7px; line-height: 1.25; }
+.gi-path { display: flex; flex-wrap: wrap; gap: 4px; font-size: 10px; line-height: 1.6; color: var(--muted); margin: 0 0 8px; overflow-wrap: anywhere; }
+.gi-desc { font-size: 13px; line-height: 1.7; color: var(--muted); margin: 0; }
+.gi-side { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; }
+.gi-list { margin: 0; max-width: 100%; font-size: 12px; }
+.gi-list .mono { display: block; font-size: 10px; color: var(--muted); margin-bottom: 7px; }
+.gi-list-items { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0; }
+.gi-list-items li { margin: 0; padding: 0; max-width: 100%; }
+.gi-list-items button { max-width: 100%; }
+.gi-back { flex-shrink: 0; }
+.gi-reset { text-transform: none; }
+.gi-node-button { display: inline-flex; align-items: center; min-height: 36px; padding: 6px 11px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 6px; font-size: 12px; text-align: left; line-height: 1.35; transition: background .2s, border-color .2s; }
+.gi-node-button:hover { background: var(--accent-soft); border-color: var(--accent); }
+.gi-node-button[aria-pressed="true"] { background: var(--accent); color: var(--surface); border-color: var(--accent); }
+.gi-related, .gi-meta { color: var(--muted); font-size: 10px; line-height: 1.65; margin: 0; }
+.gi-hint { color: var(--muted); font-size: 10px; letter-spacing: .025em; line-height: 1.6; }
+.gi-navigation, .gi-breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.gi-navigation button, .gi-breadcrumbs button, .gi-path button { min-height: 32px; border: 0; background: transparent; padding: 4px 5px; color: var(--accent); font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
+.scene-foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 16px; padding: 13px 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+.scene-legend { display: inline-flex; align-items: center; gap: 7px; }
+.legend-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.static-map-desktop { width: 100%; height: 100%; display: block; }
+
+.skill-explorer { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.skill-explorer-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 20px 22px; border-bottom: 1px solid var(--line); font-size: 11px; color: var(--muted); }
+.skill-explorer-head .mono { font-size: 10px; color: var(--accent); }
+.skill-content { padding: 24px 22px; min-height: 300px; }
+.skill-content h3 { margin: 0 0 10px; font-family: var(--sans); font-weight: 400; font-size: 27px; line-height: 1.25; letter-spacing: -.025em; scroll-margin-top: calc(var(--header-h) + 24px); }
+.skill-description { margin: 0 0 20px; font-size: 14px; line-height: 1.75; color: var(--muted); }
+.skill-meta { font-size: 10px; color: var(--muted); margin: 0 0 18px; }
+.skill-navigation { display: flex; justify-content: space-between; gap: 12px; padding: 8px 16px 0; }
+.skill-navigation button { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 6px; border: 0; background: transparent; color: var(--accent); font-size: 12px; }
+.skill-navigation svg { width: 20px; height: 20px; }
+.skill-home { text-decoration: underline; text-underline-offset: 4px; }
+.skill-trail { font-size: 11px; line-height: 1.6; color: var(--muted); margin: 0 0 14px; overflow-wrap: anywhere; }
+.skill-children { display: grid; gap: 8px; }
+.skill-children button { display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 56px; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; background: var(--bg); text-align: left; font-size: 14px; line-height: 1.5; transition: background .25s, border-color .25s, transform .25s var(--ease); }
+.skill-children button:hover { border-color: var(--accent); background: var(--accent-soft); }
+.skill-children button:active { transform: scale(.985); }
+.skill-child-copy { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.skill-child-copy small { color: var(--muted); font-size: 11px; }
+.skill-children button > svg { width: 18px; height: 18px; flex: none; color: var(--accent); }
+.skill-children.is-tools { grid-template-columns: 1fr 1fr; }
+.skill-children.is-tools button { font-size: 13px; padding: 10px; min-height: 48px; }
+.skill-children.is-tools button > svg { display: none; }
+.skill-symbol { position: relative; width: 30px; height: 30px; flex: none; display: block; }
+.skill-symbol i { position: absolute; width: 13px; height: 13px; border: 1px solid var(--accent); border-radius: 3px; background: var(--accent-soft); }
+.skill-symbol i:nth-child(1) { top: 1px; left: 1px; }
+.skill-symbol i:nth-child(2) { top: 9px; left: 15px; }
+.skill-symbol i:nth-child(3) { top: 17px; left: 1px; }
+.symbol-1 i { border-radius: 50%; }
+.symbol-2 { transform: rotate(45deg); }
+.symbol-3 i:nth-child(2) { background: var(--accent); }
+.symbol-4 i { border-radius: 50% 50% 2px 2px; }
+
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 58px 0 0; padding: 30px 0 34px; border-top: 1px solid var(--line-strong); gap: 24px; }
+.stats > div { padding-left: 26px; border-left: 1px solid var(--line); min-width: 0; }
+.stats > div:first-child { padding-left: 0; border-left: 0; }
+.stats dt { color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .065em; text-transform: uppercase; margin-bottom: 8px; }
+.stats dd { margin: 0; font-family: var(--sans); font-size: clamp(24px, 2.5vw, 32px); line-height: 1.2; letter-spacing: -.04em; }
+.stats small { display: block; margin-top: 9px; color: var(--muted); font-family: var(--sans); font-size: 12px; line-height: 1.6; letter-spacing: 0; }
+
+.section { position: relative; isolation: isolate; overflow: clip; padding: clamp(64px, 7.5vw, 100px) 0; border-top: 1px solid var(--line); scroll-margin-top: 0; }
+.section::before { content: ""; position: absolute; inset: 60px 0; width: min(calc(100% - 24px), calc(var(--max) - 32px)); margin-inline: auto; border-radius: 40px; background: radial-gradient(ellipse at var(--glass-position, 20%) 35%, rgba(151,163,179,.12), transparent 70%); opacity: 0; transition: opacity .7s var(--ease); pointer-events: none; z-index: -1; }
+.section[data-focused="true"]::before { opacity: 1; }
+.section > .wrap { position: relative; isolation: isolate; transform-origin: center top; transition: transform 1.1s var(--ease), opacity .85s var(--ease); }
+.section > .wrap::before, .section > .wrap::after { content: ""; position: absolute; inset: -24px 28px -28px; border-radius: 26px; pointer-events: none; z-index: -1; opacity: 0; transform: translate3d(0,8px,0) scale(.995); transition: opacity .65s var(--ease), transform .8s var(--ease); }
+.section > .wrap::before { border: 1px solid rgba(147,157,169,.34); background: linear-gradient(145deg,rgba(255,255,255,.94),rgba(240,244,248,.8)); box-shadow: 0 22px 56px -30px rgba(22,23,26,.25), 0 3px 12px -8px rgba(22,23,26,.15), inset 0 1px 0 rgba(255,255,255,.98); }
+.section > .wrap::after { background: linear-gradient(115deg,transparent 12%,rgba(255,255,255,.84) 34%,rgba(215,222,230,.12) 47%,rgba(255,255,255,.72) 61%,transparent 76%); background-size: 240% 100%; background-position: var(--glass-position, 20%) 50%; box-shadow: inset 1px 1px 0 rgba(255,255,255,.95), inset -1px -1px 0 rgba(100,111,124,.07); transition: opacity .65s var(--ease), transform .8s var(--ease), background-position .3s ease-out; }
+.section[data-focused="true"] > .wrap::before { opacity: 1; transform: none; -webkit-backdrop-filter: blur(16px) saturate(108%); backdrop-filter: blur(16px) saturate(108%); }
+.section[data-focused="true"] > .wrap::after { opacity: .75; transform: none; }
+.section[data-reveal="out"] > .wrap { opacity: .56; transform: translate3d(0,30px,0) scale(.975); }
+.section[data-reveal="in"] > .wrap { opacity: 1; transform: none; }
+.section:focus-within > .wrap { opacity: 1; transform: none; }
+.sec-meta { display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px; }
+.sec-label { display: flex; align-items: center; gap: 10px; color: var(--accent); font-size: 10px; letter-spacing: .12em; }
+.sec-label::before { content: ""; width: 20px; height: 1px; background: var(--accent); }
+.sec-title { font-family: var(--sans); font-size: clamp(30px, 3vw, 40px); font-weight: 500; line-height: 1.16; letter-spacing: -.035em; margin: 0 0 40px; max-width: 27ch; text-wrap: pretty; }
+.sec-body { max-width: 1030px; }
+.sec-body p { font-size: 15px; line-height: 1.85; color: var(--muted); margin: 0 0 20px; max-width: 78ch; text-wrap: pretty; }
+.sec-body code { font-family: var(--mono); font-size: .86em; background: var(--accent-soft); color: var(--accent); padding: 2px 5px; border-radius: 3px; }
+.job { display: grid; grid-template-columns: 175px minmax(0, 1fr); gap: 34px; padding: 28px 0; border-top: 1px solid var(--line); }
+.job:first-of-type { border-color: var(--line-strong); }
+.job-meta { display: flex; flex-direction: column; gap: 4px; padding-top: 3px; }
+.job-meta .mono { font-size: 10px; color: var(--muted); letter-spacing: .02em; }
+.job:first-of-type .job-meta::before { content: ""; width: 7px; height: 7px; margin: 3px 0 10px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 4px var(--accent-soft); }
+.job h3 { font-size: 19px; font-weight: 500; letter-spacing: -.02em; line-height: 1.45; margin: 0 0 12px; }
+.job h3 span { color: var(--muted); font-weight: 400; }
+.job ul { padding: 0; margin: 0; list-style: none; }
+.job li { position: relative; padding-left: 16px; font-size: 14.5px; color: var(--muted); line-height: 1.8; margin-bottom: 9px; max-width: 80ch; }
+.job li:last-child { margin-bottom: 0; }
+.job li::before { content: ""; position: absolute; left: 0; top: .85em; width: 5px; height: 1px; background: var(--accent); }
+.stack-block { margin-top: 38px; padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.subhead { color: var(--accent); font-size: 10px; margin-bottom: 20px; letter-spacing: .1em; }
+.stack-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.stack-label { color: var(--muted); font-size: 10px; margin-bottom: 9px; }
+.stack-items { font-size: 14px; color: var(--text); line-height: 1.8; }
+.sec-body .stack-practices { color: var(--muted); font-size: 10px; margin: 24px 0 0; padding-top: 18px; border-top: 1px solid var(--line); }
+.education-block { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--line); }
+.education-row { display: flex; justify-content: space-between; gap: 24px; padding: 8px 0; font-size: 14px; color: var(--muted); }
+.education-row .mono { font-size: 11px; white-space: nowrap; }
+
+.caps { list-style: none; padding: 0; margin: 30px 0 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 44px; border-top: 1px solid var(--line-strong); }
+.cap { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.cap .mono { color: var(--muted); font-size: 10px; letter-spacing: .025em; text-align: right; }
+.sec-body .note { margin-top: 26px; padding: 16px 20px; border-left: 2px solid var(--accent); background: var(--accent-soft); border-radius: 0 6px 6px 0; font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 78ch; }
+.caps + .note { margin-top: 32px; }
+.sec-body .note + .note { margin-top: 16px; }
+.open-source-note a { color: var(--accent); text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
+.open-source-note a:hover { text-decoration-color: var(--accent); }
+.diagram { margin: 32px 0 0; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.decomposer-flow { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 48px; align-items: center; padding: 10px 12px; }
+.flow-stage { position: relative; display: flex; flex-direction: column; gap: 9px; }
+.flow-stage::after { content: "→"; position: absolute; left: calc(100% + 17px); top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 20px; }
+.flow-stage:nth-child(3)::after { display: none; }
+.flow-node { display: block; min-height: 34px; padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: 6px; text-align: center; font-size: 12px; background: var(--bg); color: var(--accent); }
+.flow-root { background: var(--accent); color: var(--surface); border-color: var(--accent); padding-top: 13px; padding-bottom: 13px; }
+.flow-continuation { font-size: 10px; color: var(--muted); }
+.diagram figcaption { color: var(--muted); font-size: 10px; line-height: 1.8; margin-top: 18px; letter-spacing: .04em; }
+.proof { width: 100%; border-collapse: collapse; margin: 30px 0 0; font-size: 14px; }
+.proof caption { caption-side: top; text-align: left; color: var(--muted); font-size: 10px; margin-bottom: 12px; font-family: var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+.proof th { color: var(--muted); font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; font-weight: 400; text-align: left; padding: 12px 0; border-bottom: 1px solid var(--line-strong); }
+.proof td { padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+.proof td:first-child { width: 30%; padding-right: 24px; color: var(--text); }
+.sec-body .stack-line { margin-top: 20px; color: var(--muted); font-size: 11px; letter-spacing: .035em; line-height: 1.9; }
+
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 44px; }
+.project { position: relative; padding: 27px 0 30px; border-top: 1px solid var(--line); }
+.project:first-child { grid-column: 1 / -1; border-color: var(--line-strong); }
+.project h3 { font-size: 21px; font-weight: 500; letter-spacing: -.025em; margin: 0 0 6px; }
+.project .meta { color: var(--muted); font-size: 10px; letter-spacing: .035em; }
+.project p { margin: 14px 0 0; font-size: 14.5px; color: var(--muted); line-height: 1.8; max-width: 78ch; }
+.project-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; color: var(--accent); font-size: 10px; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 5px; letter-spacing: .05em; transition: text-decoration-color .3s; }
+.project-link:hover { text-decoration-color: var(--accent); }
+.sec-body .more-link { margin: 18px 0 0; }
+.section.contact { background: transparent; padding: 40px 0 44px; }
+.contact .sec-meta { margin-bottom: 12px; }
+.contact .sec-title { font-size: 26px; margin-bottom: 14px; }
+.contact .sec-body p { font-size: 14px; margin-bottom: 8px; }
+.contact-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 24px; margin-top: 14px; max-width: 1030px; }
+.contact-actions .text-link:first-child { font-size: 16px; font-weight: 500; letter-spacing: -.01em; }
+
+.top.is-minimal { border-bottom-color: transparent; }
+.minimal { padding: 32px 24px 64px; }
+.minimal-inner { max-width: 840px; padding: clamp(24px, 4vw, 48px); animation: rise .65s var(--ease) both; }
+.minimal-head { padding-bottom: 12px; }
+.minimal-head .kicker { font-size: 10px; line-height: 1.75; margin-bottom: 24px; }
+.minimal-head h1 { font-family: var(--sans); font-size: clamp(36px, 4vw, 44px); font-weight: 500; letter-spacing: -.05em; line-height: 1.15; margin-bottom: 24px; }
+.minimal-summary { font-family: var(--sans); font-size: 17px; line-height: 1.9; color: var(--muted); margin: 0 0 22px; max-width: 64ch; }
+.minimal-proof { font-size: 10px; line-height: 1.8; color: var(--muted); margin: 0 0 12px; letter-spacing: .03em; }
+.min-section { margin-top: 38px; }
+.min-label { color: var(--accent); font-family: var(--mono); font-size: 10px; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 16px; padding-top: 24px; border-top: 1px solid var(--line); }
+.min-rows, .min-projects { list-style: none; margin: 0; padding: 0; }
+.min-row { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.min-row:last-child { border-bottom: 0; }
+.min-role { font-weight: 500; }
+.min-company { color: var(--muted); }
+.min-period { font-size: 10px; color: var(--muted); white-space: nowrap; letter-spacing: .025em; }
+.min-project { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.min-project:first-child { padding-top: 4px; }
+.min-project:last-child { border-bottom: 0; }
+.min-project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.min-project-name { font-size: 17px; font-weight: 500; }
+.min-project-name a { text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
+.min-project-name a:hover { color: var(--accent); }
+.min-project-meta { color: var(--muted); font-size: 9px; letter-spacing: .02em; text-align: right; }
+.min-project p { font-family: var(--sans); font-size: 15px; line-height: 1.85; color: var(--muted); margin: 10px 0 0; }
+.text-link.compact { font-size: 13px; margin-top: 12px; }
+.min-focus { display: grid; gap: 15px; }
+.min-focus-row { display: grid; grid-template-columns: 65px 1fr; gap: 20px; font-size: 14px; color: var(--muted); line-height: 1.8; }
+.min-focus-label { font-family: var(--mono); font-size: 10px; padding-top: 4px; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+.min-contact-links { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; }
+
+.glass-surface { position: relative; isolation: isolate; border-radius: 24px; transition: transform .55s var(--ease), opacity .3s var(--ease); }
+.glass-surface > :not(.glass-cursor) { position: relative; z-index: 1; }
+.glass-cursor { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; z-index: 0; opacity: 0; transition: opacity .2s ease; }
+.glass-cursor::before { content: ""; position: absolute; left: 0; top: 0; width: 320px; height: 220px; border-radius: 50%; border: 1px solid rgba(117,137,161,.38); background: radial-gradient(ellipse at 32% 18%,rgba(255,255,255,.94),rgba(224,232,242,.58) 48%,rgba(185,201,221,.28) 78%,rgba(255,255,255,.7)); box-shadow: 0 14px 32px -18px rgba(24,40,60,.32), inset 0 2px 0 rgba(255,255,255,.98), inset 0 -2px 0 rgba(117,137,161,.2); -webkit-backdrop-filter: blur(7px) saturate(112%); backdrop-filter: blur(7px) saturate(112%); transform: translate3d(var(--pointer-x,0px),var(--pointer-y,0px),0) translate(-50%,-50%); transition: transform .09s ease-out; }
+.glass-cursor::after { content: ""; position: absolute; left: 0; top: 0; width: 284px; height: 184px; border-radius: 50%; border-top: 1px solid rgba(255,255,255,.95); border-bottom: 1px solid rgba(255,255,255,.75); transform: translate3d(var(--pointer-x,0px),var(--pointer-y,0px),0) translate(-50%,-50%); transition: transform .09s ease-out; }
+.hero-copy.glass-surface::before, .minimal .glass-surface::before { content: ""; position: absolute; inset: -16px; z-index: -1; border: 1px solid rgba(143,157,175,.28); border-radius: 24px; background: linear-gradient(140deg,rgba(255,255,255,.96),rgba(237,242,247,.76)); box-shadow: 0 18px 40px -28px rgba(24,40,60,.25),inset 0 1px 0 white; opacity: 0; transition: opacity .25s ease; pointer-events: none; }
+.tech-term { border-radius: 4px; background: transparent; box-shadow: none; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: color .18s ease, background-color .18s ease, box-shadow .18s ease, text-shadow .18s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .glass-surface[data-pointer="true"], .section[data-reveal] > .glass-surface[data-pointer="true"] { opacity: 1; transform: translate3d(0,-3px,0) scale(1.012); transition-duration: .55s; }
+  .glass-surface[data-pointer="true"] > .glass-cursor { opacity: 1; }
+  .hero-copy.glass-surface[data-pointer="true"]::before, .minimal .glass-surface[data-pointer="true"]::before { opacity: 1; }
+  .section > .glass-surface[data-pointer="true"]::before { opacity: 1; transform: none; border-color: rgba(119,137,160,.4); box-shadow: 0 22px 56px -30px rgba(24,40,60,.25),inset 0 1px 0 white; -webkit-backdrop-filter: blur(16px) saturate(108%); backdrop-filter: blur(16px) saturate(108%); }
+  .section > .glass-surface[data-pointer="true"]::after { opacity: 1; transform: none; }
+  main:has(.glass-surface[data-pointer="true"]) .section:not(:has(> .glass-surface[data-pointer="true"])) > .wrap::before, main:has(.glass-surface[data-pointer="true"]) .section:not(:has(> .glass-surface[data-pointer="true"])) > .wrap::after { opacity: .15; }
+  .glass-surface[data-pointer="true"] :is(p,li,td,.stack-items,.min-focus-row):hover .tech-term, .graph-inspector .gi-desc:hover .tech-term, .skill-explorer .skill-description:hover .tech-term { color: #16171a; background-color: rgba(216,227,240,.9); box-shadow: 0 0 0 3px rgba(216,227,240,.9),inset 0 1px 0 rgba(255,255,255,.95),0 2px 5px rgba(65,87,115,.16); text-shadow: .025em 0 currentColor; }
+}
+
+@supports (animation-timeline: scroll()) {
+  .top::after { content: ""; position: absolute; bottom: -1px; left: 0; width: 100%; height: 1px; background: var(--accent); transform-origin: left; animation: reading-progress linear both; animation-timeline: scroll(root); opacity: .6; }
+  @keyframes reading-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+
+@media (max-width: 1200px) {
+  .top-inner { gap: 20px; }
+  .nav { gap: 14px; }
+  .brand { font-size: 9px; gap: 8px; }
+  .hero-grid { gap: 36px; }
+  .hero h1 { font-size: 52px; }
+  .scene-heading, .scene-foot { padding-left: 18px; padding-right: 18px; }
+  .graph-inspector { padding-left: 18px; padding-right: 18px; }
+  .stack-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 1100px) {
+  .nav { display: none; }
+  .nav-menu { display: inline-block; }
+  .nav.is-open { display: grid; position: absolute; top: calc(var(--header-h) - 1px); left: 0; right: 0; max-height: calc(100dvh - var(--header-h)); overflow-y: auto; overscroll-behavior-y: contain; padding: 16px var(--pad) 24px; background: var(--surface); border-bottom: 1px solid var(--line-strong); box-shadow: 0 20px 25px -25px #626958; gap: 2px; }
+  .nav a { min-height: 48px; width: fit-content; font-size: 15px; }
+  .nav a[href="#decomposer"] { display: inline-flex; }
+  .brand { font-size: 10px; }
+}
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .hero-copy { max-width: 700px; }
+  .hero h1 { font-size: clamp(48px, 7vw, 64px); }
+  .hero-line-break { display: none; }
+  .lede { max-width: 66ch; font-size: 16px; }
+  .hero-scene { width: 100%; }
+  .skill-children { grid-template-columns: 1fr 1fr; }
+  .skill-children button:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .stats { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+  .stats > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .job { grid-template-columns: 1fr; gap: 12px; }
+  .job-meta { flex-direction: row; align-items: center; gap: 16px; }
+  .job:first-of-type .job-meta::before { margin: 0 3px 0 0; }
+  .caps { column-gap: 28px; }
+  .cap { flex-direction: column; gap: 4px; }
+  .cap .mono { text-align: left; }
+}
+@media (max-width: 640px) {
+  :root { --pad: 24px; --header-h: 68px; }
+  .top-inner { gap: 8px; }
+  .brand-full { display: none; }
+  .brand-short { display: inline; }
+  .brand { font-size: 10px; gap: 9px; }
+  .brand-mark { width: 19px; height: 19px; gap: 2px; }
+  .top-actions { gap: 8px; }
+  .mode-toggle { padding: 0 11px; font-size: 11px; gap: 5px; }
+  .cv-link { font-size: 12px; }
+  .cv-link svg { display: none; }
+  .hero { padding-top: 46px; }
+  .kicker { font-size: 9px; gap: 7px; margin-bottom: 26px; }
+  .hero h1 { font-size: clamp(43px, 10.7vw, 62px); margin-bottom: 26px; line-height: 1.08; }
+  .lede { font-size: 15px; line-height: 1.85; }
+  .actions { gap: 26px; }
+  .text-link { font-size: 13px; }
+  .hero-grid { gap: 30px; }
+  .skill-explorer-head { padding: 17px 18px; font-size: 10px; }
+  .skill-content { padding: 22px 18px; }
+  .skill-content h3 { font-size: 27px; }
+  .skill-children { grid-template-columns: 1fr; }
+  .skill-children button { min-height: 64px; }
+  .skill-children.is-tools button { min-height: 48px; }
+  .stats { gap: 26px 18px; margin-top: 36px; padding: 26px 0 30px; }
+  .stats > div { padding-left: 18px; }
+  .stats dt { font-size: 9px; letter-spacing: .025em; }
+  .stats dd { font-size: 27px; }
+  .stats small { font-size: 11px; margin-top: 8px; }
+  .section { padding: 58px 0; }
+  .section > .wrap::before, .section > .wrap::after { inset: -18px 10px; border-radius: 22px; }
+  .sec-title { font-size: 33px; margin-bottom: 30px; }
+  .sec-body p { font-size: 15px; line-height: 1.8; }
+  .job { padding: 25px 0; }
+  .job-meta .mono { font-size: 9px; }
+  .job h3 { font-size: 18px; }
+  .job li { font-size: 14px; }
+  .stack-block { padding: 22px 20px; }
+  .stack-grid { grid-template-columns: 1fr; gap: 24px; }
+  .education-row { flex-direction: column; gap: 8px; }
+  .caps { grid-template-columns: 1fr; }
+  .cap { flex-direction: row; align-items: center; gap: 18px; padding: 15px 0; }
+  .cap > :first-child { flex: 1; }
+  .cap .mono { font-size: 9px; max-width: 110px; text-align: right; }
+  .sec-body .note { font-size: 14px; padding: 16px; }
+  .diagram { padding: 22px 16px; }
+  .decomposer-flow { grid-template-columns: 1fr; gap: 32px; padding: 0; }
+  .flow-stage { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .flow-stage::after { content: "↓"; top: calc(100% + 1px); left: 50%; transform: translateX(-50%); }
+  .flow-stage:nth-child(3)::after { display: block; }
+  .flow-node { flex: 1; min-width: 64px; padding: 8px 10px; }
+  .flow-stage:nth-child(3) .flow-node { min-width: 85px; }
+  .flow-root { flex: 0 1 130px; }
+  .flow-continuation { text-align: center; }
+  .diagram figcaption { font-size: 10px; }
+  .proof td:first-child { padding-right: 18px; width: 36%; }
+  .proof td { font-size: 14px; }
+  .projects { grid-template-columns: 1fr; gap: 0; }
+  .project { padding: 24px 0; }
+  .project p { font-size: 14px; }
+  .contact-actions { gap: 8px 24px; }
+  .minimal { padding: 22px 10px 48px; }
+  .minimal-inner { padding: 30px 18px; }
+  .minimal-head h1 { font-size: 36px; }
+  .minimal-summary { font-size: 16px; }
+  .min-row { flex-direction: column; gap: 5px; }
+  .min-project-head { flex-direction: column; gap: 6px; }
+  .min-project-meta { text-align: left; }
+  .min-focus-row { grid-template-columns: 1fr; gap: 4px; }
+  .min-contact-links { gap: 6px 20px; }
+}
+@media (max-width: 360px) {
+  :root { --pad: 20px; }
+  .top-inner { padding-left: 16px; padding-right: 12px; gap: 4px; }
+  .top-actions { gap: 2px; }
+  .brand { font-size: 9px; gap: 7px; }
+  .brand-mark { width: 16px; height: 16px; }
+  .mode-toggle { padding: 0 9px; }
+  .hero h1 { font-size: 43px; }
+  .stats dd { font-size: 24px; }
+  .skill-explorer-head { gap: 8px; }
+  .skill-explorer-head .mono { font-size: 9px; }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .section > .wrap::before { background: var(--surface); }
+}
+@media (hover: none), (pointer: coarse) {
+  .glass-cursor { display: none; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass-cursor { display: none; }
+  .hero-copy.glass-surface::before, .minimal .glass-surface::before { background: var(--surface); }
+  .section::before, .section > .wrap::after { display: none; }
+  .section[data-focused] > .wrap::before { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-cursor { display: none; }
+  .glass-surface[data-pointer] { transform: none !important; }
+  .section::before { background: radial-gradient(ellipse at 50% 35%,rgba(151,163,179,.12),transparent 70%); }
+  .section > .wrap::after { background-position: 50% 50%; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .rise, .sec-meta, .sec-title, .section[data-reveal] > .wrap { opacity: 1; transform: none; }
+  .top::after { display: none; }
+}
 </style>
 </head>
 <body>
-<header class="top no-print">
-  <a href="https://happyliang12.github.io/cv/">← Portfolio</a>
-  <span>CV · 2026</span>
-  <button type="button" onclick="window.print()">Print / Save as PDF</button>
-</header>
-<main>
-  <h1>LIANG Yee Ching (Happy)</h1>
-  <p class="role">AI Platform &amp; Agent Systems Engineer — Hong Kong</p>
-  <p class="contact"><a href="mailto:laing17573@gmail.com">laing17573@gmail.com</a> · <a href="https://happyliang12.github.io/cv/">happyliang12.github.io/cv</a> · <a href="https://www.linkedin.com/in/happy-liang-89a20117a/">linkedin.com/in/happy-liang-89a20117a</a> · <a href="https://github.com/HappyLiang12">github.com/HappyLiang12</a></p>
-
-  <h2>Summary</h2>
-  <p>AI platform engineer and design owner with 7+ years building mission-critical operational systems. Delivers agent platforms from architecture through production, with the controls and visibility needed to operate them safely. Has shipped AI for document review, shared AI access, and knowledge retrieval, and owns the reliability behind those systems: dependable job execution, clear monitoring, controlled releases, and fast recovery. Rolled out a shared delivery model for AI work across a platform of 30+ services, with design, review, and release checks that remain measurable as the platform changes. Accountable for delivery end to end: design, build, production operation, and alignment across engineering and operations. Background includes container-terminal and shipping operations, where correctness and uptime are operational requirements.</p>
-
-  <h2>Core Skills</h2>
-  <ul><li>Platform engineering: 30+ services across 32 repositories; Java 21/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, self-built agent services; system analysis, microservices migration, shared libraries, API contracts.</li><li>Distributed scheduling: core designer of the job-decomposer library; framework-level recursive job → task → sub-task decomposition over asynchronous messaging; heartbeat dispatch; queue limits, backpressure, and resource-aware scaling; designed for observability, stability, and robustness under load.</li><li>Agent and LLM development: agent profiles and lifecycle, agent task queue, self-improvement pipeline, knowledge base, dynamic workflow, an active notification system, agent-generated dashboards, human-in-the-loop control, live state, versioned agent definitions, agentic SDLC, LLM integration, prompt and tool design, MCP, A2A, AG-UI/SSE, self-built agent-pod registry, credential proxy.</li><li>Observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase (production); Rancher-managed Kubernetes; p50/p95 latency instrumentation; load and concurrency E2E; rollout verification.</li><li>Testing and automation: testability by design; contract, API, and E2E automation; deterministic fixtures; real-boundary integration tests; CI quality gates; Playwright; jsdom.</li><li>Backend: Spring Boot, Spring Cloud, JPA/Hibernate, jOOQ, REST, OAuth2/OpenID Connect (OIDC), ABAC, RabbitMQ, Flask, Node.js.</li><li>Frontend: React 19, Vite, TypeScript, Ant Design, Redux Toolkit, HTML5/CSS.</li><li>Data: PostgreSQL, MySQL/MariaDB, MongoDB, Milvus, Oracle (working knowledge), H2, SQLite; schema design, optimistic locking, native CTE queries, idempotent sync.</li><li>Ops: Docker, Kubernetes, Rancher, Jenkins, GitHub Actions, SonarQube, Linux; AWS/GCP (working knowledge).</li><li>AI/ML: TensorFlow (DQN/RL), LangChain, OpenSandbox; BM25 + graph retrieval; agent evaluation.</li><li>Practices: TDD, clean code, clean architecture, Scrum Master, CI/CD and workflow standardisation, software-factory delivery, Jira/Confluence/Bitbucket.</li></ul>
-
-  <h2>Experience</h2>
-  <section class="job">
-    <div class="job-head">
-      <h3>Senior Technical Analyst — OOCL</h3>
-      <span class="dates">Hong Kong · Oct 2021 — present</span>
-    </div>
-    <ul><li>Work across a platform of 30+ services spanning 32 repositories: Java/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, and self-built agent services; system analysis, revamp, and migration of existing flows into microservices and shared libraries.</li><li>Design owner of the Agent Control Tower: the self-built agent core, with an agent task queue, a warm agent pool, full agent lifecycle (draft → active → retiring → retired), and agent-generated dynamic dashboards.</li><li>Platform capabilities include an agent task queue, a self-improvement pipeline, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state tracking, versioned agent definitions, A2A/AG-UI/SSE, multi-replica routing, durable task state, a self-built agent-pod registry, and a credential proxy.</li><li>Core designer of the job-decomposer library and heartbeat dispatch loop: framework-level recursive job → task → sub-task decomposition over asynchronous messaging, with queue limits, backpressure, and resource-aware scaling for scalability, observability, stability, and robustness under load.</li><li>Shipped production AI: a document-review agent with a relevance gate, an AI gateway with A2A/MCP, and a BM25+graph knowledge system (recall@5 1.00 at half the context tokens); fixed a recipient-mapping bug affecting 12,912 of 25,041 records.</li><li>Designed an agentic SDLC: a 10-agent crew, 32 checkpoints, and three evidence gates (design, QA plan, release); rolled spec-driven development across 30+ services and built an agent evaluation playbook.</li><li>Own production observability, Kubernetes UAT deploys, and platform correctness: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase, OAuth2/OpenID Connect (OIDC), ABAC, optimistic locking, and JPA + jOOQ.</li><li>Scrum Master and core technical advisor to the team: introduced CI/CD and clean-code practices, standardised workflows, scaled processes, and built a software-factory model.</li></ul>
-  </section>
-  <section class="job">
-    <div class="job-head">
-      <h3>Full Stack Developer — NTT DATA</h3>
-      <span class="dates">Hong Kong · 2021</span>
-    </div>
-    <ul><li>Full-stack development and system revamp; migrated existing systems to microservices and developed Jenkins CI/CD pipeline.</li></ul>
-  </section>
-  <section class="job">
-    <div class="job-head">
-      <h3>Programmer, IT Department — Hutchison Ports</h3>
-      <span class="dates">Hong Kong · 2019 — 2021</span>
-    </div>
-    <ul><li>Built asynchronous microservices for port automation using Kotlin, Java, ReactJS, Gradle, and Maven, in an environment with zero tolerance for dispatch errors.</li><li>Built a DQN/RL reinforcement-learning prototype with TensorFlow for port automation.</li></ul>
-  </section>
-  <section class="job">
-    <div class="job-head">
-      <h3>Web Developer, part-time — InnoNext (HK)</h3>
-      <span class="dates">Hong Kong · 2018 — 2019</span>
-    </div>
-    <ul><li>Built web applications with PHP, Spring, and JavaScript.</li></ul>
-  </section>
-
-  <h2>Selected Projects</h2>
-  <section class="project">
-    <h3>Agent Control Tower</h3>
-    <p class="meta">OOCL · Design owner · 2026</p>
-    <p>Design owner of the Agent Control Tower: a control tower for human decision support, agent execution, and human governance, built around a self-built agent runtime and agent core. Core capabilities: agent lifecycle with queue-based dispatch, advanced human-in-the-loop gates, dynamic workflow, dynamic dashboards, a knowledge base, and active alerts and notifications. Validated on a 7-service Docker/Podman compose stack and across two replicas.</p>
-  </section>
-  <section class="project">
-    <h3>aria-conductor — <a href="https://github.com/HappyLiang12/aria-conductor">repository</a></h3>
-    <p class="meta">MIT · Open source · 2026 — present</p>
-    <p>Designed and built a multi-service control tower: 10 Java modules, React 19/TypeScript dashboard, Node/TypeScript MCP server, MariaDB/H2, Docker/Podman, and per-agent OpenSandbox containers; API E2E coverage. Implemented governance and operator workflows: human review gates, versioned knowledge, BA→Dev→QA agent chains, live run status, kanban, and activity timeline. Fixed a concurrent-approval race where two opposing approvals could both pass the same pending check and commit; replaced read-check-write with an atomic conditional update, so one request wins and the other is rejected with an HTTP 409 conflict. Fixed a 500 that rolled back the whole transaction under mixed load; built the load and concurrency E2E harness plus Playwright UI coverage. Added an OpenCode/Qoder ACP bridge.</p>
-  </section>
-  <section class="project">
-    <h3>htmlcraft — <a href="https://github.com/HappyLiang12/htmlcraft">repository</a></h3>
-    <p class="meta">MIT · npm 0.1.1 · TypeScript</p>
-    <p>Open-source TypeScript toolkit for single-file HTML presentations: an 8-package workspace with a local visual editor, CLI, and a 25-tool MCP server. An agent writes one self-contained HTML deck; a person edits layout and copy and exports standalone HTML, PDF, or one PNG per slide. No project file or build step; the HTML file is the source of truth. MIT, npm 0.1.1.</p>
-  </section>
-  <section class="project">
-    <h3>EV Charge Log</h3>
-    <p class="meta">Tesla Fleet API · Apps Script</p>
-    <p>Tesla Fleet API telemetry ingestion into Google Sheets via Apps Script; idempotent cursor sync, backfill limits, one request per sync; per-vehicle billing split with time-of-use tariff parsing; integration tests against the real UI modules.</p>
-  </section>
-  <section class="project">
-    <h3>AI Glass Prototype</h3>
-    <p class="meta">Real-time VLM · Browser</p>
-    <p>Real-time browser assistant with speech input, VLM verification, HUD overlays, and barge-in; latency instrumentation for turn, barge-in, and dropped turns; high coverage and Playwright E2E.</p>
-  </section>
-
-  <h2>Education</h2>
-  <ul><li><strong>Bachelor of Computer Science with Distinction (WAM 75.67/100)</strong> — University of Wollongong <span class="dates">2018 — 2019</span></li></ul>
-
-  <p class="pdf-link no-print"><a href="https://happyliang12.github.io/cv/Happy-Liang-CV.pdf">Download PDF</a> · <a href="https://happyliang12.github.io/cv/cv.txt">Plain text</a></p>
-</main>
-<footer>LIANG Yee Ching (Happy) · Hong Kong</footer>
+<a class="skip" href="#main">Skip to content</a><header class="top"><div class="top-inner"><a class="brand" href="#top" aria-label="LIANG Yee Ching (Happy) — back to top"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span class="brand-full">LIANG YEE CHING (HAPPY)</span><span class="brand-short" aria-hidden="true">HAPPY LIANG</span></a><nav class="nav" id="section-nav" aria-label="Sections"><a href="#experience">Experience</a><a href="#control-tower">Agent Control Tower</a><a href="#decomposer">Job Decomposer</a><a href="#observability">Observability</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav></div></header><main id="main" tabindex="-1"><section class="hero" id="top" aria-label="Introduction"><div class="wrap"><div class="hero-grid"><div class="hero-copy glass-surface"><div class="glass-cursor" aria-hidden="true"></div><p class="kicker mono rise">LIANG Yee Ching (Happy) <span class="kicker-divider">/</span> Hong Kong</p><h1 class="rise" style="animation-delay:0.06s">AI Platform &amp; <br/><span class="hero-emphasis">Agent Systems<br class="hero-line-break"/> Engineer</span></h1><p class="lede rise" style="animation-delay:0.12s"><span class="tech-term">AI platform</span> engineer and design owner with 7+ years building mission-critical operational systems. Delivers <span class="tech-term">agent platforms</span> from architecture through production, with the controls and visibility needed to operate them safely. Builds reliable systems from ambiguous operational requirements and aligns engineering and operations from design through release. Background includes container-terminal and shipping operations, where correctness and uptime are operational requirements.</p><div class="actions rise" style="animation-delay:0.2s"><a class="text-link primary" href="#experience">Read the CV<span class="arrow" aria-hidden="true">↘</span></a><a class="text-link" href="https://happyliang12.github.io/cv/Happy-Liang-CV.pdf" download="">Download PDF<span class="arrow" aria-hidden="true">↓</span></a></div></div><figure class="hero-scene is-explorer" aria-label="Technical skill map"><div class="skill-explorer is-overview"><div class="skill-explorer-head"><span class="mono">The skill map</span><span>4 capabilities · 83 tools</span></div><div class="skill-content"><h3 tabindex="-1">Explore the skills.</h3><p class="skill-description">12 skill groups. Select a capability to explore its tools.</p><div class="skill-children"><button type="button" data-node-id="platform"><span class="skill-symbol symbol-0" aria-hidden="true"><i></i><i></i><i></i></span><span class="skill-child-copy"><span>Platform</span><small>3 skill groups</small></span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m7 5 5 5-5 5"></path></svg></button><button type="button" data-node-id="agent"><span class="skill-symbol symbol-1" aria-hidden="true"><i></i><i></i><i></i></span><span class="skill-child-copy"><span>Agent systems</span><small>3 skill groups</small></span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m7 5 5 5-5 5"></path></svg></button><button type="button" data-node-id="observability"><span class="skill-symbol symbol-2" aria-hidden="true"><i></i><i></i><i></i></span><span class="skill-child-copy"><span>Observability</span><small>3 skill groups</small></span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m7 5 5 5-5 5"></path></svg></button><button type="button" data-node-id="delivery"><span class="skill-symbol symbol-3" aria-hidden="true"><i></i><i></i><i></i></span><span class="skill-child-copy"><span>Delivery &amp; ops</span><small>3 skill groups</small></span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m7 5 5 5-5 5"></path></svg></button><button type="button" data-node-id="background"><span class="skill-symbol symbol-4" aria-hidden="true"><i></i><i></i><i></i></span><span class="skill-child-copy"><span>Background</span><small>Experience &amp; education</small></span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m7 5 5 5-5 5"></path></svg></button></div></div></div></figure></div><dl class="stats"><div><dt>Experience</dt><dd>7+ yrs<small>production platforms</small></dd></div><div><dt>Service estate</dt><dd>30+<small>services · 32 repos</small></dd></div><div><dt>Agent Control Tower</dt><dd>Design owner<small>agent core · lifecycle</small></dd></div><div><dt>Job Decomposer</dt><dd>Core designer<small>N levels · async dispatch</small></dd></div></dl></div></section><section class="section " id="experience" aria-labelledby="experience-title"><div class="wrap glass-surface"><div class="glass-cursor" aria-hidden="true"></div><div class="sec-meta mono"><span class="sec-label">Experience</span></div><h2 class="sec-title" id="experience-title">Agent platforms and production systems.</h2><div class="sec-body"><article class="job"><div class="job-meta"><span class="mono">Oct 2021 — present</span><span class="mono">Hong Kong</span></div><div><h3>Senior Technical Analyst <span>— OOCL</span></h3><ul><li>Design owner of the Agent Control Tower: the self-built agent core, with an <span class="tech-term">agent task queue</span>, a <span class="tech-term">warm agent pool</span>, full <span class="tech-term">agent lifecycle</span>, <span class="tech-term">self-improvement</span>, a <span class="tech-term">knowledge base</span>, <span class="tech-term">dynamic workflow</span>, an <span class="tech-term">active notification system</span>, <span class="tech-term">human-in-the-loop</span> control, live state, <span class="tech-term">versioned agent definitions</span>, and <span class="tech-term">agent-generated dashboards</span>.</li><li>Core designer of the job-decomposer library and <span class="tech-term">heartbeat dispatch</span> loop for framework-level recursive <span class="tech-term">job → task → sub-task</span> decomposition over asynchronous messaging, with queue limits, <span class="tech-term">backpressure</span>, and <span class="tech-term">resource-aware scaling</span> for scalability, <span class="tech-term">observability</span>, stability, and robustness under load.</li><li>Shipped production AI: an <span class="tech-term">LLM</span> review agent, an AI gateway with <span class="tech-term">A2A</span>/<span class="tech-term">MCP</span>, and a <span class="tech-term">BM25</span>+graph knowledge system; designed an <span class="tech-term">agentic SDLC</span> across a platform of 30+ services.</li><li>Own production <span class="tech-term">observability</span>, <span class="tech-term">Kubernetes</span> <span class="tech-term">UAT deploys</span>, and platform correctness for an estate of 30+ services.</li><li>Scrum Master and core technical advisor to the team: introduced <span class="tech-term">CI/CD</span> and clean-code practices, standardised workflows, scaled processes, and built a software-factory model.</li></ul></div></article><article class="job"><div class="job-meta"><span class="mono">2021</span><span class="mono">Hong Kong</span></div><div><h3>Full Stack Developer <span>— NTT DATA</span></h3><ul><li>Full-stack development and system revamp; migrated existing systems to <span class="tech-term">microservices</span> and built the <span class="tech-term">Jenkins</span> <span class="tech-term">CI/CD</span> pipeline.</li></ul></div></article><article class="job"><div class="job-meta"><span class="mono">2019 — 2021</span><span class="mono">Hong Kong</span></div><div><h3>Programmer, IT Department <span>— Hutchison Ports</span></h3><ul><li>Built asynchronous <span class="tech-term">microservices</span> for container-terminal automation in <span class="tech-term">Kotlin</span>, <span class="tech-term">Java</span>, and <span class="tech-term">ReactJS</span>, in an environment with zero tolerance for dispatch errors; built a <span class="tech-term">DQN/RL</span> reinforcement-learning prototype with <span class="tech-term">TensorFlow</span>.</li></ul></div></article><article class="job"><div class="job-meta"><span class="mono">2018 — 2019</span><span class="mono">Hong Kong</span></div><div><h3>Web Developer, part-time <span>— InnoNext (HK)</span></h3><ul><li>Built web applications with <span class="tech-term">PHP</span>, <span class="tech-term">Spring</span>, and <span class="tech-term">JavaScript</span>.</li></ul></div></article><div class="stack-block"><div class="subhead mono">Core stack</div><div class="stack-grid"><div class="stack-item"><div class="mono stack-label">Platform</div><div class="stack-items"><span class="tech-term">Java 21</span> · <span class="tech-term">Spring Boot/Cloud</span> · <span class="tech-term">Python</span> · <span class="tech-term">React 19</span> · <span class="tech-term">Kong</span> · <span class="tech-term">Nginx</span> · <span class="tech-term">LangChain</span></div></div><div class="stack-item"><div class="mono stack-label">Data</div><div class="stack-items"><span class="tech-term">PostgreSQL</span> · <span class="tech-term">MySQL/MariaDB</span> · <span class="tech-term">MongoDB</span> · <span class="tech-term">Milvus</span> · <span class="tech-term">Oracle</span> · <span class="tech-term">H2</span> · <span class="tech-term">SQLite</span></div></div><div class="stack-item"><div class="mono stack-label">Ops</div><div class="stack-items"><span class="tech-term">Docker</span> · <span class="tech-term">Kubernetes</span> · <span class="tech-term">Rancher</span> · <span class="tech-term">Jenkins</span> · <span class="tech-term">GitHub Actions</span> · <span class="tech-term">SonarQube</span> · <span class="tech-term">Linux</span></div></div><div class="stack-item"><div class="mono stack-label">AI</div><div class="stack-items"><span class="tech-term">Agent profiles</span> · <span class="tech-term">Agent lifecycle</span> · <span class="tech-term">Agent task queue</span> · <span class="tech-term">Self-improvement</span> · <span class="tech-term">Knowledge base</span> · <span class="tech-term">Dynamic workflow</span> · <span class="tech-term">MCP</span> · <span class="tech-term">A2A</span> · <span class="tech-term">AG-UI</span> · <span class="tech-term">Agentic SDLC</span> · <span class="tech-term">OpenSandbox</span> · <span class="tech-term">TensorFlow</span> (<span class="tech-term">DQN/RL</span>)</div></div></div><p class="stack-practices mono">TDD · clean architecture · Scrum Master</p></div><div class="education-block"><div class="subhead mono">Education</div><div class="education-row"><span>Bachelor of Computer Science with Distinction (WAM 75.67/100) — University of Wollongong</span><span class="mono">2018 — 2019</span></div></div></div></div></section><section class="section " id="control-tower" aria-labelledby="control-tower-title"><div class="wrap glass-surface"><div class="glass-cursor" aria-hidden="true"></div><div class="sec-meta mono"><span class="sec-label">Agent Control Tower</span></div><h2 class="sec-title" id="control-tower-title">Humans decide, agents execute, governance stays human, operations stay traceable.</h2><div class="sec-body"><p>Design owner of the Agent Control Tower at OOCL — an <span class="tech-term">agent platform</span> for human decision support, agent execution, and human governance. Core capabilities are the <span class="tech-term">agent lifecycle</span> with queue-based dispatch, an advanced <span class="tech-term">human-in-the-loop</span> approval gate, <span class="tech-term">dynamic workflow</span>, <span class="tech-term">dynamic dashboards</span>, a <span class="tech-term">knowledge base</span>, and active alerts and notifications. The platform also includes a <span class="tech-term">warm agent pool</span>, a <span class="tech-term">self-improvement pipeline</span>, <span class="tech-term">versioned agent definitions</span>, <span class="tech-term">live state tracking</span>, <span class="tech-term">multi-replica routing</span>, durable task/thread state, an <span class="tech-term">agent-pod registry</span>, and a <span class="tech-term">credential proxy</span>.</p><ul class="caps"><li class="cap"><span><span class="tech-term">Agent lifecycle</span> &amp; task queue</span><span class="mono">Queue-based dispatch</span></li><li class="cap"><span><span class="tech-term">Human-in-the-loop gate</span></span><span class="mono">Advanced review</span></li><li class="cap"><span><span class="tech-term">Dynamic workflow</span></span><span class="mono">Runtime-defined</span></li><li class="cap"><span><span class="tech-term">Dynamic dashboard</span></span><span class="mono">Agent-generated · live views</span></li><li class="cap"><span><span class="tech-term">Knowledge base</span></span><span class="mono">Shared context</span></li><li class="cap"><span><span class="tech-term">Active notification system</span></span><span class="mono">Alerts → operators</span></li><li class="cap"><span><span class="tech-term">Warm agent pool</span></span><span class="mono">Lazy load · per-replica cap</span></li><li class="cap"><span><span class="tech-term">Self-improvement pipeline</span></span><span class="mono">Feedback → update</span></li><li class="cap"><span><span class="tech-term">Versioned agent definitions</span></span><span class="mono">Change history</span></li><li class="cap"><span><span class="tech-term">Live state tracking</span></span><span class="mono">Current work</span></li><li class="cap"><span><span class="tech-term">A2A</span> · <span class="tech-term">AG-UI</span> · <span class="tech-term">SSE</span></span><span class="mono">Runtime</span></li><li class="cap"><span><span class="tech-term">Multi-replica routing</span></span><span class="mono">Dispatch</span></li><li class="cap"><span><span class="tech-term">Durable task state</span></span><span class="mono">Task · thread</span></li><li class="cap"><span><span class="tech-term">Agent-pod registry</span></span><span class="mono">Self-built</span></li><li class="cap"><span><span class="tech-term">Credential proxy</span></span><span class="mono">Agent auth</span></li></ul><p class="note open-source-note"><span class="mono">Open source</span> · <a href="https://github.com/HappyLiang12/aria-conductor" target="_blank" rel="noopener noreferrer">aria-conductor</a> — aria-conductor is the open-source proof of the Control Tower model: 10 <span class="tech-term">Java</span> modules, <span class="tech-term">human-in-the-loop</span> gates, agent chains, a concurrency harness, and API E2E coverage — a playground for scaling the platform and trying new features.</p></div></div></section><section class="section " id="decomposer" aria-labelledby="decomposer-title"><div class="wrap glass-surface"><div class="glass-cursor" aria-hidden="true"></div><div class="sec-meta mono"><span class="sec-label">Job Decomposer</span></div><h2 class="sec-title" id="decomposer-title">Framework-level job → task → sub-task dispatch.</h2><div class="sec-body"><p>Core designer of the job-decomposer library and <span class="tech-term">heartbeat dispatch</span> loop. At the framework level, a job is split recursively into tasks and sub-tasks across N levels and dispatched over asynchronous messaging. The heartbeat loop keeps dispatching, respects queue limits, applies <span class="tech-term">backpressure</span>, and scales workers from configuration or available resources. The design supports scalability, <span class="tech-term">observability</span>, stability, and robustness under load.</p><figure class="diagram"><div class="decomposer-flow" role="img" aria-label="A job decomposes into three tasks, which decompose into sub-tasks recursively across N levels."><div class="flow-stage"><span class="flow-node flow-root">Job</span></div><div class="flow-stage"><span class="flow-node">Task</span><span class="flow-node">Task</span><span class="flow-node">Task</span></div><div class="flow-stage"><span class="flow-node">Sub-task</span><span class="flow-node">Sub-task</span><span class="flow-node">Sub-task</span><span class="flow-node">Sub-task</span><span class="flow-node">Sub-task</span></div><span class="flow-continuation mono">N levels</span></div><figcaption class="mono">Job → task → sub-task · async fan-out · heartbeat dispatch · backpressure</figcaption></figure></div></div></section><section class="section " id="observability" aria-labelledby="observability-title"><div class="wrap glass-surface"><div class="glass-cursor" aria-hidden="true"></div><div class="sec-meta mono"><span class="sec-label">Observability</span></div><h2 class="sec-title" id="observability-title">Production metrics, logs, and release checks.</h2><div class="sec-body"><p>Production <span class="tech-term">observability</span> on <span class="tech-term">Rancher</span>-managed <span class="tech-term">Kubernetes</span>. Owns the metrics, logs, cloud monitoring, and release checks for a platform of 30+ services, and uses the same signals to verify rollouts and investigate incidents.</p><table class="proof"><caption>Production monitoring scope</caption><thead><tr><th scope="col">Area</th><th scope="col">Tools and checks</th></tr></thead><tbody><tr><td>Metrics and dashboards</td><td><span class="tech-term">Grafana</span> dashboards and <span class="tech-term">Prometheus</span> metrics for service health and latency.</td></tr><tr><td>Logs</td><td><span class="tech-term">Elasticsearch</span> and <span class="tech-term">Filebeat</span> for production log search.</td></tr><tr><td>Cloud and cluster</td><td><span class="tech-term">Azure Monitor</span> and <span class="tech-term">Rancher</span>-managed <span class="tech-term">Kubernetes</span>.</td></tr><tr><td>Reporting</td><td><span class="tech-term">Metabase</span> for operational reporting.</td></tr><tr><td>Release checks</td><td><span class="tech-term">p50/p95 latency</span>, load and <span class="tech-term">concurrency E2E</span>, and <span class="tech-term">rollout verification</span>.</td></tr></tbody></table></div></div></section><section class="section " id="projects" aria-labelledby="projects-title"><div class="wrap glass-surface"><div class="glass-cursor" aria-hidden="true"></div><div class="sec-meta mono"><span class="sec-label">Selected Projects</span></div><h2 class="sec-title" id="projects-title">Open-source and production systems.</h2><div class="sec-body"><div class="projects"><article class="project"><div><h3>Agent Control Tower</h3><div class="meta mono">OOCL · Design owner · 2026</div><p>Agent control tower for human decision support, agent execution, and human governance, built around a self-built <span class="tech-term">agent runtime</span> and agent core. Core capabilities: <span class="tech-term">agent lifecycle</span> with queue-based dispatch, advanced <span class="tech-term">human-in-the-loop</span> gates, <span class="tech-term">dynamic workflow</span>, <span class="tech-term">dynamic dashboards</span>, a <span class="tech-term">knowledge base</span>, and active alerts and notifications.</p></div></article><article class="project"><div><h3>aria-conductor</h3><div class="meta mono">MIT · Open source · 2026 — present</div><p><span class="tech-term">Java 21</span> + <span class="tech-term">React 19</span> control tower for agent chains. Fixed a concurrent-approval race that allowed double approvals; built the load and concurrency harness.</p><a class="project-link mono" href="https://github.com/HappyLiang12/aria-conductor" target="_blank" rel="noopener noreferrer">View repository ↗</a></div></article><article class="project"><div><h3>htmlcraft</h3><div class="meta mono">MIT · npm 0.1.1 · TypeScript</div><p>Open-source toolkit for single-file <span class="tech-term">HTML</span> presentations: a visual editor, CLI, and <span class="tech-term">MCP</span> server. An agent writes one <span class="tech-term">HTML</span> deck; a person edits layout and copy, then exports <span class="tech-term">HTML</span>, PDF, or one PNG per slide.</p><a class="project-link mono" href="https://github.com/HappyLiang12/htmlcraft" target="_blank" rel="noopener noreferrer">View repository ↗</a></div></article><article class="project"><div><h3>EV Charge Log</h3><div class="meta mono">Tesla Fleet API · Apps Script</div><p>Tesla telemetry ingestion into Google Sheets with idempotent cursor sync, backfill limits, and time-of-use billing split per vehicle.</p></div></article><article class="project"><div><h3>AI Glass Prototype</h3><div class="meta mono">Real-time VLM · Browser</div><p>Browser assistant with speech input, <span class="tech-term">VLM</span> verification, HUD overlays, and barge-in; latency instrumentation for turns, barge-ins, and dropped turns.</p></div></article></div><p class="more-link"><a class="text-link" href="https://github.com/HappyLiang12" target="_blank" rel="me noopener noreferrer">More open source on GitHub ↗</a></p></div></div></section><section class="section contact" id="contact" aria-labelledby="contact-title"><div class="wrap glass-surface"><div class="glass-cursor" aria-hidden="true"></div><div class="sec-meta mono"><span class="sec-label">Contact</span></div><h2 class="sec-title" id="contact-title">Contact details.</h2><div class="sec-body"><p>Open to <span class="tech-term">AI platform</span>, <span class="tech-term">agent systems</span>, and <span class="tech-term">observability</span> roles.</p><div class="contact-actions"><a class="text-link primary" href="mailto:laing17573@gmail.com">laing17573@gmail.com</a><a class="text-link" href="https://github.com/HappyLiang12" target="_blank" rel="me noopener noreferrer">GitHub ↗</a><a class="text-link" href="https://www.linkedin.com/in/happy-liang-89a20117a/" target="_blank" rel="me noopener noreferrer">LinkedIn ↗</a><a class="text-link" href="https://happyliang12.github.io/cv/Happy-Liang-CV.pdf" download="">Download CV · PDF</a><a class="text-link" href="https://happyliang12.github.io/cv/Happy-Liang-CV.html" download="">Download CV · HTML</a><a class="text-link" href="https://happyliang12.github.io/cv/cv.txt">Download CV · txt</a></div></div></div></section></main>
 </body>
 </html>

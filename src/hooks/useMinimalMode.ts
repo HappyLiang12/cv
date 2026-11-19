@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 export type Mode = 'full' | 'minimal';
 
 const readMode = (): Mode =>
-  document.documentElement.dataset.mode === 'minimal' ? 'minimal' : 'full';
+  typeof document === 'undefined'
+    ? 'full'
+    : document.documentElement.dataset.mode === 'minimal' ? 'minimal' : 'full';
 
 export function useMinimalMode() {
   const [mode, setMode] = useState<Mode>(readMode);

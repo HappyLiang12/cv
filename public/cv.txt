@@ -48,7 +48,7 @@ Hong Kong | 2018 — 2019
 
 SELECTED PROJECTS
 Agent Control Tower (OOCL · Design owner · 2026)
-Design owner of the Agent Control Tower: a control tower for human decision support, agent execution, and human governance, built around a self-built agent runtime and agent core. Core capabilities: agent lifecycle with queue-based dispatch, advanced human-in-the-loop gates, dynamic workflow, dynamic dashboards, a knowledge base, and active alerts and notifications. Validated on a 7-service Docker/Podman compose stack and across two replicas.
+Design owner of the Agent Control Tower: a control tower for human decision support, agent execution, and human governance, built around a self-built agent runtime and agent core. Core capabilities: agent lifecycle with queue-based dispatch, advanced human-in-the-loop gates, dynamic workflow, dynamic dashboards, a knowledge base, and active alerts and notifications.
 
 aria-conductor (MIT · Open source · 2026 — present)
 https://github.com/HappyLiang12/aria-conductor
