@@ -6,7 +6,7 @@ groups and four capabilities to Happy. The content itself is always plain HTML.
 
 - Live URL: https://happyliang12.github.io/cv/
 - Static CV / ATS: https://happyliang12.github.io/cv/cv/
-- Downloadable HTML CV: https://happyliang12.github.io/cv/Happy-Liang-CV.html
+- Downloadable HTML (full page snapshot): https://happyliang12.github.io/cv/Happy-Liang-CV.html
 - Plain text: https://happyliang12.github.io/cv/cv.txt
 - LLM summary: https://happyliang12.github.io/cv/llms.txt
 
@@ -24,7 +24,7 @@ npm ci
 npm run dev        # local dev server
 npm run build      # typecheck, regenerate /public artifacts, build
 npm run preview    # serve dist at http://localhost:4174/
-npm run content    # regenerate public/cv/, cv.txt, llms.txt, sitemap, robots
+npm run content    # regenerate public/cv/, the HTML snapshot, cv.txt, llms.txt, sitemap, robots
 npm run pdf        # regenerate public/Happy-Liang-CV.pdf (needs local Chrome)
 npm run check:pdf  # verify public PDF is 2 pages with a clean text layer
 APPLICATION_PHONE=... npm run application-pdf  # private application PDF
@@ -35,7 +35,8 @@ APPLICATION_PHONE=... npm run application-pdf  # private application PDF
 `src/data/cv.json` is the single source of truth. `npm run build` regenerates:
 
 - `public/cv/index.html` — static, print-ready CV page
-- `public/Happy-Liang-CV.html` — standalone downloadable CV with absolute links
+- `public/Happy-Liang-CV.html` — the full page rendered to one script-free HTML file with
+  absolute links and `noindex`
 - `public/cv.txt`, `public/llms.txt`
 - `public/sitemap.xml`, `public/robots.txt`, `.nojekyll`
 
@@ -71,8 +72,8 @@ separate.
 - **No WebGL** — a hierarchical static SVG schematic replaces the scene.
 - **Mobile / tablet** — a simplified static schematic instead of a canvas.
 - **No JavaScript** — `<noscript>` contains the summary, roles, projects, and links.
-- **AI / ATS** — `/cv/`, downloadable HTML, `cv.txt`, `llms.txt`, PDF, and JSON-LD are
-  generated from the same JSON as the visual page.
+- **AI / ATS** — `/cv/`, `cv.txt`, `llms.txt`, PDF, and JSON-LD are generated from the same
+  JSON as the visual page; the downloadable HTML is a static render of the visual page itself.
 
 ## Skill graph
 
@@ -106,8 +107,8 @@ Chromium, production preview. Screenshots in `docs/screenshots/`.
 - Reduced motion, WebGL-off fallback, no-JS fallback, static `/cv/` checked.
 - Header and contact `CV` actions download `Happy-Liang-CV.html` instead of navigating to
   `/cv/cv/`; the page stays in place, and the download works under the `/cv/` base.
-- The downloaded HTML is self-contained with absolute links, `noindex`, and no dependency on
-  the site path; it opens correctly outside the deployment.
+- The downloaded HTML is the full page — every section, no scripts — with absolute links,
+  `noindex`, and no dependency on the site path; it opens correctly outside the deployment.
 - Contact email, `/cv/`, downloadable HTML, `cv.txt`, `llms.txt`, and public PDF checked.
 - Agent Control Tower is positioned around human decision support, agent execution, and human
   governance; agent lifecycle with queue-based dispatch, advanced human-in-the-loop gates,

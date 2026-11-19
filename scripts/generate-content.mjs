@@ -229,6 +229,7 @@ ${styles}
   .top .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0 16px; width: 100%; margin-left: 0; }
   .top .nav a { min-height: 40px; font-size: 12.5px; }
   .top .nav a[href="#decomposer"] { display: inline-flex; }
+  .top::after { display: none; }
   html { scroll-padding-top: 16px; }
 }
 </style>
