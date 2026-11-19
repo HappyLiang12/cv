@@ -220,7 +220,18 @@ const snapshotHtml = `<!doctype html>
 <link rel="canonical" href="${siteUrl}">
 <link rel="icon" type="image/svg+xml" href="${siteUrl}favicon.svg">
 <style>
-${styles}</style>
+${styles}
+/* Static snapshot only: there is no menu toggle here, so below 1100px the section nav wraps into a
+   second header row and .top stops being sticky so anchor jumps are not hidden beneath it. */
+@media (max-width: 1100px) {
+  .top { position: static; }
+  .top-inner { height: auto; flex-wrap: wrap; padding-top: 12px; padding-bottom: 6px; row-gap: 0; }
+  .top .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0 16px; width: 100%; margin-left: 0; }
+  .top .nav a { min-height: 40px; font-size: 12.5px; }
+  .top .nav a[href="#decomposer"] { display: inline-flex; }
+  html { scroll-padding-top: 16px; }
+}
+</style>
 </head>
 <body>
 ${absolutize(snapshotBody)}
