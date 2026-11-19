@@ -1,4 +1,5 @@
 import cv from '../data/cv.json';
+import { TechText } from './TechText';
 
 const base = import.meta.env.BASE_URL;
 const linkedin = cv.contact.linkedin.trim();
@@ -8,17 +9,19 @@ export function MinimalView() {
   return (
     <div className="minimal" id="top">
       <div className="wrap minimal-inner">
-        <header className="minimal-head">
+        <header className="minimal-head glass-surface">
+          <div className="glass-cursor" aria-hidden="true" />
           <p className="kicker mono">{cv.role} — Hong Kong</p>
           <h1>{cv.name}</h1>
-          <p className="minimal-summary">{cv.summary}</p>
+          <p className="minimal-summary"><TechText text={cv.summary} /></p>
           <p className="minimal-proof mono">
             30+ services · Agent Control Tower design owner · job → task → sub-task (N levels)
           </p>
           {cv.availabilityNote && <p className="avail">{cv.availabilityNote}</p>}
         </header>
 
-        <section className="min-section" aria-labelledby="min-experience">
+        <section className="min-section glass-surface" aria-labelledby="min-experience">
+          <div className="glass-cursor" aria-hidden="true" />
           <h2 className="min-label" id="min-experience">Experience</h2>
           <ul className="min-rows">
             {cv.experience.map(job => (
@@ -33,7 +36,8 @@ export function MinimalView() {
           </ul>
         </section>
 
-        <section className="min-section" aria-labelledby="min-work">
+        <section className="min-section glass-surface" aria-labelledby="min-work">
+          <div className="glass-cursor" aria-hidden="true" />
           <h2 className="min-label" id="min-work">Selected work</h2>
           <ul className="min-projects">
             {cv.projects.slice(0, 4).map(project => (
@@ -50,7 +54,7 @@ export function MinimalView() {
                   </span>
                   <span className="min-project-meta mono">{project.meta}</span>
                 </div>
-                <p>{project.description}</p>
+                <p><TechText text={project.description} /></p>
               </li>
             ))}
           </ul>
@@ -59,19 +63,21 @@ export function MinimalView() {
           </a>
         </section>
 
-        <section className="min-section" aria-labelledby="min-focus">
+        <section className="min-section glass-surface" aria-labelledby="min-focus">
+          <div className="glass-cursor" aria-hidden="true" />
           <h2 className="min-label" id="min-focus">Focus</h2>
           <div className="min-focus">
             {cv.skillGroups.map(group => (
               <div className="min-focus-row" key={group.label}>
                 <span className="min-focus-label">{group.label}</span>
-                <span>{group.items}</span>
+                <span><TechText text={group.items} /></span>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="min-section" aria-labelledby="min-education">
+        <section className="min-section glass-surface" aria-labelledby="min-education">
+          <div className="glass-cursor" aria-hidden="true" />
           <h2 className="min-label" id="min-education">Education</h2>
           <ul className="min-rows">
             {cv.education.map(item => (
@@ -86,7 +92,8 @@ export function MinimalView() {
           </ul>
         </section>
 
-        <section className="min-section" aria-labelledby="min-contact">
+        <section className="min-section glass-surface" aria-labelledby="min-contact">
+          <div className="glass-cursor" aria-hidden="true" />
           <h2 className="min-label" id="min-contact">Contact</h2>
           <div className="min-contact-links">
             {email && (
@@ -106,7 +113,7 @@ export function MinimalView() {
             <a className="text-link" href={`${base}Happy-Liang-CV.html`} download>
               Download CV · HTML
             </a>
-            <a className="text-link" href={`${base}cv.txt`}>cv.txt</a>
+            <a className="text-link" href={`${base}cv.txt`}>Download CV · txt</a>
           </div>
         </section>
       </div>

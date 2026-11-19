@@ -1,5 +1,6 @@
 import cv from '../data/cv.json';
 import { Section } from './Section';
+import { TechText } from './TechText';
 
 const base = import.meta.env.BASE_URL;
 const linkedin = cv.contact.linkedin.trim();
@@ -14,7 +15,7 @@ export function Contact() {
       className="contact"
     >
       <p>
-        Open to AI platform, agent systems, and observability roles.
+        <TechText text="Open to AI platform, agent systems, and observability roles." />
       </p>
       <div className="contact-actions">
         {email && (
@@ -44,7 +45,7 @@ export function Contact() {
         <a className="text-link" href={`${base}Happy-Liang-CV.html`} download>
           Download CV · HTML
         </a>
-        <a className="text-link" href={`${base}cv.txt`}>cv.txt</a>
+        <a className="text-link" href={`${base}cv.txt`}>Download CV · txt</a>
       </div>
     </Section>
   );

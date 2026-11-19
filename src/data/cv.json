@@ -200,8 +200,7 @@
         "name": "Credential proxy",
         "meta": "Agent auth"
       }
-    ],
-    "note": "Validated on a 7-service Docker/Podman compose stack and across two replicas."
+    ]
   },
   "decomposer": {
     "body": "Core designer of the job-decomposer library and heartbeat dispatch loop. At the framework level, a job is split recursively into tasks and sub-tasks across N levels and dispatched over asynchronous messaging. The heartbeat loop keeps dispatching, respects queue limits, applies backpressure, and scales workers from configuration or available resources. The design supports scalability, observability, stability, and robustness under load."
@@ -236,7 +235,7 @@
       "name": "Agent Control Tower",
       "meta": "OOCL · Design owner · 2026",
       "description": "Agent control tower for human decision support, agent execution, and human governance, built around a self-built agent runtime and agent core. Core capabilities: agent lifecycle with queue-based dispatch, advanced human-in-the-loop gates, dynamic workflow, dynamic dashboards, a knowledge base, and active alerts and notifications.",
-      "cvDescription": "Design owner of the Agent Control Tower: a control tower for human decision support, agent execution, and human governance, built around a self-built agent runtime and agent core. Core capabilities: agent lifecycle with queue-based dispatch, advanced human-in-the-loop gates, dynamic workflow, dynamic dashboards, a knowledge base, and active alerts and notifications. Validated on a 7-service Docker/Podman compose stack and across two replicas.",
+      "cvDescription": "Design owner of the Agent Control Tower: a control tower for human decision support, agent execution, and human governance, built around a self-built agent runtime and agent core. Core capabilities: agent lifecycle with queue-based dispatch, advanced human-in-the-loop gates, dynamic workflow, dynamic dashboards, a knowledge base, and active alerts and notifications.",
       "url": ""
     },
     {
