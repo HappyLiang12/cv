@@ -8,7 +8,7 @@ export function ControlTower() {
     <Section
       id="control-tower"
       label="Agent Control Tower"
-      title="Agent lifecycle, warm agent pool, and agent-generated dashboards."
+      title="Human decision support, agent execution, human governance."
     >
       <p>{cv.controlTower.intro}</p>
       <ul className="caps">

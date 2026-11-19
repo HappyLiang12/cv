@@ -22,6 +22,12 @@ let expected = [
   "core skills",
   "selected projects",
   "agent control tower",
+  "human decision support",
+  "human governance",
+  "core designer",
+  "framework-level",
+  "scrum master",
+  "software-factory",
   "aria-conductor — repository",
   "htmlcraft — repository",
   "container-terminal and shipping operations",
@@ -77,6 +83,7 @@ let forbidden = [
   "26 services",
   "20/20",
   "v1.0",
+  "phase 1",
   "poc"
 ]
 

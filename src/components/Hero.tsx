@@ -40,10 +40,10 @@ export function Hero() {
         <div className="hero-grid">
           <div className="hero-copy">
             <p className="kicker mono rise">
-              {cv.role} — Hong Kong
+              {cv.name} — Hong Kong
             </p>
             <h1 className="rise" style={{ animationDelay: '0.05s' }}>
-              Agent Control<br />Tower.
+              AI platform &amp; agent systems engineer.
             </h1>
             <p className="lede rise" style={{ animationDelay: '0.1s' }}>
               {cv.summary}

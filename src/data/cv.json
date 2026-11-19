@@ -32,8 +32,8 @@
     },
     {
       "label": "Job Decomposer",
-      "value": "N levels",
-      "note": "heartbeat dispatch"
+      "value": "Core designer",
+      "note": "N levels · async dispatch"
     }
   ],
   "experience": [
@@ -44,19 +44,20 @@
       "location": "Hong Kong",
       "bullets": [
         "Design owner of the Agent Control Tower: the self-built agent core, with an agent task queue, a warm agent pool, full agent lifecycle, self-improvement, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state, versioned agent definitions, and agent-generated dashboards.",
-        "Designed the job-decomposer library and heartbeat dispatch loop for recursive job → task → sub-task decomposition, asynchronous fan-out, queue limits, backpressure, and resource-aware scaling.",
+        "Core designer of the job-decomposer library and heartbeat dispatch loop for framework-level recursive job → task → sub-task decomposition over asynchronous messaging, with queue limits, backpressure, and resource-aware scaling for scalability, observability, stability, and robustness under load.",
         "Shipped production AI: an LLM review agent, an AI gateway with A2A/MCP, and a BM25+graph knowledge system; designed an agentic SDLC across a platform of 30+ services.",
-        "Own production observability (Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase), Jenkins CI/CD, Kubernetes UAT deploys, and platform correctness for an estate of 30+ services."
+        "Own production observability, Kubernetes UAT deploys, and platform correctness for an estate of 30+ services.",
+        "Scrum Master and core technical advisor to the team: introduced CI/CD and clean-code practices, standardised workflows, scaled processes, and built a software-factory model."
       ],
       "cvBullets": [
         "Work across a platform of 30+ services spanning 32 repositories: Java/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, and self-built agent services; system analysis, revamp, and migration of existing flows into microservices and shared libraries.",
         "Design owner of the Agent Control Tower: the self-built agent core, with an agent task queue, a warm agent pool, full agent lifecycle (draft → active → retiring → retired), and agent-generated dynamic dashboards.",
         "Platform capabilities include an agent task queue, a self-improvement pipeline, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state tracking, versioned agent definitions, A2A/AG-UI/SSE, multi-replica routing, durable task state, a self-built agent-pod registry, and a credential proxy.",
-        "Designed the job-decomposer library and heartbeat dispatch loop: recursive job → task → sub-task decomposition across N levels, asynchronous fan-out, queue limits, backpressure, and resource-aware scaling.",
+        "Core designer of the job-decomposer library and heartbeat dispatch loop: framework-level recursive job → task → sub-task decomposition over asynchronous messaging, with queue limits, backpressure, and resource-aware scaling for scalability, observability, stability, and robustness under load.",
         "Shipped production AI: a document-review agent with a relevance gate, an AI gateway with A2A/MCP, and a BM25+graph knowledge system (recall@5 1.00 at half the context tokens); fixed a recipient-mapping bug affecting 12,912 of 25,041 records.",
         "Designed an agentic SDLC: a 10-agent crew, 32 checkpoints, and three evidence gates (design, QA plan, release); rolled spec-driven development across 30+ services and built an agent evaluation playbook.",
-        "Own production observability: Grafana, Prometheus on Rancher-managed Kubernetes, Azure Monitor, Elasticsearch/Filebeat, and Metabase.",
-        "Own Jenkins CI/CD, Kubernetes UAT deploys, and platform correctness: OAuth2/OpenID Connect (OIDC), ABAC, optimistic locking, and dual JPA + jOOQ access."
+        "Own production observability, Kubernetes UAT deploys, and platform correctness: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase, OAuth2/OpenID Connect (OIDC), ABAC, optimistic locking, and JPA + jOOQ.",
+        "Scrum Master and core technical advisor to the team: introduced CI/CD and clean-code practices, standardised workflows, scaled processes, and built a software-factory model."
       ]
     },
     {
@@ -117,7 +118,7 @@
   ],
   "coreSkills": [
     "Platform engineering: 30+ services across 32 repositories; Java 21/Spring Boot, Python, ReactJS, Kong API gateway, Nginx, self-built agent services; system analysis, microservices migration, shared libraries, API contracts.",
-    "Distributed scheduling: job-decomposer library; recursive job → task → sub-task decomposition across N levels; asynchronous fan-out; heartbeat-based dispatch; resource-aware scaling; backpressure and queue-limit handling.",
+    "Distributed scheduling: core designer of the job-decomposer library; framework-level recursive job → task → sub-task decomposition over asynchronous messaging; heartbeat dispatch; queue limits, backpressure, and resource-aware scaling; designed for observability, stability, and robustness under load.",
     "Agent and LLM development: agent profiles and lifecycle, agent task queue, self-improvement pipeline, knowledge base, dynamic workflow, an active notification system, agent-generated dashboards, human-in-the-loop control, live state, versioned agent definitions, agentic SDLC, LLM integration, prompt and tool design, MCP, A2A, AG-UI/SSE, self-built agent-pod registry, credential proxy.",
     "Observability: Grafana, Prometheus, Azure Monitor, Elasticsearch/Filebeat, Metabase (production); Rancher-managed Kubernetes; p50/p95 latency instrumentation; load and concurrency E2E; rollout verification.",
     "Testing and automation: testability by design; contract, API, and E2E automation; deterministic fixtures; real-boundary integration tests; CI quality gates; Playwright; jsdom.",
@@ -126,7 +127,7 @@
     "Data: PostgreSQL, MySQL/MariaDB, MongoDB, Oracle (working knowledge), H2, SQLite; schema design, optimistic locking, native CTE queries, idempotent sync.",
     "Ops: Docker, Kubernetes, Rancher, Jenkins, GitHub Actions, SonarQube, Linux; AWS/GCP (working knowledge).",
     "AI/ML: TensorFlow (DQN/RL), LangChain, OpenSandbox; BM25 + graph retrieval; agent evaluation.",
-    "Practices: TDD, clean architecture, Scrum Master, Jira/Confluence/Bitbucket."
+    "Practices: TDD, clean code, clean architecture, Scrum Master, CI/CD and workflow standardisation, software-factory delivery, Jira/Confluence/Bitbucket."
   ],
   "education": [
     {
@@ -136,16 +137,32 @@
     }
   ],
   "controlTower": {
-    "intro": "Design owner of the Agent Control Tower at OOCL — an agent platform built around a self-built agent runtime and agent core. Phase 1 delivers the full agent lifecycle (draft → active → retiring → retired) and an agent-generated dynamic dashboard (six element types, declarative queries, CSV/Excel/PDF export). The platform also includes an agent task queue for dispatching work across worker pods, a self-improvement pipeline, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state tracking, versioned agent definitions, multi-replica routing, durable task/thread state, a self-built agent-pod registry, and a credential proxy. Agent definitions and skill changes are versioned; dispatch is attributable per worker pod.",
+    "intro": "Design owner of the Agent Control Tower at OOCL — an agent platform for human decision support, agent execution, and human governance. Core capabilities are the agent lifecycle with queue-based dispatch, an advanced human-in-the-loop approval gate, dynamic workflow, dynamic dashboards, a knowledge base, and active alerts and notifications. The platform also includes a warm agent pool, a self-improvement pipeline, versioned agent definitions, live state tracking, multi-replica routing, durable task/thread state, an agent-pod registry, and a credential proxy.",
     "openSource": "aria-conductor is the open-source simplification: 10 Java modules, human-in-the-loop gates, agent chains, a concurrency harness, and API E2E coverage.",
     "capabilities": [
       {
-        "name": "Agent lifecycle",
-        "meta": "Draft → active → retiring → retired"
+        "name": "Agent lifecycle & task queue",
+        "meta": "Queue-based dispatch"
       },
       {
-        "name": "Agent task queue",
-        "meta": "Core dispatch"
+        "name": "Human-in-the-loop gate",
+        "meta": "Advanced review"
+      },
+      {
+        "name": "Dynamic workflow",
+        "meta": "Runtime-defined"
+      },
+      {
+        "name": "Dynamic dashboard",
+        "meta": "Agent-generated · live views"
+      },
+      {
+        "name": "Knowledge base",
+        "meta": "Shared context"
+      },
+      {
+        "name": "Active notification system",
+        "meta": "Alerts → operators"
       },
       {
         "name": "Warm agent pool",
@@ -154,26 +171,6 @@
       {
         "name": "Self-improvement pipeline",
         "meta": "Feedback → update"
-      },
-      {
-        "name": "Knowledge base",
-        "meta": "Shared context"
-      },
-      {
-        "name": "Dynamic workflow",
-        "meta": "Runtime-defined"
-      },
-      {
-        "name": "Active notification system",
-        "meta": "Events → operators"
-      },
-      {
-        "name": "Dynamic dashboard",
-        "meta": "Agent-generated · live views"
-      },
-      {
-        "name": "Human-in-the-loop gate",
-        "meta": "Review · approve"
       },
       {
         "name": "Versioned agent definitions",
@@ -207,7 +204,7 @@
     "note": "Validated on a 7-service Docker/Podman compose stack and across two replicas."
   },
   "decomposer": {
-    "body": "Designed the job-decomposer library and heartbeat dispatch loop. A job is decomposed recursively into tasks and sub-tasks across N levels, then dispatched over asynchronous messaging. The heartbeat loop keeps dispatching, respects queue limits, and applies backpressure so large or continuously loaded jobs do not stall. Workers scale from configuration or available resources; job definitions persist with the decomposer and dispatch through its processing API."
+    "body": "Core designer of the job-decomposer library and heartbeat dispatch loop. At the framework level, a job is split recursively into tasks and sub-tasks across N levels and dispatched over asynchronous messaging. The heartbeat loop keeps dispatching, respects queue limits, applies backpressure, and scales workers from configuration or available resources. The design supports scalability, observability, stability, and robustness under load."
   },
   "observability": {
     "body": "Production observability on Rancher-managed Kubernetes. Owns the metrics, logs, cloud monitoring, and release checks for a platform of 30+ services, and uses the same signals to verify rollouts and investigate incidents.",
@@ -238,8 +235,8 @@
     {
       "name": "Agent Control Tower",
       "meta": "OOCL · Design owner · 2026",
-      "description": "Multi-service agent platform built around a self-built agent runtime and agent core: an agent task queue, a warm agent pool, full agent lifecycle, self-improvement, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state, versioned agent definitions, agent-generated dashboards, multi-replica routing, durable task state, a self-built agent-pod registry, and a credential proxy.",
-      "cvDescription": "Design owner of the Agent Control Tower: a self-built agent runtime and agent core, with an agent task queue, a warm agent pool, full agent lifecycle (draft → active → retiring → retired), agent-generated dynamic dashboards (six element types; CSV/Excel/PDF export), self-improvement pipeline, a knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state, versioned agent definitions, A2A + AG-UI/SSE, multi-replica routing, durable task state, a self-built agent-pod registry, and a credential proxy. Validated on a 7-service Docker/Podman compose stack and across two replicas.",
+      "description": "Agent control tower for human decision support, agent execution, and human governance, built around a self-built agent runtime and agent core. Core capabilities: agent lifecycle with queue-based dispatch, advanced human-in-the-loop gates, dynamic workflow, dynamic dashboards, a knowledge base, and active alerts and notifications.",
+      "cvDescription": "Design owner of the Agent Control Tower: a control tower for human decision support, agent execution, and human governance, built around a self-built agent runtime and agent core. Core capabilities: agent lifecycle with queue-based dispatch, advanced human-in-the-loop gates, dynamic workflow, dynamic dashboards, a knowledge base, and active alerts and notifications. Validated on a 7-service Docker/Podman compose stack and across two replicas.",
       "url": ""
     },
     {

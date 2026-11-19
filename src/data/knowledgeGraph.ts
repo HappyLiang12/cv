@@ -138,7 +138,7 @@ const toolNotes: Record<string, string> = {
 };
 
 const roleNotes: Record<string, string> = {
-  OOCL: 'Design owner of the Agent Control Tower: self-built agent runtime and agent core, warm agent pool, agent lifecycle, and dashboards; production observability, CI/CD, and platform correctness for an estate of 30+ services.',
+  OOCL: 'Design owner of the Agent Control Tower: human decision support, agent execution, human governance; core designer of the job decomposer; Scrum Master and core technical advisor driving CI/CD, clean code, and software-factory delivery for an estate of 30+ services.',
   'NTT DATA': 'Full-stack development and system revamp; microservices migration and Jenkins CI/CD.',
   'Hutchison Ports': 'Asynchronous microservices for port automation; TensorFlow DQN/RL proof of concept.',
   'InnoNext (HK)': 'Web applications with PHP, Spring, and JavaScript.'
@@ -216,7 +216,7 @@ const capabilityDefs: CapabilityDef[] = [
       {
         id: 'control-tower',
         label: 'Agent Control Tower',
-        description: 'Design owner at OOCL: a self-built agent runtime and agent core, with an agent task queue, a warm agent pool, full agent lifecycle, self-improvement pipeline, knowledge base, dynamic workflow, an active notification system, human-in-the-loop control, live state, versioned agent definitions, agent-generated dashboards, multi-replica routing, durable task state, a self-built agent-pod registry, and a credential proxy. aria-conductor is the open-source simplification.',
+        description: 'Built for human decision support, agent execution, and human governance. Design owner at OOCL: a self-built agent runtime and agent core with agent lifecycle and queue-based dispatch, advanced human-in-the-loop gates, dynamic workflow, dynamic dashboards, a knowledge base, and active alerts and notifications. Supporting capabilities: warm agent pool, self-improvement, versioned agent definitions, live state, multi-replica routing, durable task state, an agent-pod registry, and a credential proxy. aria-conductor is the open-source simplification.',
         tone: 'pine',
         tools: [
           'Agent lifecycle',
@@ -271,7 +271,7 @@ const capabilityDefs: CapabilityDef[] = [
       {
         id: 'distributed',
         label: 'Distributed scheduling',
-        description: 'Recursive job → task → sub-task decomposition across N levels, async fan-out, heartbeat dispatch, backpressure, and resource-aware scaling.',
+        description: 'Framework-level recursive job → task → sub-task decomposition over asynchronous messaging, with heartbeat dispatch, queue limits, backpressure, resource-aware scaling, and observable progress.',
         tools: [
           'Job → task → sub-task',
           'Async fan-out',

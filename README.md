@@ -85,7 +85,7 @@ separate.
 - Project evidence is folded into the skill model: Agent Control Tower sits under Agent systems;
   Testing & harness includes aria-conductor, and the green edge links the two.
 
-## Verification (2026-11-18)
+## Verification (2026-11-19)
 
 Chromium, production preview. Screenshots in `docs/screenshots/`.
 
@@ -103,13 +103,16 @@ Chromium, production preview. Screenshots in `docs/screenshots/`.
   `aria-pressed` checked.
 - Reduced motion, WebGL-off fallback, no-JS fallback, static `/cv/` checked.
 - Contact email, `/cv/`, `cv.txt`, `llms.txt`, HTML, and public PDF checked.
-- Agent lifecycle, agent task queue, warm agent pool, knowledge base, self-improvement pipeline,
-  dynamic workflow, active notification system, human-in-the-loop control, live state tracking,
-  versioned agent definitions, agent-generated dashboards, agent-pod registry, durable task state,
-  and job → task → sub-task are present
-  in the summary, OOCL experience, Agent Control Tower copy, project copy, and generated
-  artifacts. Education lists the University of Wollongong degree with Distinction and WAM
-  75.67/100 only; InnoNext is labelled `(HK)`.
+- Agent Control Tower is positioned around human decision support, agent execution, and human
+  governance; agent lifecycle with queue-based dispatch, advanced human-in-the-loop gates,
+  dynamic workflow, dynamic dashboards, knowledge base, active notifications, warm agent pool,
+  versioned agent definitions, durable task state, and agent-pod registry are present in the
+  summary, OOCL experience, Agent Control Tower copy, project copy, and generated artifacts.
+- Job Decomposer copy identifies the core designer, framework-level asynchronous decomposition,
+  and the scalability, observability, stability, and robustness goals.
+- OOCL experience and core skills include Scrum Master, core technical advisor, CI/CD, clean-code,
+  workflow standardisation, and software-factory delivery. Education lists the University of
+  Wollongong degree with Distinction and WAM 75.67/100 only; InnoNext is labelled `(HK)`.
 - Summary and experience state the container-terminal and shipping operations background and the zero-tolerance requirement for dispatch errors.
 - Public PDF is 2 pages with a clean text layer (`npm run check:pdf`), no phone number, and
   no internal system names or stray harness metrics. Its contact line includes the CV,

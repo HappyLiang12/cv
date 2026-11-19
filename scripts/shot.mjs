@@ -10,9 +10,7 @@ if (!url || !out) {
 }
 
 const WEBGL = process.env.WEBGL === '1';
-const defaultChrome = WEBGL
-  ? `${process.env.HOME}/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`
-  : `${process.env.HOME}/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell`;
+const defaultChrome = `${process.env.HOME}/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell`;
 const CHROME = process.env.CHROME_PATH || defaultChrome;
 const port = 9300 + Math.floor(Math.random() * 500);
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'cv-shot-'));

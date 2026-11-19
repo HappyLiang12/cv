@@ -6,7 +6,7 @@ import path from 'node:path';
 const url = process.argv[2] || 'http://localhost:4174/';
 const CHROME =
   process.env.CHROME_PATH ||
-  `${process.env.HOME}/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`;
+  `${process.env.HOME}/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell`;
 const port = 9300 + Math.floor(Math.random() * 500);
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'cv-graph-'));
 const chrome = spawn(
@@ -124,6 +124,9 @@ try {
   });
   await send('Page.navigate', { url });
   await sleep(5000);
+  // Headless Chrome can skip the first ResizeObserver callback for the lazy canvas.
+  await evaluate(`window.dispatchEvent(new Event('resize'))`);
+  await sleep(1500);
 
   const rect = await evaluate(`(() => {
     const r = document.querySelector('.scene-canvas canvas').getBoundingClientRect();
@@ -133,10 +136,10 @@ try {
     inspector: document.querySelectorAll('.graph-inspector button, .graph-inspector select, .graph-inspector a, .graph-inspector [tabindex]').length,
     canvas: document.querySelector('.scene-canvas canvas')?.getAttribute('tabindex')
   })`);
+  console.log('INITIAL', JSON.stringify({ rect, controls }));
   expect(rect.w > 400 && rect.h > 300, 'Graph canvas missing');
   expect(controls.inspector === 0 && controls.canvas === null, 'Graph exposes keyboard controls');
   expect((await evaluate(`document.querySelector('.graph-inspector h2')?.textContent`)) === 'Skill graph', 'Initial inspector state wrong');
-  console.log('INITIAL', JSON.stringify({ rect, controls }));
 
   const initialLabels = await evaluate(`document.querySelectorAll('.scene-label').length`);
   const labelPoint = (label, offsetY) => evaluate(`(() => {

@@ -6,7 +6,7 @@ export function Decomposer() {
     <Section
       id="decomposer"
       label="Job Decomposer"
-      title="Recursive job → task → sub-task dispatch."
+      title="Framework-level job → task → sub-task dispatch."
     >
       <p>{cv.decomposer.body}</p>
       <figure className="diagram">
