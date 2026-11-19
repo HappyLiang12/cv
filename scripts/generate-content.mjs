@@ -188,6 +188,7 @@ const snapshotDescription = 'CV of LIANG Yee Ching (Happy), AI platform and agen
 let snapshotBody;
 const { createServer } = await import('vite');
 const vite = await createServer({
+  root,
   server: { middlewareMode: true },
   appType: 'custom',
   logLevel: 'error'
@@ -271,7 +272,7 @@ ${cv.role} based in ${cv.location}.${cv.availability ? ` ${cv.availability}` : '
 ## Pages
 - Portfolio: ${siteUrl}
 - CV (HTML page): ${siteUrl}cv/
-- CV (downloadable HTML): ${siteUrl}Happy-Liang-CV.html
+- CV (full page snapshot, downloadable HTML): ${siteUrl}Happy-Liang-CV.html
 - CV (plain text): ${siteUrl}cv.txt
 - GitHub: ${github}
 - This file: ${siteUrl}llms.txt

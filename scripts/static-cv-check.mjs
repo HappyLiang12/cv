@@ -3,12 +3,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isDeepStrictEqual } from 'node:util';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 const sizeOf = relative => fs.statSync(path.join(root, relative)).size;
 
 const cv = JSON.parse(read('src/data/cv.json'));
+const siteUrl = (process.env.SITE_URL || cv.siteUrl).replace(/\/+$/, '') + '/';
 const snapshotPath = 'public/Happy-Liang-CV.html';
 const atsPath = 'public/cv/index.html';
 const textPath = 'public/cv.txt';
@@ -62,9 +64,12 @@ check('snapshot has no <script> tags', scriptTags === 0, `${scriptTags} found`);
 check('snapshot inlines its styles', snapshot.includes('<style>'));
 check('snapshot is the full mode', snapshot.includes('data-mode="full"'));
 
-for (const id of sectionIds) {
-  check(`snapshot has section #${id}`, snapshot.includes(`id="${id}"`));
-}
+const actualSectionIds = [...snapshot.matchAll(/<section\b[^>]*\sid="([^"]+)"/g)].map(match => match[1]);
+check(
+  'snapshot section ids are complete and ordered',
+  isDeepStrictEqual(actualSectionIds, sectionIds),
+  actualSectionIds.join(' -> ')
+);
 
 for (const job of cv.experience) {
   for (const field of ['company', 'role']) {
@@ -99,6 +104,10 @@ for (const relative of [snapshotPath, atsPath, textPath]) {
     continue;
   }
   check(`${relative} omits the compose-stack claim`, !artifacts.get(relative).includes(composeClaim));
+}
+
+for (const artifact of ['Happy-Liang-CV.pdf', 'Happy-Liang-CV.html', 'cv.txt']) {
+  check(`snapshot links to the absolute ${artifact} URL`, snapshot.includes(`${siteUrl}${artifact}`), `${siteUrl}${artifact}`);
 }
 
 const rootRelative = [...snapshot.matchAll(/\b(?:href|src)="\/[^"]*/g)].map(match => match[0]);
