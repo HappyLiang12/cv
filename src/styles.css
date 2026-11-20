@@ -241,7 +241,7 @@ button.scene-label-self:hover, button.scene-label-self:focus-visible { backgroun
 .project-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; color: var(--accent); font-size: 10px; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 5px; letter-spacing: .05em; transition: text-decoration-color .3s; }
 .project-link:hover { text-decoration-color: var(--accent); }
 .sec-body .more-link { margin: 18px 0 0; }
-.section.contact { background: transparent; padding: 40px 0 44px; }
+.section.contact { background: transparent; padding: 40px 0 80px; }
 .contact .sec-meta { margin-bottom: 12px; }
 .contact .sec-title { font-size: 26px; margin-bottom: 14px; }
 .contact .sec-body p { font-size: 14px; margin-bottom: 8px; }

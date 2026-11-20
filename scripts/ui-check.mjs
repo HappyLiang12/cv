@@ -564,6 +564,15 @@ try {
         assert.equal(plates.contact[side], plates.projects[side], `Contact glass ${side} differs from the shared section card at ${width}px: ${JSON.stringify(plates)}`);
       }
       assert.equal(plates.contact.opacity,'1',`Contact glass is not visible at ${width}px`);
+      // The section clips its own overflow, so its bottom padding must fit the shared card's shadow ink.
+      const room = await evaluate(`(() => {
+        const section = document.getElementById('contact').getBoundingClientRect();
+        const wrap = document.querySelector('#contact > .wrap').getBoundingClientRect();
+        const inset = parseFloat(getComputedStyle(document.querySelector('#contact > .wrap'),'::before').bottom);
+        return section.bottom - (wrap.bottom - inset);
+      })()`);
+      assert(room >= 48, `Contact card shadow is clipped at ${width}px: ${room}px below the card (need 48-64)`);
+      assert(room <= 64, `Contact card leaves too much room at ${width}px: ${room}px below the card (need 48-64)`);
       if (width === 1440) {
         const point=await evaluate(`(() => {const r=document.querySelector('#contact .sec-title').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()`);
         await send('Input.dispatchMouseEvent',{type:'mouseMoved',...point});
