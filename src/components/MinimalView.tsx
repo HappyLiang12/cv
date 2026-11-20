@@ -1,5 +1,4 @@
 import cv from '../data/cv.json';
-import { TechText } from './TechText';
 
 const base = import.meta.env.BASE_URL;
 const linkedin = cv.contact.linkedin.trim();
@@ -12,7 +11,7 @@ export function MinimalView() {
         <header className="minimal-head glass-surface">
           <p className="kicker mono">{cv.role} — Hong Kong</p>
           <h1>{cv.name}</h1>
-          <p className="minimal-summary"><TechText text={cv.summary} /></p>
+          <p className="minimal-summary">{cv.summary}</p>
           <p className="minimal-proof mono">
             30+ services · Agent Control Tower design owner · job → task → sub-task (N levels)
           </p>
@@ -51,7 +50,7 @@ export function MinimalView() {
                   </span>
                   <span className="min-project-meta mono">{project.meta}</span>
                 </div>
-                <p><TechText text={project.description} /></p>
+                <p>{project.description}</p>
               </li>
             ))}
           </ul>
@@ -66,7 +65,7 @@ export function MinimalView() {
             {cv.skillGroups.map(group => (
               <div className="min-focus-row" key={group.label}>
                 <span className="min-focus-label">{group.label}</span>
-                <span><TechText text={group.items} /></span>
+                <span>{group.items}</span>
               </div>
             ))}
           </div>

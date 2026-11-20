@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { capabilityCount, childrenById, groupCount, nodeById, pathToRoot, toolCount } from '../data/knowledgeGraph';
-import { TechText } from './TechText';
 
 type SkillExplorerProps = {
   selected: string | null;
@@ -40,7 +39,7 @@ export function SkillExplorer({ selected, onSelect }: SkillExplorerProps) {
       <div className="skill-content">
         {trail.length > 0 && <p className="skill-trail">{trail.map(item => item.label).join(' / ')}</p>}
         <h3 ref={heading} tabIndex={-1}>{node?.label ?? 'Explore the skills.'}</h3>
-        <p className="skill-description"><TechText text={node?.description ?? `${groupCount} skill groups. Select a capability to explore its tools.`} /></p>
+        <p className="skill-description">{node?.description ?? `${groupCount} skill groups. Select a capability to explore its tools.`}</p>
         {node?.meta && <p className="skill-meta mono">{node.meta}</p>}
         {children.length > 0 && (
           <div className={`skill-children${node?.kind === 'group' ? ' is-tools' : ''}`}>

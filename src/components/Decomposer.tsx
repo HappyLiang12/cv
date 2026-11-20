@@ -1,11 +1,10 @@
 import cv from '../data/cv.json';
 import { Section } from './Section';
-import { TechText } from './TechText';
 
 export function Decomposer() {
   return (
     <Section id="decomposer" label="Job Decomposer" title="Framework-level job → task → sub-task dispatch.">
-      <p><TechText text={cv.decomposer.body} /></p>
+      <p>{cv.decomposer.body}</p>
       <figure className="diagram">
         <div className="decomposer-flow" role="img" aria-label="A job decomposes into three tasks, which decompose into sub-tasks recursively across N levels.">
           <div className="flow-stage"><span className="flow-node flow-root">Job</span></div>

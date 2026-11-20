@@ -479,20 +479,23 @@ try {
     await until(()=>evaluate(`document.querySelector('#decomposer > .wrap').dataset.pointer === 'true' && !document.querySelector('#control-tower > .wrap').dataset.pointer`),'Hover did not transfer to the next section',2000);
   });
 
-  await test('Cursor highlights technology terms only in the hovered paragraph without changing text metrics', async () => {
+  await test('Paragraph hover leaves plain text without keyword pills', async () => {
     await load(1440);
+    const pill='.tech'+'-term';
     const point=await evaluate(`(() => {const p=[...document.querySelectorAll('.project p')].find(el=>el.textContent.includes('Java 21') && el.textContent.includes('React 19'));if(!p)return null;p.dataset.keywordProbe='true';p.scrollIntoView({block:'center',behavior:'instant'});const r=p.getBoundingClientRect();return {x:r.x+r.width*.3,y:r.y+r.height*.4,text:p.textContent,height:p.offsetHeight};})()`);
     assert(point,'Existing technology paragraph missing');
-    const terms=await evaluate(`[...document.querySelectorAll('[data-keyword-probe] .tech-term')].map(el=>el.textContent)`);
-    assert(terms.some(term=>term.includes('Java')) && terms.some(term=>term.includes('React')),'Technology terms are not marked for highlighting');
+    assert.equal(await evaluate(`document.querySelectorAll('${pill}').length`),0,'Keyword pill markup is still rendered on load');
     await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:point.x,y:point.y});
-    await until(()=>evaluate(`getComputedStyle(document.querySelector('[data-keyword-probe] .tech-term')).boxShadow !== 'none'`),'Paragraph hover does not highlight terms');
-    const state=await evaluate(`(() => {const p=document.querySelector('[data-keyword-probe]');return {text:p.textContent,height:p.offsetHeight,interactive:p.querySelectorAll('.tech-term[tabindex],.tech-term a,.tech-term button').length};})()`);
-    assert.equal(state.text,point.text);assert.equal(state.height,point.height);assert.equal(state.interactive,0);
-    await until(()=>evaluate(`document.querySelector('[data-keyword-probe]').closest('.glass-surface').getAnimations({subtree:true}).every(a=>a.playState!=='running')`),'Keyword hover did not settle');
+    await until(()=>evaluate(`document.querySelector('[data-keyword-probe]').closest('.glass-surface').dataset.pointer === 'true'`),'Section does not react to the cursor',2000);
+    await until(()=>evaluate(`document.querySelector('[data-keyword-probe]').closest('.glass-surface').getAnimations({subtree:true}).every(a=>a.playState!=='running')`),'Paragraph hover did not settle');
+    const state=await evaluate(`(() => {const p=document.querySelector('[data-keyword-probe]');return {pills:document.querySelectorAll('${pill}').length,text:p.textContent,height:p.offsetHeight,pointer:p.closest('.glass-surface').dataset.pointer};})()`);
+    assert.equal(state.pills,0,'Paragraph hover renders keyword pills');
+    assert.equal(state.text,point.text,'Hover changed the paragraph text');
+    assert.equal(state.height,point.height,'Hover changed paragraph metrics');
+    assert.equal(state.pointer,'true','Section does not react to the cursor');
     await screenshot('cv-cursor-keywords.png');
     await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:10,y:10});
-    await until(()=>evaluate(`getComputedStyle(document.querySelector('[data-keyword-probe] .tech-term')).boxShadow === 'none'`),'Keyword highlighting sticks after leaving');
+    await until(()=>evaluate(`!document.querySelector('.glass-surface[data-pointer="true"]')`),'Glass hover state sticks after leaving');
   });
 
   await test('Cursor glass covers the hero without moving the graph and cleans up on mode changes', async () => {

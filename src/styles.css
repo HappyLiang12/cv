@@ -282,14 +282,12 @@ button.scene-label-self:hover, button.scene-label-self:focus-visible { backgroun
 .glass-surface { position: relative; isolation: isolate; border-radius: 24px; transition: transform .55s var(--ease), opacity .3s var(--ease); }
 .glass-surface > * { position: relative; z-index: 1; }
 .hero-copy.glass-surface::before, .minimal .glass-surface::before { content: ""; position: absolute; inset: -16px; z-index: -1; border: 1px solid rgba(143,157,175,.28); border-radius: 24px; background: linear-gradient(140deg,rgba(255,255,255,.96),rgba(237,242,247,.76)); box-shadow: 0 18px 40px -28px rgba(24,40,60,.25),inset 0 1px 0 white; opacity: 0; transition: opacity .25s ease; pointer-events: none; }
-.tech-term { border-radius: 4px; background: transparent; box-shadow: none; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: color .18s ease, background-color .18s ease, box-shadow .18s ease, text-shadow .18s ease; }
 @media (hover: hover) and (pointer: fine) {
   .glass-surface[data-pointer="true"], .section[data-reveal] > .glass-surface[data-pointer="true"] { opacity: 1; transform: translate3d(0,-3px,0) scale(1.012); transition-duration: .55s; }
   .hero-copy.glass-surface[data-pointer="true"]::before, .minimal .glass-surface[data-pointer="true"]::before { opacity: 1; }
   .section > .glass-surface[data-pointer="true"]::before { opacity: 1; transform: none; border-color: rgba(119,137,160,.4); box-shadow: 0 22px 56px -30px rgba(24,40,60,.25),inset 0 1px 0 white; -webkit-backdrop-filter: blur(16px) saturate(108%); backdrop-filter: blur(16px) saturate(108%); }
   .section > .glass-surface[data-pointer="true"]::after { opacity: 1; transform: none; }
   main:has(.glass-surface[data-pointer="true"]) .section:not(:has(> .glass-surface[data-pointer="true"])) > .wrap::before, main:has(.glass-surface[data-pointer="true"]) .section:not(:has(> .glass-surface[data-pointer="true"])) > .wrap::after { opacity: .15; }
-  .glass-surface[data-pointer="true"] :is(p,li,td,.stack-items,.min-focus-row):hover .tech-term, .graph-inspector .gi-desc:hover .tech-term, .skill-explorer .skill-description:hover .tech-term { color: #16171a; background-color: rgba(216,227,240,.9); box-shadow: 0 0 0 3px rgba(216,227,240,.9),inset 0 1px 0 rgba(255,255,255,.95),0 2px 5px rgba(65,87,115,.16); text-shadow: .025em 0 currentColor; }
 }
 
 @supports (animation-timeline: scroll()) {

@@ -1,6 +1,5 @@
 import cv from '../data/cv.json';
 import { Section } from './Section';
-import { TechText } from './TechText';
 
 export function Projects() {
   return (
@@ -15,7 +14,7 @@ export function Projects() {
             <div>
               <h3>{project.name}</h3>
               <div className="meta mono">{project.meta}</div>
-              <p><TechText text={project.description} /></p>
+              <p>{project.description}</p>
               {project.url && (
                 <a
                   className="project-link mono"

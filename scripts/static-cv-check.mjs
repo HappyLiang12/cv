@@ -84,10 +84,8 @@ for (const project of cv.projects) {
 
 check('snapshot has the contact email', snapshot.includes(escapeHtml(cv.contact.email)), cv.contact.email);
 
-// TechText wraps graph terms in <span class="tech-term">, so compare the lede's escaped
-// text with the spans folded back out: the rendered words must be exactly cv.summary.
 const lede = snapshot.match(/<p class="lede rise"[^>]*>([\s\S]*?)<\/p>/);
-const ledeText = lede ? lede[1].replace(/<span class="tech-term">([\s\S]*?)<\/span>/g, '$1') : '';
+const ledeText = lede ? lede[1] : '';
 check(
   'snapshot hero shows the cv.json summary (escaped form)',
   Boolean(lede) && ledeText === escapeHtml(cv.summary),

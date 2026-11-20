@@ -9,7 +9,6 @@ import { GraphInspector } from './GraphInspector';
 import { SceneBoundary } from './SceneBoundary';
 import { SkillExplorer } from './SkillExplorer';
 import { StaticMap } from './StaticMap';
-import { TechText } from './TechText';
 
 const KnowledgeGraphScene = lazy(() => import('../scene/KnowledgeGraphScene'));
 const base = import.meta.env.BASE_URL;
@@ -45,7 +44,7 @@ export function Hero() {
             <h1 className="rise" style={{ animationDelay: '0.06s' }}>
               AI Platform &amp;{' '}<br /><span className="hero-emphasis">Agent Systems<br className="hero-line-break" /> Engineer</span>
             </h1>
-            <p className="lede rise" style={{ animationDelay: '0.12s' }}><TechText text={cv.summary} /></p>
+            <p className="lede rise" style={{ animationDelay: '0.12s' }}>{cv.summary}</p>
             {cv.availabilityNote && <p className="avail rise" style={{ animationDelay: '0.16s' }}>{cv.availabilityNote}</p>}
             <div className="actions rise" style={{ animationDelay: '0.2s' }}>
               <a className="text-link primary" href="#experience">Read the CV<span className="arrow" aria-hidden="true">↘</span></a>

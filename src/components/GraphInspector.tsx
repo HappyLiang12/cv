@@ -7,7 +7,6 @@ import {
   pathToRoot,
   toolCount
 } from '../data/knowledgeGraph';
-import { TechText } from './TechText';
 
 const kindLabel: Record<string, string> = {
   self: 'Overview',
@@ -86,7 +85,7 @@ export function GraphInspector({ selected, hovered, onSelect }: GraphInspectorPr
           {preview && path.length > 0 && (
             <p className="gi-preview-path mono">{path.map(item => item.label).join(' / ')}</p>
           )}
-          <p className="gi-desc"><TechText text={description} /></p>
+          <p className="gi-desc">{description}</p>
           {related && (
             <p className="gi-related mono">
               Agent Control Tower ↔ Testing &amp; harness · aria-conductor is the open-source link
