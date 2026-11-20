@@ -466,6 +466,12 @@ try {
     assert(first.scale>=1.006 && first.scale<=1.035, `Hover enlargement missing or excessive: ${first.scale}`);
     assert.equal(first.height,before.height);assert.equal(first.text,before.text);assert.equal(first.doc,before.documentHeight);
     await screenshot('cv-cursor-section.png');
+    const scrollY=await evaluate('window.scrollY');
+    await send('Input.dispatchMouseEvent',{type:'mouseWheel',x:before.x,y:before.y,deltaX:0,deltaY:180});
+    await until(()=>evaluate(`window.scrollY !== ${scrollY} && (() => {const active=[...document.querySelectorAll('.glass-surface[data-pointer="true"]')],surface=document.elementFromPoint(${before.x},${before.y})?.closest('.glass-surface');return surface ? active.length===1 && active[0]===surface : active.length===0;})()`),'Scrolling did not re-hit-test the stationary cursor',2000);
+    const scrolled=await evaluate(`(() => {const active=[...document.querySelectorAll('.glass-surface[data-pointer="true"]')],surface=document.elementFromPoint(${before.x},${before.y})?.closest('.glass-surface'),s=document.querySelector('#control-tower > .wrap');return {activeCount:active.length,hit:!!surface,matches:surface ? active.length===1 && active[0]===surface : active.length===0,pointerX:s.style.getPropertyValue('--pointer-' + 'x'),pointerY:s.style.getPropertyValue('--pointer-' + 'y'),lenses:document.querySelectorAll('.glass-' + 'cursor').length};})()`);
+    assert.equal(scrolled.activeCount,scrolled.hit ? 1 : 0,'Stationary cursor activated the wrong number of glass surfaces after scrolling');assert(scrolled.matches,'Stationary cursor does not activate the surface under it after scrolling');
+    assert.equal(scrolled.pointerX,'','Scrolling still writes a horizontal pointer property');assert.equal(scrolled.pointerY,'','Scrolling still writes a vertical pointer property');assert.equal(scrolled.lenses,0,'Scrolling renders a magnifier lens');
     await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:10,y:10});
     await until(()=>evaluate(`!document.querySelector('.glass-surface[data-pointer="true"]')`),'Glass hover state sticks after leaving');
     const next=await evaluate(`(() => {const surface=document.querySelector('#decomposer > .wrap');surface.scrollIntoView({block:'center',behavior:'instant'});const p=surface.querySelector('.sec-body > p'),r=p.getBoundingClientRect();return {x:r.x+100,y:r.y+30};})()`);
