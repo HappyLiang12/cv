@@ -5,8 +5,6 @@ import { Experience } from '../components/Experience';
 import { Hero } from '../components/Hero';
 import { Observability } from '../components/Observability';
 import { Projects } from '../components/Projects';
-import { Section } from '../components/Section';
-import { StaticSkillDetails } from './StaticSkills';
 
 const sections = [
   ['experience', 'Experience'],
@@ -37,9 +35,6 @@ export function StaticCv() {
       </header>
       <main id="main" tabIndex={-1}>
         <Hero staticSkills />
-        <Section id="skill-map" label="Skill map" title="Every skill, in full.">
-          <StaticSkillDetails />
-        </Section>
         <Experience />
         <ControlTower />
         <Decomposer />

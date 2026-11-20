@@ -15,9 +15,8 @@ const snapshotPath = 'public/Happy-Liang-CV.html';
 const atsPath = 'public/cv/index.html';
 const textPath = 'public/cv.txt';
 const composeClaim = 'Validated on a 7-service Docker/Podman compose stack';
-// The snapshot's section ids; `top` is the hero, the rest are the nav targets
-// plus the static-only skill details section, which has no navigation entry.
-const sectionIds = ['top', 'skill-map', 'experience', 'control-tower', 'decomposer', 'observability', 'projects', 'contact'];
+// The snapshot's section ids; `top` is the hero, the rest are the nav targets.
+const sectionIds = ['top', 'experience', 'control-tower', 'decomposer', 'observability', 'projects', 'contact'];
 
 let checks = 0;
 let failures = 0;
@@ -105,43 +104,44 @@ check(
 const buttonTags = (snapshot.match(/<button\b/g) || []).length;
 check('snapshot has no <button> elements', buttonTags === 0, `${buttonTags} found`);
 
-const skillMap = snapshot.match(/<section\b[^>]*\sid="skill-map"[^>]*>([\s\S]*?)<\/section>/);
-const skillMapHtml = skillMap ? decodeHtml(skillMap[1]) : '';
-check('snapshot has the skill map section', Boolean(skillMap), skillMap ? 'found' : 'section id="skill-map" not found');
-check('snapshot skill section has its title', skillMapHtml.includes('Every skill, in full.'));
+const skillCard = snapshot.match(/<figure class="hero-scene is-explorer"[^>]*>([\s\S]*?)<\/figure>/);
+const skillCardHtml = skillCard ? decodeHtml(skillCard[1]) : '';
+check(
+  'snapshot hero has the static skill card',
+  Boolean(skillCard) && /class="[^"]*\bstatic-skills\b[^"]*"/.test(skillCardHtml),
+  skillCard ? 'card found' : 'figure.hero-scene.is-explorer not found'
+);
 
 for (const label of ['Platform', 'Agent systems', 'Observability', 'Delivery & ops', 'Background']) {
-  check(`snapshot skill section has capability "${label}"`, skillMapHtml.includes(label));
+  check(`snapshot skill card has capability "${label}"`, skillCardHtml.includes(label));
 }
 
 // Every tool entry is one list item: the label and its own description stay together.
-const skillEntries = [...skillMapHtml.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(match => match[1]);
+const skillEntries = [...skillCardHtml.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(match => match[1]);
 const hasEntry = (label, description) =>
   skillEntries.some(entry => entry.includes(label) && entry.includes(description));
 check(
-  'snapshot skill section has the Warm agent pool description',
+  'snapshot skill card has the Warm agent pool description',
   hasEntry('Warm agent pool', 'pre-warmed per worker pod'),
   `${skillEntries.length} entries`
 );
 check(
-  'snapshot skill section has the TypeScript description',
+  'snapshot skill card has the TypeScript description',
   hasEntry('TypeScript', 'Typed frontend and Node tooling, including the MCP server.')
 );
 
-// Completeness guard for the plain-text skill map. The totals come from
+// Completeness guard for the disclosure card. The totals come from
 // src/data/knowledgeGraph.ts: capabilityCount = 4 capabilityDefs plus the Background
-// node = 5 blocks, groupCount = 12, toolCount = 83, and childrenById.get('happy') = 5
-// hero overview rows. Hardcoded because this check runs without a TypeScript loader.
-const skillTotals = { capabilityBlocks: 5, groupBlocks: 12, toolEntries: 83, overviewRows: 5 };
+// node = 5 capability items, groupCount = 12, toolCount = 83. Hardcoded because this
+// check runs without a TypeScript loader.
+const skillTotals = { capabilityItems: 5, groupItems: 12, toolEntries: 83 };
 const countClass = (html, className) => (html.match(new RegExp(`class="${className}"`, 'g')) || []).length;
 
-const capabilityBlocks = countClass(skillMapHtml, 'static-capability');
-check('snapshot skill section has 5 capability blocks', capabilityBlocks === skillTotals.capabilityBlocks, `${capabilityBlocks} found`);
-const groupBlocks = countClass(skillMapHtml, 'static-group');
-check('snapshot skill section has 12 group blocks', groupBlocks === skillTotals.groupBlocks, `${groupBlocks} found`);
-check('snapshot skill section lists all 83 tools', skillEntries.length === skillTotals.toolEntries, `${skillEntries.length} entries`);
-const overviewRows = countClass(snapshot, 'static-skill-row');
-check('snapshot hero overview has 5 skill rows', overviewRows === skillTotals.overviewRows, `${overviewRows} found`);
+const capabilityItems = countClass(skillCardHtml, 'static-skill-item');
+check('snapshot skill card has 5 capability items', capabilityItems === skillTotals.capabilityItems, `${capabilityItems} found`);
+const groupItems = countClass(skillCardHtml, 'static-skill-group');
+check('snapshot skill card has 12 group items', groupItems === skillTotals.groupItems, `${groupItems} found`);
+check('snapshot skill card lists all 83 tools', skillEntries.length === skillTotals.toolEntries, `${skillEntries.length} entries`);
 
 const artifacts = new Map();
 for (const relative of [snapshotPath, atsPath, textPath]) {

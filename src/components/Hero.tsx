@@ -5,7 +5,7 @@ import { useHoverIntent } from '../hooks/useHoverIntent';
 import { useInView } from '../hooks/useInView';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { usePageVisible } from '../hooks/usePageVisible';
-import { StaticSkillOverview } from '../static/StaticSkills';
+import { StaticSkills } from '../static/StaticSkills';
 import { GraphInspector } from './GraphInspector';
 import { SceneBoundary } from './SceneBoundary';
 import { SkillExplorer } from './SkillExplorer';
@@ -58,7 +58,7 @@ export function Hero({ staticSkills = false }: HeroProps) {
           </div>
           <figure className={`hero-scene${useR3F ? '' : ' is-explorer'}`} ref={sceneRef} aria-label="Technical skill map">
             {staticSkills ? (
-              <StaticSkillOverview />
+              <StaticSkills />
             ) : useR3F ? (
               <div className="scene-frame" onPointerLeave={() => { onHover(null); document.body.style.cursor = ''; }}>
                 <div className="scene-heading"><span className="mono">The skill map</span><span>{groupCount} groups <span className="scene-heading-dot">·</span> {toolCount} tools</span></div>
