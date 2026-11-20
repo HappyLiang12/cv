@@ -31,6 +31,11 @@ const fail = (name, detail) => {
 };
 const check = (name, ok, detail) => (ok ? pass(name, detail) : fail(name, detail));
 
+// Every published contact surface carries the same phone, derived from cv.json.
+const phone = String(cv.contact.phone ?? '').trim();
+const phoneHref = `tel:${phone.replace(/\s+/g, '')}`;
+const hasPhone = phone.length > 0;
+
 // Same escaping React applies to text nodes rendered by renderToStaticMarkup.
 const escapeHtml = value => String(value)
   .replaceAll('&', '&amp;')
@@ -83,6 +88,9 @@ for (const project of cv.projects) {
 }
 
 check('snapshot has the contact email', snapshot.includes(escapeHtml(cv.contact.email)), cv.contact.email);
+check('cv.json defines contact.phone', hasPhone, hasPhone ? phone : 'missing');
+check('snapshot has the contact phone link', hasPhone && snapshot.includes(`href="${phoneHref}"`), phoneHref);
+check('snapshot shows the contact phone number', hasPhone && snapshot.includes(escapeHtml(phone)), phone);
 
 const lede = snapshot.match(/<p class="lede rise"[^>]*>([\s\S]*?)<\/p>/);
 const ledeText = lede ? lede[1] : '';
@@ -120,6 +128,11 @@ const atsSections = ['Summary', 'Core Skills', 'Experience', 'Selected Projects'
 for (const heading of atsSections) {
   check(`${atsPath} has section "${heading}"`, ats.includes(`<h2>${heading}</h2>`));
 }
+check(`${atsPath} has the contact phone link`, hasPhone && ats.includes(`href="${phoneHref}"`), phoneHref);
+check(`${atsPath} shows the contact phone number`, hasPhone && ats.includes(escapeHtml(phone)), phone);
+
+const cvText = artifacts.get(textPath) ?? '';
+check(`${textPath} has the contact phone`, hasPhone && cvText.includes(`Phone: ${phone}`), `Phone: ${phone}`);
 
 console.log(`\n${checks} checks, ${checks - failures} passed, ${failures} failed`);
 if (failures > 0) process.exitCode = 1;

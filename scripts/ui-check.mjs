@@ -584,6 +584,33 @@ try {
     }
   });
 
+  await test('Contact surfaces expose the phone link in both modes', async () => {
+    const cv = JSON.parse(fs.readFileSync(new URL('../src/data/cv.json', import.meta.url), 'utf8'));
+    const phone = String(cv.contact.phone ?? '').trim();
+    const phoneHref = `tel:${phone.replace(/\s+/g, '')}`;
+    assert(phone, 'cv.json has no contact.phone');
+    const probe = selector => `(() => {
+      const links = [...document.querySelectorAll(${JSON.stringify(selector)})];
+      const index = links.findIndex(link => link.getAttribute('href') === ${JSON.stringify(phoneHref)});
+      const link = links[index];
+      return link ? {href: link.getAttribute('href'), text: link.textContent.trim(), className: link.className, afterEmail: index > 0 && links[index - 1].getAttribute('href').startsWith('mailto:')} : null;
+    })()`;
+    await load(1440);
+    const full = await evaluate(probe('#contact .contact-actions a'));
+    assert(full, 'Full contact section has no phone link at 1440px');
+    assert.equal(full.href, phoneHref);
+    assert.equal(full.text, phone);
+    assert(full.className.split(/\s+/).includes('text-link'), 'Full phone link is not a text-link');
+    assert(full.afterEmail, 'Full phone link does not follow the email link');
+    await load(1440, 'minimal');
+    const minimal = await evaluate(probe('.min-contact-links a'));
+    assert(minimal, 'Minimal contact section has no phone link at 1440px');
+    assert.equal(minimal.href, phoneHref);
+    assert.equal(minimal.text, phone);
+    assert(minimal.className.split(/\s+/).includes('text-link'), 'Minimal phone link is not a text-link');
+    assert(minimal.afterEmail, 'Minimal phone link does not follow the email link');
+  });
+
   await test('CV download targets remain valid in both modes', async () => {
     for (const mode of ['full', 'minimal']) {
       await load(390, mode);

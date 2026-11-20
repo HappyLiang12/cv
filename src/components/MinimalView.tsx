@@ -3,6 +3,7 @@ import cv from '../data/cv.json';
 const base = import.meta.env.BASE_URL;
 const linkedin = cv.contact.linkedin.trim();
 const email = cv.contact.email.trim();
+const phone = cv.contact.phone.trim();
 
 export function MinimalView() {
   return (
@@ -91,6 +92,9 @@ export function MinimalView() {
           <div className="min-contact-links">
             {email && (
               <a className="text-link" href={`mailto:${email}`}>{email}</a>
+            )}
+            {phone && (
+              <a className="text-link" href={`tel:${phone.replace(/\s+/g, '')}`}>{phone}</a>
             )}
             <a className="text-link" href={cv.contact.github} target="_blank" rel="me noopener noreferrer">
               GitHub ↗

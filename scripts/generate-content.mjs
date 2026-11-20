@@ -17,6 +17,7 @@ const esc = value => String(value)
   .replaceAll("'", '&#39;');
 
 const email = cv.contact.email.trim();
+const phone = (cv.contact.phone || '').trim();
 const linkedin = cv.contact.linkedin.trim();
 const github = cv.contact.github.trim();
 const linkedinLabel = linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/+$/, '');
@@ -24,6 +25,7 @@ const githubLabel = github.replace(/^https?:\/\/(www\.)?/, '').replace(/\/+$/, '
 const contactParts = [];
 if (email) contactParts.push(`<a href="mailto:${esc(email)}">${esc(email)}</a>`);
 else contactParts.push('Email available on request');
+if (phone) contactParts.push(`<a href="tel:${esc(phone.replace(/\s+/g, ''))}">${esc(phone)}</a>`);
 contactParts.push(`<a href="${esc(siteUrl)}">happyliang12.github.io/cv</a>`);
 if (linkedin) contactParts.push(`<a href="${esc(linkedin)}">${esc(linkedinLabel)}</a>`);
 if (github) contactParts.push(`<a href="${esc(github)}">${esc(githubLabel)}</a>`);
@@ -31,6 +33,7 @@ if (github) contactParts.push(`<a href="${esc(github)}">${esc(githubLabel)}</a>`
 const contactPlain = [];
 if (email) contactPlain.push(email);
 else contactPlain.push('Email: available on request');
+if (phone) contactPlain.push(`Phone: ${phone}`);
 contactPlain.push(`CV: ${siteUrl}`);
 if (linkedin) contactPlain.push(`LinkedIn: ${linkedin}`);
 if (github) contactPlain.push(`GitHub: ${github}`);
@@ -133,7 +136,7 @@ const cvHtml = `<!doctype html>
     a { color: inherit; text-decoration: none; }
     h1 { font-size: 26pt; margin-bottom: 3px; }
     .role { font-size: 8pt; margin-bottom: 6px; }
-    .contact, .avail { font-size: 9.3pt; margin-bottom: 1px; }
+    .contact, .avail { font-size: 8.6pt; margin-bottom: 1px; }
     p, li { font-size: 8.9pt; line-height: 1.31; }
     ul { margin-top: 2px; }
     li { margin-bottom: 1px; }

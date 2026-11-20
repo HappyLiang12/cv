@@ -4,6 +4,7 @@ import { Section } from './Section';
 const base = import.meta.env.BASE_URL;
 const linkedin = cv.contact.linkedin.trim();
 const email = cv.contact.email.trim();
+const phone = cv.contact.phone.trim();
 
 export function Contact() {
   return (
@@ -17,6 +18,9 @@ export function Contact() {
       <div className="contact-actions">
         {email && (
           <a className="text-link primary" href={`mailto:${email}`}>{email}</a>
+        )}
+        {phone && (
+          <a className="text-link" href={`tel:${phone.replace(/\s+/g, '')}`}>{phone}</a>
         )}
         <a
           className="text-link"
