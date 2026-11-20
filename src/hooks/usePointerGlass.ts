@@ -29,7 +29,7 @@ export function usePointerGlass(rootRef: RefObject<HTMLElement | null>, mode: Mo
       }
       const hit = document.elementFromPoint(pointer.x, pointer.y);
       const surface = hit?.closest<HTMLElement>('.glass-surface') ?? null;
-      if (!surface || !root.contains(surface)) {
+      if (!surface || !root.contains(surface) || surface.closest('.section.contact')) {
         deactivate();
         return;
       }

@@ -545,40 +545,26 @@ try {
     }
   });
 
-  await test("Contact glass matches the other sections' card", async () => {
+  await test('Contact footer stays plain without glass or hover lift', async () => {
     for (const width of [1440, 390]) {
       await load(width);
       await evaluate('window.scrollTo({top:document.documentElement.scrollHeight,behavior:"instant"})');
       await until(()=>evaluate(`document.getElementById('contact').dataset.focused === 'true'`), 'Contact did not focus', 2500);
       await until(()=>evaluate(`document.getElementById('contact').dataset.reveal === 'in'`), 'Contact did not enter its reading state', 2500);
-      await until(()=>evaluate(`document.querySelector('#contact > .wrap').getAnimations({subtree:true}).every(a=>a.playState !== 'running')`), 'Contact glass did not settle');
-      // Insets and radius are read from the resting card; only the shared hover behavior may lift or scale it.
-      const plates = await evaluate(`(() => {
-        const read = id => {
-          const material = getComputedStyle(document.querySelector('#'+id+' > .wrap'),'::before');
-          return {top:material.top,right:material.right,bottom:material.bottom,left:material.left,borderRadius:material.borderRadius,opacity:material.opacity};
-        };
-        return {contact:read('contact'),projects:read('projects')};
+      await until(()=>evaluate(`document.querySelector('#contact > .wrap').getAnimations({subtree:true}).every(a=>a.playState !== 'running')`), 'Contact footer did not settle');
+      const layers = await evaluate(`(() => {
+        const section = document.getElementById('contact'), wrap = document.querySelector('#contact > .wrap');
+        return {glow:getComputedStyle(section,'::before').display,card:getComputedStyle(wrap,'::before').display,reflection:getComputedStyle(wrap,'::after').display};
       })()`);
-      for (const side of ['top','right','bottom','left','borderRadius']) {
-        assert.equal(plates.contact[side], plates.projects[side], `Contact glass ${side} differs from the shared section card at ${width}px: ${JSON.stringify(plates)}`);
-      }
-      assert.equal(plates.contact.opacity,'1',`Contact glass is not visible at ${width}px`);
-      // The section clips its own overflow, so its bottom padding must fit the shared card's shadow ink.
-      const room = await evaluate(`(() => {
-        const section = document.getElementById('contact').getBoundingClientRect();
-        const wrap = document.querySelector('#contact > .wrap').getBoundingClientRect();
-        const inset = parseFloat(getComputedStyle(document.querySelector('#contact > .wrap'),'::before').bottom);
-        return section.bottom - (wrap.bottom - inset);
-      })()`);
-      assert(room >= 48, `Contact card shadow is clipped at ${width}px: ${room}px below the card (need 48-64)`);
-      assert(room <= 64, `Contact card leaves too much room at ${width}px: ${room}px below the card (need 48-64)`);
+      assert.deepEqual(layers,{glow:'none',card:'none',reflection:'none'},`Contact footer still paints glass or a focus glow at ${width}px: ${JSON.stringify(layers)}`);
       if (width === 1440) {
         const point=await evaluate(`(() => {const r=document.querySelector('#contact .sec-title').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()`);
         await send('Input.dispatchMouseEvent',{type:'mouseMoved',...point});
-        await until(()=>evaluate(`document.querySelector('#contact > .wrap').dataset.pointer === 'true'`),'Contact glass does not react to the cursor',2000);
-        await until(()=>evaluate(`document.querySelector('#contact > .wrap').getAnimations({subtree:true}).every(a=>a.playState !== 'running')`),'Contact hover did not settle');
-        assert.equal(await evaluate(`getComputedStyle(document.querySelector('#contact > .wrap'),'::before').opacity`),'1','Contact glass is not opaque on hover');
+        // Let the pointer hook and any lift transition run before reading the resting state.
+        await evaluate('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>setTimeout(resolve,120))))');
+        const hover = await evaluate(`({pointers:document.querySelectorAll('.glass-surface[data-pointer="true"]').length,transform:getComputedStyle(document.querySelector('#contact > .wrap')).transform})`);
+        assert.equal(hover.pointers,0,'Contact footer reacts to the cursor like a glass surface');
+        assert.equal(hover.transform,'none',`Contact footer lifts on hover: ${hover.transform}`);
         await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:5,y:5});
       }
     }
