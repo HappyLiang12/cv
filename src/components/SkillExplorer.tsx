@@ -37,21 +37,23 @@ export function SkillExplorer({ selected, onSelect }: SkillExplorerProps) {
         </div>
       )}
       <div className="skill-content">
-        {trail.length > 0 && <p className="skill-trail">{trail.map(item => item.label).join(' / ')}</p>}
-        <h3 ref={heading} tabIndex={-1}>{node?.label ?? 'Explore the skills.'}</h3>
-        <p className="skill-description">{node?.description ?? `${groupCount} skill groups. Select a capability to explore its tools.`}</p>
-        {node?.meta && <p className="skill-meta mono">{node.meta}</p>}
-        {children.length > 0 && (
-          <div className={`skill-children${node?.kind === 'group' ? ' is-tools' : ''}`}>
-            {children.map((child, index) => (
-              <button key={child.id} type="button" data-node-id={child.id} onClick={() => onSelect(child.id)}>
-                {!node && <span className={`skill-symbol symbol-${index}`} aria-hidden="true"><i /><i /><i /></span>}
-                <span className="skill-child-copy"><span>{child.label}</span>{child.kind !== 'tool' && <small>{child.meta}</small>}</span>
-                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true"><path d="m7 5 5 5-5 5" /></svg>
-              </button>
-            ))}
-          </div>
-        )}
+        <div className="skill-view" key={node?.id ?? 'overview'}>
+          {trail.length > 0 && <p className="skill-trail">{trail.map(item => item.label).join(' / ')}</p>}
+          <h3 ref={heading} tabIndex={-1}>{node?.label ?? 'Explore the skills.'}</h3>
+          <p className="skill-description">{node?.description ?? `${groupCount} skill groups. Select a capability to explore its tools.`}</p>
+          {node?.meta && <p className="skill-meta mono">{node.meta}</p>}
+          {children.length > 0 && (
+            <div className={`skill-children${node?.kind === 'group' ? ' is-tools' : ''}`}>
+              {children.map((child, index) => (
+                <button key={child.id} type="button" data-node-id={child.id} onClick={() => onSelect(child.id)}>
+                  {!node && <span className={`skill-symbol symbol-${index}`} aria-hidden="true"><i /><i /><i /></span>}
+                  <span className="skill-child-copy"><span>{child.label}</span>{child.kind !== 'tool' && <small>{child.meta}</small>}</span>
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true"><path d="m7 5 5 5-5 5" /></svg>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

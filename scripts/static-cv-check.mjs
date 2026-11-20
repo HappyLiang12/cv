@@ -143,6 +143,31 @@ const groupItems = countClass(skillCardHtml, 'static-skill-group');
 check('snapshot skill card has 12 group items', groupItems === skillTotals.groupItems, `${groupItems} found`);
 check('snapshot skill card lists all 83 tools', skillEntries.length === skillTotals.toolEntries, `${skillEntries.length} entries`);
 
+// The download eases its native disclosures open with modern CSS only: the details content
+// animates from block-size 0 to auto, so the inline snapshot must carry the rules.
+check(
+  'snapshot animates details::details-content',
+  snapshot.includes('details::details-content'),
+  snapshot.includes('details::details-content') ? 'animated disclosure rules inlined' : '/details::details-content/ not found in the inlined styles'
+);
+check(
+  'snapshot interpolates intrinsic block-size keywords',
+  snapshot.includes('interpolate-size: allow-keywords'),
+  snapshot.includes('interpolate-size: allow-keywords') ? 'interpolate-size: allow-keywords inlined' : 'interpolate-size: allow-keywords missing'
+);
+check(
+  'snapshot defines the skill-view entrance keyframes',
+  snapshot.includes('@keyframes skill-view-in'),
+  snapshot.includes('@keyframes skill-view-in') ? '@keyframes skill-view-in inlined' : '@keyframes skill-view-in missing'
+);
+check(
+  'snapshot transitions the static disclosure panels',
+  snapshot.includes('.static-skill-item::details-content') &&
+    snapshot.includes('.static-skill-group::details-content') &&
+    snapshot.includes('content-visibility .36s allow-discrete'),
+  'static-skill-item/group ::details-content transition rules'
+);
+
 const artifacts = new Map();
 for (const relative of [snapshotPath, atsPath, textPath]) {
   try {

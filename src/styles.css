@@ -164,6 +164,13 @@ button.scene-label-self:hover, button.scene-label-self:focus-visible { backgroun
 /* Static snapshot: the hero skill card folds every capability, group and tool into
    native <details> disclosures, so the downloaded file expands without JavaScript. */
 .static-skills .skill-content { min-height: 0; }
+.static-skills { interpolate-size: allow-keywords; }
+/* The download expands disclosures in place. Pin the card to the top of its grid row so its
+   growing height never re-centers it against the copy column, and turn off scroll anchoring
+   so Chrome does not scroll the page to chase content when a panel opens. Together they keep
+   the clicked summary at the same viewport position. Both selectors only match the snapshot. */
+html:has(.static-skills) { overflow-anchor: none; }
+.hero-scene:has(.static-skills) { align-self: start; }
 .static-skills .static-skill-list { grid-template-columns: 1fr; gap: 6px; }
 .static-skill-item { border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
 .static-skill-item > summary,
@@ -189,6 +196,30 @@ button.scene-label-self:hover, button.scene-label-self:focus-visible { backgroun
 .static-skill-leaf + .static-skill-leaf { padding-top: 10px; border-top: 1px solid var(--line); }
 .static-skill-leaf-label { color: var(--text); font-weight: 500; }
 .static-skill-leaf-meta { margin-left: 8px; font-size: 10px; letter-spacing: .04em; }
+
+/* Smooth disclosure: modern CSS animates each native details::details-content box from zero
+   to its intrinsic height (interpolate-size on .static-skills turns auto into an animatable
+   keyword) while it fades and reveals. The live explorer fades each level in the same way;
+   both stay inside the no-preference guard so reduced motion keeps its instant behavior. */
+@media (prefers-reduced-motion: no-preference) {
+  .static-skill-item::details-content,
+  .static-skill-group::details-content {
+    block-size: 0;
+    overflow: hidden;
+    opacity: 0;
+    content-visibility: hidden;
+    transition: block-size .36s var(--ease), opacity .3s var(--ease),
+      content-visibility .36s allow-discrete;
+  }
+  .static-skill-item[open]::details-content,
+  .static-skill-group[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+    content-visibility: visible;
+  }
+  .skill-view { animation: skill-view-in .32s var(--ease) both; }
+  @keyframes skill-view-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+}
 
 .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 58px 0 0; padding: 30px 0 34px; border-top: 1px solid var(--line-strong); gap: 24px; }
 .stats > div { padding-left: 26px; border-left: 1px solid var(--line); min-width: 0; }

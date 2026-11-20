@@ -173,6 +173,28 @@ try {
     await until(() => evaluate(`document.querySelectorAll('.skill-children button').length === 5`), 'Keyboard home did not restore capabilities');
   });
 
+  await test('Mobile skill view transition eases each level and keeps the heading anchored', async () => {
+    await load(390);
+    assert(await evaluate(`!!document.querySelector('.skill-explorer button[data-node-id="agent"]')`), 'Mobile skill explorer has no capability controls');
+    await evaluate(`(() => { const view = document.querySelector('.skill-content > .skill-view'); if (view) view.dataset.previousLevel = 'true'; })()`);
+    await click('.skill-explorer button[data-node-id="agent"]', true);
+    await until(() => evaluate(`document.querySelector('.skill-explorer h3')?.textContent === 'Agent systems'`), 'Capability did not open');
+    const state = await evaluate(`(() => {
+      const view = document.querySelector('.skill-content > .skill-view');
+      const heading = document.querySelector('.skill-explorer h3');
+      return {
+        view: !!view,
+        remounted: !!view && view.dataset.previousLevel === undefined,
+        animation: view ? getComputedStyle(view).animationName : null,
+        scrollMargin: heading ? parseFloat(getComputedStyle(heading).scrollMarginTop) : 0
+      };
+    })()`);
+    assert(state.view, 'Explorer content is not wrapped in .skill-view');
+    assert(state.remounted, '.skill-view did not remount for the new level');
+    assert.equal(state.animation, 'skill-view-in', 'Explorer level has no view-transition animation');
+    assert(state.scrollMargin > 0, `Explorer heading is not anchored below the header: ${state.scrollMargin}`);
+  });
+
   await test('Mobile decomposition diagram has readable labels', async () => {
     await load(320);
     const sizes = await evaluate(`[...document.querySelectorAll('.diagram text, .diagram .flow-node')].map(el => {
