@@ -18,6 +18,7 @@ const render = (component, props = {}) => renderToStaticMarkup(createElement(com
 const escaped = text => renderToStaticMarkup(createElement(Fragment, null, text));
 const terms = markup => [...markup.matchAll(/<span class="tech-term">([\s\S]*?)<\/span>/g)].map(match => match[1]);
 const withoutTerms = markup => markup.replace(/<span class="tech-term">([\s\S]*?)<\/span>/g, '$1');
+const lensClass = ['glass', 'cursor'].join('-');
 const bodies = (markup, tag, attributes = '[^>]*') =>
   [...markup.matchAll(new RegExp(`<${tag}(?=[\\s>])${attributes}>([\\s\\S]*?)</${tag}>`, 'g'))].map(match => match[1]);
 const exact = (markup, source) => assert.equal(withoutTerms(markup), escaped(source), 'Visible source text changed');
@@ -42,10 +43,9 @@ try {
     includesTerms(lede, ['AI platform', 'agent platforms']);
   });
 
-  await test('Only the Hero copy receives its first-child glass cursor', async () => {
+  await test('Hero markup contains no magnifier lens', async () => {
     const html = render(await component('Hero'));
-    assert(/<div class="hero-copy glass-surface"><div class="glass-cursor" aria-hidden="true"><\/div>/.test(html), 'Hero copy is missing its first-child cursor');
-    assert.equal((html.match(/class="glass-cursor"/g) ?? []).length, 1);
+    assert.equal((html.split(lensClass).length - 1), 0);
   });
 
   await test('Experience bullets and every stack group keep text and expose terms', async () => {
@@ -130,11 +130,10 @@ try {
     assert(bodies(html, 'a').every(link => !link.includes('tech-term')));
   });
 
-  await test('Minimal header and all five sections receive first-child glass cursors', async () => {
+  await test('Minimal markup has no magnifier lens and keeps all five sections', async () => {
     const html = render(await component('MinimalView'));
-    assert(/<header class="minimal-head glass-surface"><div class="glass-cursor" aria-hidden="true"><\/div>/.test(html), 'Minimal header is missing its first-child cursor');
-    assert.equal((html.match(/<section class="min-section glass-surface"[^>]*><div class="glass-cursor" aria-hidden="true"><\/div>/g) ?? []).length, 5);
-    assert.equal((html.match(/class="glass-cursor"/g) ?? []).length, 6);
+    assert.equal((html.split(lensClass).length - 1), 0);
+    assert.equal((html.match(/<section class="min-section glass-surface"/g) ?? []).length, 5);
   });
 
   for (const name of ['GraphInspector', 'SkillExplorer']) {
@@ -147,7 +146,7 @@ try {
         exact(description, node.description);
         if (node.id === 'backend') includesTerms(description, ['Java 21', 'Spring Boot', 'REST', 'OAuth2/OIDC', 'JPA', 'jOOQ']);
         assert(bodies(html, 'button').every(button => !button.includes('tech-term')));
-        assert(!html.includes('glass-cursor'));
+        assert(!html.includes(lensClass));
       }
       if (name === 'GraphInspector') {
         const html = render(Component, { selected: 'platform', hovered: 'backend', onSelect() {} });

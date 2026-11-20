@@ -452,28 +452,25 @@ try {
     await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'},{name:'prefers-reduced-transparency',value:'no-preference'}]});
   });
 
-  await test('Cursor glass follows pointer positions and enlarges its section without reflow', async () => {
+  await test('Cursor hover enlarges its section without reflow or a magnifier lens', async () => {
     await load(1440);
     await evaluate(`document.getElementById('control-tower').scrollIntoView({behavior:'instant'})`);
     await until(()=>evaluate(`document.querySelector('#control-tower > .wrap').getAnimations({subtree:true}).every(a=>a.playState !== 'running')`),'Section did not settle');
     const before=await evaluate(`(() => {const surface=document.querySelector('#control-tower > .wrap'),p=surface.querySelector('.sec-body > p'),r=p.getBoundingClientRect();return {x:r.x+100,y:r.y+30,width:surface.offsetWidth,height:p.offsetHeight,text:p.textContent,documentHeight:document.documentElement.scrollHeight};})()`);
     await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:before.x,y:before.y});
     await until(()=>evaluate(`document.querySelector('#control-tower > .wrap').dataset.pointer === 'true'`),'Section does not react to the cursor',2000);
-    await until(()=>evaluate(`Number(getComputedStyle(document.querySelector('#control-tower .glass-cursor')).opacity) >= .99 && document.querySelector('#control-tower > .wrap').getAnimations({subtree:true}).every(a=>a.playState!=='running')`),'Cursor lens did not settle');
-    const first=await evaluate(`(() => {const s=document.querySelector('#control-tower > .wrap'),c=s.querySelector('.glass-cursor'),r=s.getBoundingClientRect(),lens=getComputedStyle(c,'::before'),matrix=new DOMMatrixReadOnly(lens.transform);return {cx:r.x+(matrix.m41+(parseFloat(lens.width)+parseFloat(lens.borderLeftWidth)+parseFloat(lens.borderRightWidth))/2)*r.width/s.offsetWidth,cy:r.y+(matrix.m42+(parseFloat(lens.height)+parseFloat(lens.borderTopWidth)+parseFloat(lens.borderBottomWidth))/2)*r.height/s.offsetHeight,x:parseFloat(s.style.getPropertyValue('--pointer-x')),y:parseFloat(s.style.getPropertyValue('--pointer-y')),scale:r.width/s.offsetWidth,lensWidth:parseFloat(lens.width),backdrop:lens.backdropFilter,shadow:lens.boxShadow,height:s.querySelector('.sec-body > p').offsetHeight,text:s.querySelector('.sec-body > p').textContent,doc:document.documentElement.scrollHeight,pointer:getComputedStyle(c).pointerEvents};})()`);
+    await until(()=>evaluate(`document.querySelector('#control-tower > .wrap').getAnimations({subtree:true}).every(a=>a.playState!=='running')`),'Cursor hover did not settle');
+    const first=await evaluate(`(() => {const s=document.querySelector('#control-tower > .wrap'),r=s.getBoundingClientRect();return {lenses:document.querySelectorAll('.glass-' + 'cursor').length,pointerX:s.style.getPropertyValue('--pointer-' + 'x'),pointerY:s.style.getPropertyValue('--pointer-' + 'y'),scale:r.width/s.offsetWidth,height:s.querySelector('.sec-body > p').offsetHeight,text:s.querySelector('.sec-body > p').textContent,doc:document.documentElement.scrollHeight};})()`);
+    assert.equal(first.lenses,0,'Magnifier lens is still rendered');
+    assert.equal(first.pointerX,'','Hover still writes a horizontal pointer property');assert.equal(first.pointerY,'','Hover still writes a vertical pointer property');
     assert(first.scale>=1.006 && first.scale<=1.035, `Hover enlargement missing or excessive: ${first.scale}`);
-    assert(Math.hypot(first.cx-before.x,first.cy-before.y)<4, `Lens drifted from the cursor during enlargement: ${JSON.stringify({pointer:before,lens:first})}`);
-    assert(first.lensWidth>=200 && first.backdrop.includes('blur(') && first.shadow!=='none','Visible glass lens missing');
-    assert.equal(first.pointer,'none');assert.equal(first.height,before.height);assert.equal(first.text,before.text);assert.equal(first.doc,before.documentHeight);
+    assert.equal(first.height,before.height);assert.equal(first.text,before.text);assert.equal(first.doc,before.documentHeight);
     await screenshot('cv-cursor-section.png');
-    await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:before.x+240,y:before.y+40});
-    await until(()=>evaluate(`parseFloat(document.querySelector('#control-tower > .wrap').style.getPropertyValue('--pointer-x')) > ${first.x+10}`),'Glass does not follow horizontal pointer movement');
-    const next=await evaluate(`({x:parseFloat(document.querySelector('#control-tower > .wrap').style.getPropertyValue('--pointer-x')),y:parseFloat(document.querySelector('#control-tower > .wrap').style.getPropertyValue('--pointer-y'))})`);
-    assert(next.y>first.y,'Glass does not follow vertical pointer movement');
-    await send('Input.dispatchMouseEvent',{type:'mouseWheel',x:before.x+240,y:before.y+40,deltaX:0,deltaY:180});
-    await until(()=>evaluate(`parseFloat(document.querySelector('#control-tower > .wrap').style.getPropertyValue('--pointer-y')) > ${next.y+50}`),'Glass loses the stationary cursor when the page scrolls');
     await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:10,y:10});
     await until(()=>evaluate(`!document.querySelector('.glass-surface[data-pointer="true"]')`),'Glass hover state sticks after leaving');
+    const next=await evaluate(`(() => {const surface=document.querySelector('#decomposer > .wrap');surface.scrollIntoView({block:'center',behavior:'instant'});const p=surface.querySelector('.sec-body > p'),r=p.getBoundingClientRect();return {x:r.x+100,y:r.y+30};})()`);
+    await send('Input.dispatchMouseEvent',{type:'mouseMoved',...next});
+    await until(()=>evaluate(`document.querySelector('#decomposer > .wrap').dataset.pointer === 'true' && !document.querySelector('#control-tower > .wrap').dataset.pointer`),'Hover did not transfer to the next section',2000);
   });
 
   await test('Cursor highlights technology terms only in the hovered paragraph without changing text metrics', async () => {

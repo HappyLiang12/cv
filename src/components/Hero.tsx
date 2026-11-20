@@ -41,7 +41,6 @@ export function Hero() {
       <div className="wrap">
         <div className="hero-grid">
           <div className="hero-copy glass-surface">
-            <div className="glass-cursor" aria-hidden="true" />
             <p className="kicker mono rise">{cv.name} <span className="kicker-divider">/</span> Hong Kong</p>
             <h1 className="rise" style={{ animationDelay: '0.06s' }}>
               AI Platform &amp;{' '}<br /><span className="hero-emphasis">Agent Systems<br className="hero-line-break" /> Engineer</span>

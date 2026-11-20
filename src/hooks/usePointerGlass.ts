@@ -10,16 +10,10 @@ export function usePointerGlass(rootRef: RefObject<HTMLElement | null>, mode: Mo
     let active: HTMLElement | null = null;
     let pointer: { x: number; y: number } | null = null;
     let frame = 0;
-    let transforming = false;
-    let previousX = '';
-    let previousY = '';
 
     const deactivate = () => {
       if (active) delete active.dataset.pointer;
       active = null;
-      transforming = false;
-      previousX = '';
-      previousY = '';
     };
     const clear = () => {
       deactivate();
@@ -44,12 +38,6 @@ export function usePointerGlass(rootRef: RefObject<HTMLElement | null>, mode: Mo
         active = surface;
         active.dataset.pointer = 'true';
       }
-      const bounds = surface.getBoundingClientRect();
-      const x = `${((pointer.x - bounds.left) * surface.offsetWidth / bounds.width).toFixed(1)}px`;
-      const y = `${((pointer.y - bounds.top) * surface.offsetHeight / bounds.height).toFixed(1)}px`;
-      if (x !== previousX) { surface.style.setProperty('--pointer-x', x); previousX = x; }
-      if (y !== previousY) { surface.style.setProperty('--pointer-y', y); previousY = y; }
-      if (transforming) frame = requestAnimationFrame(update);
     };
     const schedule = () => { if (pointer && !frame) frame = requestAnimationFrame(update); };
     const move = (event: PointerEvent) => {
@@ -63,20 +51,12 @@ export function usePointerGlass(rootRef: RefObject<HTMLElement | null>, mode: Mo
       pointer = { x: event.clientX, y: event.clientY };
       schedule();
     };
-    const transition = (event: TransitionEvent) => {
-      if (event.target !== active || event.propertyName !== 'transform') return;
-      transforming = event.type === 'transitionrun';
-      schedule();
-    };
     const visibility = () => { if (document.hidden) clear(); };
 
     root.addEventListener('pointermove', move, { passive: true });
     root.addEventListener('pointerup', release);
     root.addEventListener('pointerleave', clear);
     root.addEventListener('pointercancel', clear);
-    root.addEventListener('transitionrun', transition);
-    root.addEventListener('transitionend', transition);
-    root.addEventListener('transitioncancel', transition);
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', clear);
     window.addEventListener('blur', clear);
@@ -89,9 +69,6 @@ export function usePointerGlass(rootRef: RefObject<HTMLElement | null>, mode: Mo
       root.removeEventListener('pointerup', release);
       root.removeEventListener('pointerleave', clear);
       root.removeEventListener('pointercancel', clear);
-      root.removeEventListener('transitionrun', transition);
-      root.removeEventListener('transitionend', transition);
-      root.removeEventListener('transitioncancel', transition);
       window.removeEventListener('scroll', schedule);
       window.removeEventListener('resize', clear);
       window.removeEventListener('blur', clear);

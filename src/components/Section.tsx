@@ -56,7 +56,6 @@ export function Section({ id, label, title, children, className = '' }: SectionP
   return (
     <section ref={section} className={`section ${className}`} id={id} aria-labelledby={titleId}>
       <div className="wrap glass-surface">
-        <div className="glass-cursor" aria-hidden="true" />
         <div className="sec-meta mono">
           <span className="sec-label">{label}</span>
         </div>

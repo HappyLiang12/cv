@@ -10,7 +10,6 @@ export function MinimalView() {
     <div className="minimal" id="top">
       <div className="wrap minimal-inner">
         <header className="minimal-head glass-surface">
-          <div className="glass-cursor" aria-hidden="true" />
           <p className="kicker mono">{cv.role} — Hong Kong</p>
           <h1>{cv.name}</h1>
           <p className="minimal-summary"><TechText text={cv.summary} /></p>
@@ -21,7 +20,6 @@ export function MinimalView() {
         </header>
 
         <section className="min-section glass-surface" aria-labelledby="min-experience">
-          <div className="glass-cursor" aria-hidden="true" />
           <h2 className="min-label" id="min-experience">Experience</h2>
           <ul className="min-rows">
             {cv.experience.map(job => (
@@ -37,7 +35,6 @@ export function MinimalView() {
         </section>
 
         <section className="min-section glass-surface" aria-labelledby="min-work">
-          <div className="glass-cursor" aria-hidden="true" />
           <h2 className="min-label" id="min-work">Selected work</h2>
           <ul className="min-projects">
             {cv.projects.slice(0, 4).map(project => (
@@ -64,7 +61,6 @@ export function MinimalView() {
         </section>
 
         <section className="min-section glass-surface" aria-labelledby="min-focus">
-          <div className="glass-cursor" aria-hidden="true" />
           <h2 className="min-label" id="min-focus">Focus</h2>
           <div className="min-focus">
             {cv.skillGroups.map(group => (
@@ -77,7 +73,6 @@ export function MinimalView() {
         </section>
 
         <section className="min-section glass-surface" aria-labelledby="min-education">
-          <div className="glass-cursor" aria-hidden="true" />
           <h2 className="min-label" id="min-education">Education</h2>
           <ul className="min-rows">
             {cv.education.map(item => (
@@ -93,7 +88,6 @@ export function MinimalView() {
         </section>
 
         <section className="min-section glass-surface" aria-labelledby="min-contact">
-          <div className="glass-cursor" aria-hidden="true" />
           <h2 className="min-label" id="min-contact">Contact</h2>
           <div className="min-contact-links">
             {email && (
