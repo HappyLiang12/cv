@@ -128,6 +128,21 @@ check(
   hasEntry('TypeScript', 'Typed frontend and Node tooling, including the MCP server.')
 );
 
+// Completeness guard for the plain-text skill map. The totals come from
+// src/data/knowledgeGraph.ts: capabilityCount = 4 capabilityDefs plus the Background
+// node = 5 blocks, groupCount = 12, toolCount = 83, and childrenById.get('happy') = 5
+// hero overview rows. Hardcoded because this check runs without a TypeScript loader.
+const skillTotals = { capabilityBlocks: 5, groupBlocks: 12, toolEntries: 83, overviewRows: 5 };
+const countClass = (html, className) => (html.match(new RegExp(`class="${className}"`, 'g')) || []).length;
+
+const capabilityBlocks = countClass(skillMapHtml, 'static-capability');
+check('snapshot skill section has 5 capability blocks', capabilityBlocks === skillTotals.capabilityBlocks, `${capabilityBlocks} found`);
+const groupBlocks = countClass(skillMapHtml, 'static-group');
+check('snapshot skill section has 12 group blocks', groupBlocks === skillTotals.groupBlocks, `${groupBlocks} found`);
+check('snapshot skill section lists all 83 tools', skillEntries.length === skillTotals.toolEntries, `${skillEntries.length} entries`);
+const overviewRows = countClass(snapshot, 'static-skill-row');
+check('snapshot hero overview has 5 skill rows', overviewRows === skillTotals.overviewRows, `${overviewRows} found`);
+
 const artifacts = new Map();
 for (const relative of [snapshotPath, atsPath, textPath]) {
   try {

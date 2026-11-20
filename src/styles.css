@@ -177,7 +177,7 @@ button.scene-label-self:hover, button.scene-label-self:focus-visible { backgroun
 .static-group h4 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; font-size: 15px; font-weight: 500; letter-spacing: -.01em; line-height: 1.4; margin: 0 0 4px; }
 .static-group-meta { color: var(--muted); font-size: 10px; letter-spacing: .06em; }
 .sec-body .static-group p { font-size: 13.5px; line-height: 1.75; margin: 0 0 10px; max-width: 88ch; }
-.static-tools { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4px 32px; margin: 0; padding: 0; }
+.static-tools { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 4px 32px; margin: 0; padding: 0; }
 .static-tools li { font-size: 13px; line-height: 1.65; color: var(--muted); }
 .static-tool-label { color: var(--text); font-weight: 500; }
 .sec-body .static-leaf { font-size: 14px; line-height: 1.8; margin: 0; padding: 12px 0; max-width: 88ch; }

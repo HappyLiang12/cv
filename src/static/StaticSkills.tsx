@@ -12,7 +12,7 @@ export function StaticSkillOverview() {
         <span>{capabilityCount} capabilities · {toolCount} tools</span>
       </div>
       <div className="skill-content">
-        <h3>Explore the skills.</h3>
+        <h3>Skills at a glance.</h3>
         <p className="skill-description">{groupCount} skill groups. The skill map section below lists every group and tool in full.</p>
         <div className="skill-children static-skill-rows">
           {capabilities.map((capability, index) => (
@@ -35,7 +35,7 @@ export function StaticSkillDetails() {
   return (
     <div className="static-skill-details">
       <p className="static-skill-intro">
-        {capabilityCount} capabilities, {groupCount} skill groups and {toolCount} tools, each with its own description.
+        {capabilityCount} skill capabilities plus a background summary: {groupCount} skill groups and {toolCount} tools with notes.
       </p>
       {capabilities.map(capability => (
         <div className="static-capability" key={capability.id}>
