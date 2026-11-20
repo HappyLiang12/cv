@@ -15,8 +15,9 @@ const snapshotPath = 'public/Happy-Liang-CV.html';
 const atsPath = 'public/cv/index.html';
 const textPath = 'public/cv.txt';
 const composeClaim = 'Validated on a 7-service Docker/Podman compose stack';
-// The snapshot's section ids; `top` is the hero, the rest are the nav targets.
-const sectionIds = ['top', 'experience', 'control-tower', 'decomposer', 'observability', 'projects', 'contact'];
+// The snapshot's section ids; `top` is the hero, the rest are the nav targets
+// plus the static-only skill details section, which has no navigation entry.
+const sectionIds = ['top', 'skill-map', 'experience', 'control-tower', 'decomposer', 'observability', 'projects', 'contact'];
 
 let checks = 0;
 let failures = 0;
@@ -98,6 +99,33 @@ check(
   'snapshot hero shows the cv.json summary (escaped form)',
   Boolean(lede) && ledeText === escapeHtml(cv.summary),
   lede ? (decodeHtml(ledeText) === cv.summary ? 'exact summary text' : 'summary text differs') : 'lede paragraph not found'
+);
+
+// The download has no JavaScript: the skill map must be plain text, not dead controls.
+const buttonTags = (snapshot.match(/<button\b/g) || []).length;
+check('snapshot has no <button> elements', buttonTags === 0, `${buttonTags} found`);
+
+const skillMap = snapshot.match(/<section\b[^>]*\sid="skill-map"[^>]*>([\s\S]*?)<\/section>/);
+const skillMapHtml = skillMap ? decodeHtml(skillMap[1]) : '';
+check('snapshot has the skill map section', Boolean(skillMap), skillMap ? 'found' : 'section id="skill-map" not found');
+check('snapshot skill section has its title', skillMapHtml.includes('Every skill, in full.'));
+
+for (const label of ['Platform', 'Agent systems', 'Observability', 'Delivery & ops', 'Background']) {
+  check(`snapshot skill section has capability "${label}"`, skillMapHtml.includes(label));
+}
+
+// Every tool entry is one list item: the label and its own description stay together.
+const skillEntries = [...skillMapHtml.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(match => match[1]);
+const hasEntry = (label, description) =>
+  skillEntries.some(entry => entry.includes(label) && entry.includes(description));
+check(
+  'snapshot skill section has the Warm agent pool description',
+  hasEntry('Warm agent pool', 'pre-warmed per worker pod'),
+  `${skillEntries.length} entries`
+);
+check(
+  'snapshot skill section has the TypeScript description',
+  hasEntry('TypeScript', 'Typed frontend and Node tooling, including the MCP server.')
 );
 
 const artifacts = new Map();

@@ -5,6 +5,7 @@ import { useHoverIntent } from '../hooks/useHoverIntent';
 import { useInView } from '../hooks/useInView';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { usePageVisible } from '../hooks/usePageVisible';
+import { StaticSkillOverview } from '../static/StaticSkills';
 import { GraphInspector } from './GraphInspector';
 import { SceneBoundary } from './SceneBoundary';
 import { SkillExplorer } from './SkillExplorer';
@@ -13,7 +14,11 @@ import { StaticMap } from './StaticMap';
 const KnowledgeGraphScene = lazy(() => import('../scene/KnowledgeGraphScene'));
 const base = import.meta.env.BASE_URL;
 
-export function Hero() {
+type HeroProps = {
+  staticSkills?: boolean;
+};
+
+export function Hero({ staticSkills = false }: HeroProps) {
   const sceneRef = useRef<HTMLElement | null>(null);
   const desktop = useMediaQuery('(min-width: 981px)');
   const wide = useMediaQuery('(min-width: 1200px)');
@@ -52,7 +57,9 @@ export function Hero() {
             </div>
           </div>
           <figure className={`hero-scene${useR3F ? '' : ' is-explorer'}`} ref={sceneRef} aria-label="Technical skill map">
-            {useR3F ? (
+            {staticSkills ? (
+              <StaticSkillOverview />
+            ) : useR3F ? (
               <div className="scene-frame" onPointerLeave={() => { onHover(null); document.body.style.cursor = ''; }}>
                 <div className="scene-heading"><span className="mono">The skill map</span><span>{groupCount} groups <span className="scene-heading-dot">·</span> {toolCount} tools</span></div>
                 <div className="scene-canvas">
