@@ -545,6 +545,35 @@ try {
     }
   });
 
+  await test('Contact footer glass matches the footer band', async () => {
+    for (const width of [1440, 390]) {
+      await load(width);
+      await evaluate('window.scrollTo({top:document.documentElement.scrollHeight,behavior:"instant"})');
+      await until(()=>evaluate(`document.getElementById('contact').dataset.focused === 'true'`), 'Contact did not focus', 2500);
+      await until(()=>evaluate(`document.getElementById('contact').dataset.reveal === 'in'`), 'Contact did not enter its reading state', 2500);
+      await until(()=>evaluate(`document.querySelector('#contact > .wrap').getAnimations({subtree:true}).every(a=>a.playState !== 'running')`), 'Contact glass did not settle');
+      // The plate box is read at rest: the hover state lifts and scales the wrap by ~1.2%, which would bias a rect-based band comparison. Hover is asserted below.
+      const band = await evaluate(`(() => {
+        const section=document.getElementById('contact'), wrap=section.querySelector(':scope > .wrap');
+        const material=getComputedStyle(wrap,'::before'), s=section.getBoundingClientRect(), w=wrap.getBoundingClientRect();
+        return {insets:{left:parseFloat(material.left),right:parseFloat(material.right),top:parseFloat(material.top),bottom:parseFloat(material.bottom)},opacity:material.opacity,wrap:{left:w.left,right:w.right,top:w.top,bottom:w.bottom},band:{left:s.left,right:s.right,top:s.top+section.clientTop,bottom:s.bottom}};
+      })()`);
+      if (width > 980) {
+        const point=await evaluate(`(() => {const r=document.querySelector('#contact .sec-title').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()`);
+        await send('Input.dispatchMouseEvent',{type:'mouseMoved',...point});
+        await until(()=>evaluate(`document.querySelector('#contact > .wrap').dataset.pointer === 'true'`),'Contact glass does not react to the cursor',2000);
+        await until(()=>evaluate(`document.querySelector('#contact > .wrap').getAnimations({subtree:true}).every(a=>a.playState !== 'running')`),'Contact hover did not settle');
+        assert.equal(await evaluate(`getComputedStyle(document.querySelector('#contact > .wrap'),'::before').opacity`),'1','Contact glass is not opaque on hover');
+        await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:5,y:5});
+      }
+      assert.equal(band.opacity,'1',`Contact glass is not visible at ${width}px`);
+      assert(band.wrap.left+band.insets.left <= band.band.left+.5, `Footer glass is inset from the left band edge at ${width}px: ${JSON.stringify(band)}`);
+      assert(band.wrap.right-band.insets.right >= band.band.right-.5, `Footer glass is inset from the right band edge at ${width}px: ${JSON.stringify(band)}`);
+      assert(Math.abs(band.wrap.top+band.insets.top-band.band.top) <= .5, `Footer glass misses the band top at ${width}px: ${JSON.stringify(band)}`);
+      assert(Math.abs(band.wrap.bottom-band.insets.bottom-band.band.bottom) <= .5, `Footer glass misses the band bottom at ${width}px: ${JSON.stringify(band)}`);
+    }
+  });
+
   await test('CV download targets remain valid in both modes', async () => {
     for (const mode of ['full', 'minimal']) {
       await load(390, mode);
